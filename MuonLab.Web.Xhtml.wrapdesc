@@ -1,0 +1,10 @@
+﻿name: MuonLab.Web.Xhtml
+
+depends: openwrap anchored content
+depends: muonlab-commons = 3.1
+depends: nunit = 2.5
+depends: rhinomocks  = 3.6
+
+build: msbuild;profile=net40;project=src\MuonLab.Web.Xhtml\MuonLab.Web.Xhtml.csproj
+
+use-symlinks: false

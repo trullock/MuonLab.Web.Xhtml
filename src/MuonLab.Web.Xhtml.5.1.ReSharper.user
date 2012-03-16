@@ -1,0 +1,265 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/d:Components/d:Implementations/f:TextBoxComponent.cs" caret="1261" fromTop="43" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/d:Components/d:Implementations/f:Component.cs" caret="1040" fromTop="33" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/d:Components/d:Implementations/f:PasswordBoxComponent.cs" caret="869" fromTop="29" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/d:Components/f:ICheckBoxListComponent.cs" caret="199" fromTop="5" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/f:TagBuilder.cs" caret="752" fromTop="20" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/d:Components/d:Implementations/f:FileUploadComponent.cs" caret="133" fromTop="3" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/f:ValidationMessage.cs" caret="808" fromTop="24" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/d:Components/d:Implementations/f:RadioButtonListComponent.cs" caret="1408" fromTop="44" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/d:Components/f:IRadioButtonListComponent.cs" caret="250" fromTop="9" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/d:Components/d:Implementations/f:CheckBoxListComponent.cs" caret="944" fromTop="19" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:Web.config" caret="38" fromTop="1" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/d:Views/f:Web.config" caret="947" fromTop="18" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/f:DefaultComponentIdResolver.cs" caret="196" fromTop="7" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/f:DelimitedComponentNameResolver.cs" caret="200" fromTop="7" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/d:Controllers/f:TestController.cs" caret="273" fromTop="12" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/f:EnglishExtensions.cs" caret="2288" fromTop="0" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/f:Enumerator.cs" caret="677" fromTop="24" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/f:IComponentFactory.cs" caret="1342" fromTop="21" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/f:EnglishComponentLabelResolver.cs" caret="487" fromTop="16" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/f:IErrorProvider.cs" caret="372" fromTop="12" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/f:ComponentFactory.cs" caret="6559" fromTop="30" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/d:Properties/f:ComponentState.cs" caret="56" fromTop="2" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:MvcErrorProvider.cs" caret="716" fromTop="19" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/d:Components/f:IVisibleComponent.cs" caret="1275" fromTop="19" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/d:Components/d:Implementations/f:VisibleComponent.cs" caret="2724" fromTop="22" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/d:Configuration/f:DefaultFormConfiguration.cs" caret="0" fromTop="0" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/d:ViewModels/f:TestViewModel.cs" caret="230" fromTop="9" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:HtmlHelperExtensions.cs" caret="1311" fromTop="16" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:ExampleFormConfiguration.cs" caret="417" fromTop="14" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/d:Views/d:Test/f:Test.aspx" caret="510" fromTop="15" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/f:Enumerator.cs" caret="677" fromTop="20" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/f:Enumerator.cs" caret="430" fromTop="17" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/f:Enumerator.cs" caret="216" fromTop="9" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/f:Enumerator.cs" caret="677" fromTop="24" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:HtmlHelperExtensions.cs" caret="7913" fromTop="25" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:HtmlHelperExtensions.cs" caret="6917" fromTop="13" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:HtmlHelperExtensions.cs" caret="8129" fromTop="24" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:HtmlHelperExtensions.cs" caret="11171" fromTop="19" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:HtmlHelperExtensions.cs" caret="7157" fromTop="23" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:HtmlHelperExtensions.cs" caret="7564" fromTop="37" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/f:ComponentFactory.cs" caret="642" fromTop="8" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/f:IErrorProvider.cs" caret="342" fromTop="10" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:HtmlHelperExtensions.cs" caret="14900" fromTop="28" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:HtmlHelperExtensions.cs" caret="14547" fromTop="19" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/f:ComponentFactory.cs" caret="4602" fromTop="20" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/f:ComponentFactory.cs" caret="6509" fromTop="29" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:MvcErrorProvider.cs" caret="211" fromTop="7" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:MvcErrorProvider.cs" caret="1089" fromTop="25" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:MvcErrorProvider.cs" caret="872" fromTop="23" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:MvcErrorProvider.cs" caret="750" fromTop="19" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:HtmlHelperExtensions.cs" caret="1217" fromTop="12" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:HtmlHelperExtensions.cs" caret="1498" fromTop="21" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/d:Configuration/f:DefaultFormConfiguration.cs" caret="262" fromTop="12" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/d:Configuration/f:DefaultFormConfiguration.cs" caret="447" fromTop="14" />
+      <File id="23A417A9-C102-44AE-BF68-6E42E5E998B9/d:Configuration/f:DefaultFormConfiguration.cs" caret="0" fromTop="0" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/d:Views/d:Test/f:Test.aspx" caret="182" fromTop="2" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/d:ViewModels/f:TestViewModel.cs" caret="284" fromTop="12" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/d:ViewModels/f:TestViewModel.cs" caret="216" fromTop="9" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/d:Views/d:Test/f:Test.aspx" caret="496" fromTop="14" />
+      <File id="4C8161C9-D883-4104-9FED-04139F211305/f:ExampleFormConfiguration.cs" caret="402" fromTop="11" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="Configure`1" priority="1" />
+      <Item value="ITextBoxComponent`0" priority="0" />
+      <Item value="int" priority="1" />
+      <Item value="c" priority="2" />
+      <Item value="if" priority="8" />
+      <Item value="this" priority="16" />
+      <Item value="return" priority="8" />
+      <Item value="null" priority="2" />
+      <Item value="builder" priority="1" />
+      <Item value="firstError" priority="1" />
+      <Item value="mode" priority="0" />
+      <Item value="showValidationMessage" priority="0" />
+      <Item value="Always" priority="1" />
+      <Item value="string" priority="5" />
+      <Item value="ValidationMarkerMode`0" priority="0" />
+      <Item value="Unvalidated" priority="2" />
+      <Item value="ComponentState`0" priority="2" />
+      <Item value="Invalid" priority="2" />
+      <Item value="Valid" priority="1" />
+      <Item value="else" priority="1" />
+      <Item value="checkbox" priority="6" />
+      <Item value="Dictionary&lt;string,object&gt;" priority="0" />
+      <Item value="Func" priority="1" />
+      <Item value="TProperty`0" priority="2" />
+      <Item value="TData`0" priority="2" />
+      <Item value="itemIsValue" priority="1" />
+      <Item value="value" priority="1" />
+      <Item value="CheckBoxComponent" priority="0" />
+      <Item value="ICheckBoxListComponent`0" priority="0" />
+      <Item value="readonly" priority="0" />
+      <Item value="label" priority="0" />
+      <Item value="var" priority="0" />
+      <Item value="AddClass`0" priority="0" />
+      <Item value="public" priority="3" />
+      <Item value="new" priority="7" />
+      <Item value="validationMessage" priority="0" />
+      <Item value="ValidationMessage`0" priority="0" />
+      <Item value="Expression`0" priority="0" />
+      <Item value="TViewModel`0" priority="1" />
+      <Item value="ValidationMessage" priority="0" />
+      <Item value="state" priority="0" />
+      <Item value="errors" priority="0" />
+      <Item value="Equals`0" priority="0" />
+      <Item value="static" priority="0" />
+      <Item value="IComponentFactory" priority="0" />
+      <Item value="HtmlHelper" priority="0" />
+      <Item value="html" priority="2" />
+      <Item value="as" priority="0" />
+      <Item value="HttpPostedFile`0" priority="0" />
+      <Item value="property" priority="0" />
+      <Item value="TFormConfiguration`0" priority="1" />
+      <Item value="IFormConfiguration`0" priority="0" />
+      <Item value="EnglishComponentLabelResolver`0" priority="1" />
+      <Item value="DefaultComponentIdResolver`0" priority="1" />
+      <Item value="DefaultControllerFactory`0" priority="0" />
+      <Item value="IErrorProvider`0" priority="0" />
+      <Item value="DefaultFormConfiguration`0" priority="0" />
+      <Item value="T`0" priority="0" />
+      <Item value="prop" priority="4" />
+      <Item value="Html" priority="4" />
+      <Item value="ActionResult`0" priority="0" />
+      <Item value="View`0" priority="0" />
+      <Item value="key" priority="0" />
+      <Item value="modelState" priority="1" />
+      <Item value="Configuration" priority="0" />
+      <Item value="componentName" priority="1" />
+      <Item value="e" priority="0" />
+      <Item value="enum" priority="0" />
+      <Item value="Gender`0" priority="0" />
+      <Item value="ITextBoxComponent" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MuonLab.Web.Xhtml.Components.ITextBoxComponent`1">
+      <Item value="AddClass`0" priority="0" />
+      <Item value="WithAttr`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MuonLab.Web.Xhtml.Components.Implementations.VisibleComponent`2">
+      <Item value="showValidationMarker" priority="0" />
+      <Item value="showValidationMessage" priority="0" />
+      <Item value="WithState`0" priority="0" />
+      <Item value="state" priority="5" />
+      <Item value="showValidationMessageMode" priority="0" />
+      <Item value="validationErrors" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MuonLab.Web.Xhtml.TagBuilder">
+      <Item value="SetInnerText`0" priority="0" />
+      <Item value="HtmlAttributes" priority="7" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IDictionary`2">
+      <Item value="Add`0" priority="1" />
+      <Item value="Contains`0" priority="0" />
+      <Item value="Remove`0" priority="0" />
+      <Item value="ContainsKey`0" priority="0" />
+      <Item value="Keys" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="Any`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MuonLab.Web.Xhtml.IErrorProvider">
+      <Item value="GetState`0" priority="0" />
+      <Item value="AllErrors" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@MuonLab.Web.Xhtml.Properties.ComponentState">
+      <Item value="Valid" priority="0" />
+      <Item value="Unvalidated" priority="0" />
+      <Item value="Invalid" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MuonLab.Web.Xhtml.Components.Implementations.CheckBoxListComponent`3">
+      <Item value="htmlAttributes" priority="0" />
+      <Item value="value" priority="0" />
+      <Item value="tickAll" priority="3" />
+      <Item value="items" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MuonLab.Web.Xhtml.ValidationMessage">
+      <Item value="ToString`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.HtmlHelper`1">
+      <Item value="ViewContext" priority="2" />
+      <Item value="ViewData" priority="1" />
+      <Item value="ComponentFactory`1" priority="1" />
+      <Item value="EndForm`1" priority="0" />
+      <Item value="TextBoxFor`2" priority="1" />
+      <Item value="PasswordBoxFor`1" priority="0" />
+      <Item value="DropDownFor`2" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.ViewContext">
+      <Item value="HttpContext" priority="0" />
+      <Item value="Controller" priority="0" />
+      <Item value="RequestContext" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpContextBase">
+      <Item value="Items" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.ControllerBase">
+      <Item value="ControllerContext" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Routing.RequestContext">
+      <Item value="RouteData" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.ViewDataDictionary`1">
+      <Item value="ModelState" priority="1" />
+      <Item value="Model" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.ModelStateDictionary">
+      <Item value="IsValid" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MuonLab.Web.Xhtml.IComponentFactory`1">
+      <Item value="NameResolver" priority="0" />
+      <Item value="ErrorProvider" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MuonLab.Web.Xhtml.Configuration.IComponentNameResolver">
+      <Item value="ResolveName`2" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MuonLab.Web.Xhtml.Example.ViewModels.TestViewModel">
+      <Item value="Name" priority="0" />
+      <Item value="Password" priority="0" />
+      <Item value="Sex" priority="0" />
+      <Item value="Age" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="ToEnglish`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.ModelState">
+      <Item value="Errors" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.ModelErrorCollection">
+      <Item value="Select`2" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.ModelError">
+      <Item value="ErrorMessage" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MuonLab.Web.Xhtml.Components.IVisibleComponent">
+      <Item value="WithWrapper`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MuonLab.Web.Xhtml.Components.IDropDownComponent`1">
+      <Item value="WithNullOption`0" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/234/branches/v3.1/src/MuonLab.Web.Xhtml.Tests/Components/FormattableComponentSpecifications
+END
+FormattedAsStringSpecification.cs
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/!svn/ver/234/branches/v3.1/src/MuonLab.Web.Xhtml.Tests/Components/FormattableComponentSpecifications/FormattedAsStringSpecification.cs
+END
+FormattableComponentSpecification.cs
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml.Tests/Components/FormattableComponentSpecifications/FormattableComponentSpecification.cs
+END
+FormatWithSpecification.cs
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml.Tests/Components/FormattableComponentSpecifications/FormatWithSpecification.cs
+END
+FormattableComponentTSpecification.cs
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml.Tests/Components/FormattableComponentSpecifications/FormattableComponentTSpecification.cs
+END

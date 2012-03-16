@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/237/branches/v3.1/src/MuonLab.Web.Xhtml
+END
+IErrorProvider.cs
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml/IErrorProvider.cs
+END
+EnglishComponentLabelResolver.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/234/branches/v3.1/src/MuonLab.Web.Xhtml/EnglishComponentLabelResolver.cs
+END
+MuonLab.Web.Xhtml.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/234/branches/v3.1/src/MuonLab.Web.Xhtml/MuonLab.Web.Xhtml.csproj
+END
+TagRenderMode.cs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml/TagRenderMode.cs
+END
+TagBuilder.cs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/234/branches/v3.1/src/MuonLab.Web.Xhtml/TagBuilder.cs
+END
+IComponentFactory.cs
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/234/branches/v3.1/src/MuonLab.Web.Xhtml/IComponentFactory.cs
+END
+DefaultComponentIdResolver.cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml/DefaultComponentIdResolver.cs
+END
+DelimitedComponentNameResolver.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml/DelimitedComponentNameResolver.cs
+END
+ComponentFactory.cs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/236/branches/v3.1/src/MuonLab.Web.Xhtml/ComponentFactory.cs
+END

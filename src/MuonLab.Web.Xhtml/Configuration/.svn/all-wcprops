@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/237/branches/v3.1/src/MuonLab.Web.Xhtml/Configuration
+END
+FormConfiguration.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml/Configuration/FormConfiguration.cs
+END
+ValidationSummaryMode.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml/Configuration/ValidationSummaryMode.cs
+END
+IComponentLabelResolver.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/234/branches/v3.1/src/MuonLab.Web.Xhtml/Configuration/IComponentLabelResolver.cs
+END
+IComponentNameResolver.cs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml/Configuration/IComponentNameResolver.cs
+END
+DefaultFormConfiguration.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/237/branches/v3.1/src/MuonLab.Web.Xhtml/Configuration/DefaultFormConfiguration.cs
+END
+ValidationMarkerMode.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml/Configuration/ValidationMarkerMode.cs
+END
+IFormConfiguration.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml/Configuration/IFormConfiguration.cs
+END
+ComponentPart.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml/Configuration/ComponentPart.cs
+END
+IComponentIdResolver.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml/Configuration/IComponentIdResolver.cs
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml.Tests/Components/TextBoxSpecifications
+END
+AllowAutocompletionSpecification.cs
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml.Tests/Components/TextBoxSpecifications/AllowAutocompletionSpecification.cs
+END
+FormatWithSpecificaiton.cs
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml.Tests/Components/TextBoxSpecifications/FormatWithSpecificaiton.cs
+END
+PreventAutocompletionSpecification.cs
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml.Tests/Components/TextBoxSpecifications/PreventAutocompletionSpecification.cs
+END
+ShowDefaultAsEmptySpecification.cs
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml.Tests/Components/TextBoxSpecifications/ShowDefaultAsEmptySpecification.cs
+END
+FormattedAsSpecification.cs
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml.Tests/Components/TextBoxSpecifications/FormattedAsSpecification.cs
+END

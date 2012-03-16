@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml.Tests/Configuration/FormConfigurationSpecifications/Initialize
+END
+when_initializing_IVisibleComponent.cs
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml.Tests/Configuration/FormConfigurationSpecifications/Initialize/when_initializing_IVisibleComponent.cs
+END
+when_initializing_IComponent.cs
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml.Tests/Configuration/FormConfigurationSpecifications/Initialize/when_initializing_IComponent.cs
+END
+when_initializing_IComponentT.cs
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/!svn/ver/221/branches/v3.1/src/MuonLab.Web.Xhtml.Tests/Configuration/FormConfigurationSpecifications/Initialize/when_initializing_IComponentT.cs
+END
