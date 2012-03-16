@@ -6,9 +6,7 @@ E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\MuonLab.Common
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\MuonLab.Web.Xhtml.dll
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\nunit.framework.dll
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\Rhino.Mocks.dll
-E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\TestDriven.Framework.dll
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\MuonLab.Web.Xhtml.pdb
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\MuonLab.Commons.pdb
-E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\nunit.framework.xml
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\obj\Debug\MuonLab.Web.Xhtml.Tests.dll
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\obj\Debug\MuonLab.Web.Xhtml.Tests.pdb
