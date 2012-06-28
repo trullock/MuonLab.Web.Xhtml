@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 		Component<TViewModel, TProperty>, 
 		IVisibleComponent<TProperty>
     {
+    	internal event EventHandler OnPrepareForRender;
+
     	protected ComponentState state;
         protected IEnumerable<string> validationErrors;
 
@@ -243,6 +246,9 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 
         protected virtual void PrepareForRender()
         {
+			if(this.OnPrepareForRender != null)
+				this.OnPrepareForRender(this, new EventArgs());
+
             if (this.state == ComponentState.Invalid)
                 this.AddClass("input-validation-error");
 

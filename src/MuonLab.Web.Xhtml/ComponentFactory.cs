@@ -115,7 +115,7 @@ namespace MuonLab.Web.Xhtml
 			return new ValidationMessage(state, ValidationMarkerMode.Always, errors);
 		}
 
-		void InitializeComponent<TComponentViewModel, TProperty>(Component<TComponentViewModel, TProperty> component, TComponentViewModel viewModel, Expression<Func<TComponentViewModel, TProperty>> property)
+		public void InitializeComponent<TComponentViewModel, TProperty>(Component<TComponentViewModel, TProperty> component, TComponentViewModel viewModel, Expression<Func<TComponentViewModel, TProperty>> property)
 		{
 			// Set the Name
 			component.WithName(this.NameResolver.ResolveName(property));
@@ -141,12 +141,10 @@ namespace MuonLab.Web.Xhtml
 				this.configuration.Initialize(component);
 		}
 
-		void InitializeComponent<TComponentViewModel, TProperty>(VisibleComponent<TComponentViewModel, TProperty> component, TComponentViewModel viewModel, Expression<Func<TComponentViewModel, TProperty>> property)
+		public void InitializeComponent<TComponentViewModel, TProperty>(VisibleComponent<TComponentViewModel, TProperty> component, TComponentViewModel viewModel, Expression<Func<TComponentViewModel, TProperty>> property)
 		{
 			// Set the Name
 			component.WithName(this.NameResolver.ResolveName(property));
-
-			var state = ComponentState.Unvalidated;
 
 			// Set the Value
 			if (!ReferenceEquals(viewModel, null))
@@ -159,14 +157,6 @@ namespace MuonLab.Web.Xhtml
 				{
 					throw new ComponentRenderingException("Could not set component value, some part of the property chain is null: " + property, e);
 				}
-
-				state = this.ErrorProvider.GetStateFor(component.Name);
-				if (state != ComponentState.Unvalidated)
-				{
-					var attemptedValue = this.ErrorProvider.GetAttemptedValueFor(component.Name);
-					if(attemptedValue != null)
-						component.WithAttemptedValue(attemptedValue);
-				}
 			}
 
 			// Set the Id
@@ -178,6 +168,21 @@ namespace MuonLab.Web.Xhtml
 			// run the config on the component
 			if (this.configuration != null)
 				this.configuration.Initialize(component);
+
+			component.OnPrepareForRender += component_OnPrepareForRender;
+		}
+
+		void component_OnPrepareForRender(object sender, EventArgs e)
+		{
+			var component = sender as IVisibleComponent;
+
+			var state = this.ErrorProvider.GetStateFor(component.Name);
+			if (state != ComponentState.Unvalidated)
+			{
+				var attemptedValue = this.ErrorProvider.GetAttemptedValueFor(component.Name);
+				if (attemptedValue != null)
+					component.WithAttemptedValue(attemptedValue);
+			}
 
 			component.WithState(state, this.ErrorProvider.GetErrorsFor(component.Name));
 		}

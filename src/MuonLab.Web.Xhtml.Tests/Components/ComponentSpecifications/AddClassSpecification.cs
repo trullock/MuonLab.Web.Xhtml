@@ -21,7 +21,7 @@ namespace MuonLab.Web.Xhtml.Tests.Components.ComponentSpecifications
         [Then]
         public void the_class_should_be_set_correctly()
         {
-			component.ToString().ShouldEqual("<test class=\"myclass\" />");
+			component.ToString().ShouldEqual("<test class=\"myclass\"></test>");
         }
 	}
 }

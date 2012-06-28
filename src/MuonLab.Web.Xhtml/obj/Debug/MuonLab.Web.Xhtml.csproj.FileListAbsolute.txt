@@ -57,9 +57,7 @@ E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\bin\Debug\MuonLab.Web.Xhtml.pd
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\bin\Debug\MuonLab.Commons.dll
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\bin\Debug\nunit.framework.dll
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\bin\Debug\Rhino.Mocks.dll
-E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\bin\Debug\TestDriven.Framework.dll
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\bin\Debug\MuonLab.Commons.pdb
-E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\bin\Debug\nunit.framework.xml
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\obj\Debug\ResolveAssemblyReference.cache
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\obj\Debug\MuonLab.Web.Xhtml.dll
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\obj\Debug\MuonLab.Web.Xhtml.pdb

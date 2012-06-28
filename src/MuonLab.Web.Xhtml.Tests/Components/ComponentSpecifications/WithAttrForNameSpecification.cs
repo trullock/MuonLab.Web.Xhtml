@@ -25,7 +25,7 @@ namespace MuonLab.Web.Xhtml.Tests.Components.ComponentSpecifications
 		[Then]
 		public void the_misc_attr_should_be_set_correctly_and_the_name_should_be_overridden()
 		{
-			component.ToString().ShouldEqual("<test name=\"other\" misc=\"random\" />");
+			component.ToString().ShouldEqual("<test name=\"other\" misc=\"random\"></test>");
 		}
 	}
 }

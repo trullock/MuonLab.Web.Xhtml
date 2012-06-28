@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using MuonLab.Web.Xhtml.Properties;
+
 namespace MuonLab.Web.Xhtml.Components
 {
 	public interface IVisibleComponent<in TProperty> : IComponent<TProperty>, IVisibleComponent
@@ -81,5 +84,7 @@ namespace MuonLab.Web.Xhtml.Components
         /// <param name="htmlAttributes">The html attributes to apply to the wrapper</param>
         /// <returns></returns>
         IVisibleComponent WithWrapper(string tagName, object htmlAttributes);
+
+		IVisibleComponent WithState(ComponentState state, IEnumerable<string> validationErrors);
     }
 }
