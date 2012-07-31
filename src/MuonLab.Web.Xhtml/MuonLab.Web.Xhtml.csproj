@@ -96,6 +96,7 @@
     <Compile Include="Configuration\IFormConfiguration.cs" />
     <Compile Include="Configuration\ValidationMarkerMode.cs" />
     <Compile Include="Configuration\ValidationSummaryMode.cs" />
+    <Compile Include="DisplayNameAttribute.cs" />
     <Compile Include="DefaultComponentIdResolver.cs" />
     <Compile Include="DelimitedComponentNameResolver.cs" />
     <Compile Include="EnglishComponentLabelResolver.cs" />

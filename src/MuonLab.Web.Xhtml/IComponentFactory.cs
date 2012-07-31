@@ -32,5 +32,6 @@ namespace MuonLab.Web.Xhtml
 		IErrorProvider ErrorProvider { get; }
 		void InitializeComponent<TComponentViewModel, TProperty>(Component<TComponentViewModel, TProperty> component, TComponentViewModel viewModel, Expression<Func<TComponentViewModel, TProperty>> property);
 		void InitializeComponent<TComponentViewModel, TProperty>(VisibleComponent<TComponentViewModel, TProperty> component, TComponentViewModel viewModel, Expression<Func<TComponentViewModel, TProperty>> property);
+		ValidationMessage ValidationMessageFor(string name, TModel entity);
 	}
 }

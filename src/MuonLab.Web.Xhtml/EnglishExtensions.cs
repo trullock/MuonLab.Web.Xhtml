@@ -82,6 +82,17 @@ namespace MuonLab.Web.Xhtml
 			return builder.ToString();
 		}
 
+		public static string ToEnglish(this Enum e)
+		{
+			var memberInfo = e.GetType().GetMember(e.ToString()).First();
+
+			var customAttributes = memberInfo.GetCustomAttributes(typeof(DisplayNameAttribute), true);
+			if (customAttributes.Length == 1)
+				return (customAttributes[0] as DisplayNameAttribute).Name;
+
+			return e.ToString().ToEnglish();
+		}
+
 		static bool IsBreakingChar(this char self)
 		{
 			return (self >= 65 && self <= 90) || (self >= 48 && self <= 57);

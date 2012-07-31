@@ -115,6 +115,14 @@ namespace MuonLab.Web.Xhtml
 			return new ValidationMessage(state, ValidationMarkerMode.Always, errors);
 		}
 
+		public ValidationMessage ValidationMessageFor(string name, TViewModel entity)
+		{
+			var state = this.ErrorProvider.GetStateFor(name);
+			var errors = this.ErrorProvider.GetErrorsFor(name);
+
+			return new ValidationMessage(state, ValidationMarkerMode.Always, errors);
+		}
+
 		public void InitializeComponent<TComponentViewModel, TProperty>(Component<TComponentViewModel, TProperty> component, TComponentViewModel viewModel, Expression<Func<TComponentViewModel, TProperty>> property)
 		{
 			// Set the Name
