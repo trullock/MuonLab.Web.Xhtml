@@ -20,6 +20,9 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
             if(this.value)
                 checkbox.HtmlAttributes.Add("checked", "checked");
 
+			if (this.htmlAttributes.ContainsKey("disabled"))
+				return checkbox.ToString();
+
             var dictionary = new Dictionary<string, object>
                                  {
                                      {"name", this.Name}, 

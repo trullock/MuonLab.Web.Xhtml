@@ -61,3 +61,10 @@ E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\bin\Debug\MuonLab.Commons.pdb
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\obj\Debug\ResolveAssemblyReference.cache
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\obj\Debug\MuonLab.Web.Xhtml.dll
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\obj\Debug\MuonLab.Web.Xhtml.pdb
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\bin\Debug\MuonLab.Web.Xhtml.dll
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\bin\Debug\MuonLab.Web.Xhtml.pdb
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\bin\Debug\MuonLab.Commons.dll
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\bin\Debug\MuonLab.Commons.pdb
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\obj\Debug\MuonLab.Web.Xhtml.csprojResolveAssemblyReference.cache
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\obj\Debug\MuonLab.Web.Xhtml.dll
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml\obj\Debug\MuonLab.Web.Xhtml.pdb

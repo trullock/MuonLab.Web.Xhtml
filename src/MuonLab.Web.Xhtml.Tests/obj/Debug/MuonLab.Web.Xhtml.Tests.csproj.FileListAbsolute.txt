@@ -10,3 +10,17 @@ E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\MuonLab.Web.Xh
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\MuonLab.Commons.pdb
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\obj\Debug\MuonLab.Web.Xhtml.Tests.dll
 E:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\obj\Debug\MuonLab.Web.Xhtml.Tests.pdb
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\obj\Debug\MuonLab.Web.Xhtml.Tests.csprojResolveAssemblyReference.cache
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\obj\Debug\MuonLab.Web.Xhtml.Tests.dll
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\obj\Debug\MuonLab.Web.Xhtml.Tests.pdb
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\MuonLab.Web.Xhtml.Tests.dll
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\MuonLab.Web.Xhtml.Tests.pdb
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\MuonLab.Web.Xhtml.dll
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\nunit.framework.dll
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\Rhino.Mocks.dll
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\MuonLab.Commons.dll
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\MuonLab.Web.Xhtml.pdb
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\nunit.framework.xml
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\MuonLab.Commons.pdb
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\System.Web.Mvc.dll
+D:\GitHub\MuonLab.Web.Xhtml\src\MuonLab.Web.Xhtml.Tests\bin\Debug\System.Web.Mvc.xml

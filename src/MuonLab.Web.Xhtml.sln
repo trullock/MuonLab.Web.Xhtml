@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuonLab.Web.Xhtml", "MuonLab.Web.Xhtml\MuonLab.Web.Xhtml.csproj", "{23A417A9-C102-44AE-BF68-6E42E5E998B9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuonLab.Web.Xhtml.Tests", "MuonLab.Web.Xhtml.Tests\MuonLab.Web.Xhtml.Tests.csproj", "{CBA33D4C-EEDF-46CD-B5DD-C7DD3D424F3E}"
