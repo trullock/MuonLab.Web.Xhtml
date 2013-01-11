@@ -5,6 +5,7 @@ namespace MuonLab.Web.Xhtml.Components
         ITextBoxComponent ShowDefaultAsEmpty();
         ITextBoxComponent PreventAutoComplete();
         ITextBoxComponent AllowAutoComplete();
+        ITextBoxComponent WithMaxLength(int length);
     }
 
     public interface ITextBoxComponent<TProperty> : IFormattableComponent<TProperty>, ITextBoxComponent

@@ -29,7 +29,13 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
             return this;
         }
 
-        protected override string RenderComponent()
+	    public ITextBoxComponent WithMaxLength(int length)
+	    {
+		    this.WithAttr("maxlength", length.ToString());
+		    return this;
+	    }
+
+	    protected override string RenderComponent()
         {
             string fieldValue;
 

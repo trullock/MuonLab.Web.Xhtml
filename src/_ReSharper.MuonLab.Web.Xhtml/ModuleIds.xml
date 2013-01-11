@@ -1,5 +1,0 @@
-<Modules>
-  <Module PersistentId="CBA33D4C-EEDF-46CD-B5DD-C7DD3D424F3E" ModuleId="MuonLab.Web.Xhtml.Tests" />
-  <Module PersistentId="23A417A9-C102-44AE-BF68-6E42E5E998B9" ModuleId="MuonLab.Web.Xhtml" />
-  <Module PersistentId="4C8161C9-D883-4104-9FED-04139F211305" ModuleId="MuonLab.Web.Xhtml.Example" />
-</Modules>

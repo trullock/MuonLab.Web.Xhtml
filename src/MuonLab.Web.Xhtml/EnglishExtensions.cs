@@ -84,7 +84,11 @@ namespace MuonLab.Web.Xhtml
 
 		public static string ToEnglish(this Enum e)
 		{
-			var memberInfo = e.GetType().GetMember(e.ToString()).First();
+			var memberInfos = e.GetType().GetMember(e.ToString());
+			if (!memberInfos.Any())
+				return null;
+
+			var memberInfo = memberInfos.First();
 
 			var customAttributes = memberInfo.GetCustomAttributes(typeof(DisplayNameAttribute), true);
 			if (customAttributes.Length == 1)

@@ -22,8 +22,13 @@ namespace MuonLab.Web.Xhtml.Components
         IDropDownComponent WithoutNullOption();
     }
 
-    public interface IDropDownComponent<TProperty> : IDropDownComponent
+    public interface IDropDownComponent<in TProperty> : IDropDownComponent
     {
-
+	    /// <summary>
+	    /// Adds a Null option with and sets the null option text.
+	    /// </summary>
+	    /// <param name="nullOptionText">The null option text.</param>
+	    /// <returns></returns>
+	    IDropDownComponent WithNullOption(string nullOptionText, TProperty nullOptionValue);
     }
 }
