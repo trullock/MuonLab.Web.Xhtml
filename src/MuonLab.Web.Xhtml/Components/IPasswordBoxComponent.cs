@@ -4,5 +4,8 @@ namespace MuonLab.Web.Xhtml.Components
     {
         IPasswordBoxComponent PreventAutoComplete();
         IPasswordBoxComponent AllowAutoComplete();
+
+		IPasswordBoxComponent WithPlaceholder();
+		IPasswordBoxComponent WithPlaceholder(string placeholder);
     }
 }

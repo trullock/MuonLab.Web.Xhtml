@@ -2,8 +2,11 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 {
     public class TextBoxComponent<TViewModel, TProperty> : 
 		FormattableComponent<TViewModel, TProperty>, 
-		ITextBoxComponent<TProperty> 
+		ITextBoxComponent<TProperty>
     {
+	    protected bool useLabelForPlaceholder;
+	    protected string placeholder;
+
         public override string ControlPrefix
         {
             get { return "txt"; }
@@ -17,7 +20,20 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
             return this;
         }
 
-        public virtual ITextBoxComponent PreventAutoComplete()
+	    public ITextBoxComponent WithPlaceholder()
+	    {
+		    this.useLabelForPlaceholder = true;
+		    return this;
+	    }
+
+	    public ITextBoxComponent WithPlaceholder(string text)
+	    {
+		    this.useLabelForPlaceholder = false;
+		    this.placeholder = text;
+			return this;
+	    }
+
+	    public virtual ITextBoxComponent PreventAutoComplete()
         {
             WithAttr("autocomplete", "off");
             return this;
@@ -46,6 +62,11 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 
             if (this.attemptedValue != null)
                 fieldValue = this.attemptedValue;
+			
+			if(this.useLabelForPlaceholder)
+				this.htmlAttributes.Add("placeholder", this.Label);
+			else if(!string.IsNullOrEmpty(this.placeholder))
+				this.htmlAttributes.Add("placeholder", this.placeholder);
 
             this.htmlAttributes.Add("type", "text");
             this.htmlAttributes.Add("value", fieldValue);

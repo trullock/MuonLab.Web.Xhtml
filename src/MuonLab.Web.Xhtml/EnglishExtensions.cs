@@ -13,8 +13,9 @@ namespace MuonLab.Web.Xhtml
 		/// Attempts to de-camel case a string. For example: "HelloWorld" => "Hello world"
 		/// </summary>
 		/// <param name="self"></param>
+		/// <param name="mode"></param>
 		/// <returns>A de-camel-cased version of the string, starting with a capital</returns>
-		public static string ToEnglish(this string self)
+		public static string ToEnglish(this string self, LanguageMode mode = LanguageMode.SentenceCase)
 		{
 			//string s = Regex.Replace(self, "([A-Z0-9])", " $1").ToLower().Trim();
 			//return s.Substring(0, 1).ToUpper() + s.Substring(1);
@@ -69,7 +70,7 @@ namespace MuonLab.Web.Xhtml
 							}
 							else
 							{
-								builder.Append(thisChar.Decapitalise());
+								builder.Append(mode == LanguageMode.SentenceCase ? thisChar.Decapitalise() : thisChar);
 							}
 						}
 					}
@@ -82,7 +83,7 @@ namespace MuonLab.Web.Xhtml
 			return builder.ToString();
 		}
 
-		public static string ToEnglish(this Enum e)
+		public static string ToEnglish(this Enum e, LanguageMode mode = LanguageMode.SentenceCase)
 		{
 			var memberInfos = e.GetType().GetMember(e.ToString());
 			if (!memberInfos.Any())
@@ -94,7 +95,7 @@ namespace MuonLab.Web.Xhtml
 			if (customAttributes.Length == 1)
 				return (customAttributes[0] as DisplayNameAttribute).Name;
 
-			return e.ToString().ToEnglish();
+			return e.ToString().ToEnglish(mode);
 		}
 
 		static bool IsBreakingChar(this char self)
@@ -121,13 +122,14 @@ namespace MuonLab.Web.Xhtml
 		/// Gets an english version of a property's name, examining the EnglishName attribute if present
 		/// </summary>
 		/// <param name="info"></param>
+		/// <param name="mode"></param>
 		/// <returns></returns>
-		public static string GetEnglishName(this MemberInfo info)
+		public static string GetEnglishName(this MemberInfo info, LanguageMode mode = LanguageMode.SentenceCase)
 		{
 			var attributes = info.GetCustomAttributes(false);
 			var englishName = attributes.Where(a => a.GetType() == typeof(EnglishNameAttribute)).FirstOrDefault() as EnglishNameAttribute;
 			
-            return englishName != null ? englishName.Name : info.Name.ToEnglish();
+            return englishName != null ? englishName.Name : info.Name.ToEnglish(mode);
 		}
 
 		/// <summary>
@@ -148,5 +150,13 @@ namespace MuonLab.Web.Xhtml
 
 			return propType.Name.ToLower();
 		}
+
+		
+	}
+
+	public enum LanguageMode
+	{
+		SentenceCase,
+		CamelCase
 	}
 }

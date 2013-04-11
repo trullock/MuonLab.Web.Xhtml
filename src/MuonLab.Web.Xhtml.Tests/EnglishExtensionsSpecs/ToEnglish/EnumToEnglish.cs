@@ -8,7 +8,8 @@ namespace MuonLab.Web.Xhtml.Tests.EnglishExtensionsSpecs.ToEnglish
 		{
 			Simple = 0,
 			[DisplayName("Custom Name")]
-			Complicated = 1
+			Complicated = 1,
+			CamelCased = 2
 		}
 
 		protected override void When()
@@ -28,6 +29,13 @@ namespace MuonLab.Web.Xhtml.Tests.EnglishExtensionsSpecs.ToEnglish
 		{
 			var x = TestEnum.Complicated;
 			x.ToEnglish().ShouldEqual("Custom Name");
+		}
+
+		[Then]
+		public void ShouldResolveCaelCase()
+		{
+			var x = TestEnum.CamelCased;
+			x.ToEnglish(LanguageMode.CamelCase).ShouldEqual("Camel Cased");
 		}
 	}
 }

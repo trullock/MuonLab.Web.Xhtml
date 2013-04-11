@@ -17,11 +17,15 @@ namespace MuonLab.Web.Xhtml
 
 		IFileUploadComponent FileUploadFor<TProperty>(Expression<Func<TModel, TProperty>> property, TModel entity);
 
+
 		ITextBoxComponent<TProperty> TextBoxFor<TProperty>(Expression<Func<TModel, TProperty>> property, TModel entity);
 		IPasswordBoxComponent PasswordBoxFor(Expression<Func<TModel, string>> property, TModel entity);
+		IEmailBoxComponent<TProperty> EmailBoxFor<TProperty>(Expression<Func<TModel, TProperty>> property, TModel entity);
 		ITextAreaComponent<TProperty> TextAreaFor<TProperty>(Expression<Func<TModel, TProperty>> property, TModel entity);
 
-		ICheckBoxComponent CheckBoxFor(Expression<Func<TModel, bool>> property, TModel entity);
+		ICheckBoxComponent<bool> CheckBoxFor(Expression<Func<TModel, bool>> property, TModel entity);
+		ICheckBoxComponent<IEnumerable<TInner>> CheckBoxFor<TInner>(Expression<Func<TModel, IEnumerable<TInner>>> property, TModel entity, TInner value);
+
 		ICheckBoxListComponent CheckBoxListFor<TProperty, TData>(Expression<Func<TModel, TProperty>> property, TModel entity, IEnumerable<TData> items, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TProperty, TData, bool> itemIsValue);
 		
 		ValidationMessage ValidationMessageFor<TProperty>(Expression<Func<TModel, TProperty>> property, TModel entity);
@@ -33,5 +37,7 @@ namespace MuonLab.Web.Xhtml
 		void InitializeComponent<TComponentViewModel, TProperty>(Component<TComponentViewModel, TProperty> component, TComponentViewModel viewModel, Expression<Func<TComponentViewModel, TProperty>> property);
 		void InitializeComponent<TComponentViewModel, TProperty>(VisibleComponent<TComponentViewModel, TProperty> component, TComponentViewModel viewModel, Expression<Func<TComponentViewModel, TProperty>> property);
 		ValidationMessage ValidationMessageFor(string name, TModel entity);
+
+		
 	}
 }

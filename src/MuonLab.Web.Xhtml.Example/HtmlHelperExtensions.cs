@@ -238,9 +238,14 @@ namespace MuonLab.Web.Xhtml.Example
 			return html.ComponentFactory().TextAreaFor(property, html.ViewData.Model);
 		}
 
-		public static ICheckBoxComponent CheckBoxFor<TViewData>(this HtmlHelper<TViewData> html, Expression<Func<TViewData, bool>> property)
+		public static ICheckBoxComponent<bool> CheckBoxFor<TViewData>(this HtmlHelper<TViewData> html, Expression<Func<TViewData, bool>> property)
 		{
 			return html.ComponentFactory().CheckBoxFor(property, html.ViewData.Model);
+		}
+
+		public static ICheckBoxComponent<IEnumerable<TInner>> CheckBoxFor<TViewData, TInner>(this HtmlHelper<TViewData> html, Expression<Func<TViewData, IEnumerable<TInner>>> property, TInner value)
+		{
+			return html.ComponentFactory().CheckBoxFor(property, html.ViewData.Model, value);
 		}
 
 		public static ICheckBoxListComponent CheckBoxListFor<TViewModel>(this HtmlHelper<TViewModel> html, Expression<Func<TViewModel, string>> property, IEnumerable<string> items)

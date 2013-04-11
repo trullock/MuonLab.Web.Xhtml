@@ -44,6 +44,13 @@ namespace MuonLab.Web.Xhtml
 			return textBox;
 		}
 
+		public IEmailBoxComponent<TProperty> EmailBoxFor<TProperty>(Expression<Func<TViewModel, TProperty>> property, TViewModel entity)
+		{
+			var textBox = new EmailBoxComponent<TViewModel, TProperty>();
+			InitializeComponent(textBox, entity, property);
+			return textBox;
+		}
+
 		public IPasswordBoxComponent PasswordBoxFor(Expression<Func<TViewModel, string>> property, TViewModel entity)
 		{
 			var passwordBox = new PasswordBoxComponent<TViewModel>();
@@ -78,15 +85,23 @@ namespace MuonLab.Web.Xhtml
 			return checkBoxComponent;
 		}
 
-		public ICheckBoxComponent CheckBoxFor(Expression<Func<TViewModel, bool>> property, TViewModel entity)
+		public ICheckBoxComponent<bool> CheckBoxFor(Expression<Func<TViewModel, bool>> property, TViewModel entity)
 		{
-			var checkBoxComponent = new CheckBoxComponent<TViewModel>();
+			var checkBoxComponent = new CheckBoxForBoolComponent<TViewModel>();
 
 			InitializeComponent(checkBoxComponent, entity, property);
 
 			return checkBoxComponent;
 		}
+		
+		public ICheckBoxComponent<IEnumerable<TInner>> CheckBoxFor<TInner>(Expression<Func<TViewModel, IEnumerable<TInner>>> property, TViewModel entity, TInner value)
+		{
+			var checkBoxComponent = new CheckBoxForEnumerableComponent<TViewModel, TInner>(value);
 
+			InitializeComponent(checkBoxComponent, entity, property);
+
+			return checkBoxComponent;
+		}
 
 		public IRadioButtonListComponent RadioButtonListFor<TProperty, TData>(Expression<Func<TViewModel, TProperty>> property, TViewModel entity, IEnumerable<TData> items, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc)
 		{

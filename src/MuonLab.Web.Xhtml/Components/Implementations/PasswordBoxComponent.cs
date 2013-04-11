@@ -4,6 +4,9 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 		VisibleComponent<TViewModel, string>, 
 		IPasswordBoxComponent
     {
+		protected bool useLabelForPlaceholder;
+		protected string placeholder;
+
         public override string ControlPrefix
         {
             get { return "txt"; }
@@ -21,11 +24,30 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
             return this;
         }
 
+
+		public IPasswordBoxComponent WithPlaceholder()
+		{
+			this.useLabelForPlaceholder = true;
+			return this;
+		}
+
+		public IPasswordBoxComponent WithPlaceholder(string text)
+		{
+			this.useLabelForPlaceholder = false;
+			this.placeholder = text;
+			return this;
+		}
+
         protected override string RenderComponent()
         {
             this.htmlAttributes.Add("value", this.value);
             this.htmlAttributes.Add("type", "password");
-			
+
+			if (this.useLabelForPlaceholder)
+				this.htmlAttributes.Add("placeholder", this.Label);
+			else if (!string.IsNullOrEmpty(this.placeholder))
+				this.htmlAttributes.Add("placeholder", this.placeholder);
+
             var builder = new TagBuilder("input", this.htmlAttributes);
             return builder.ToString();
         }

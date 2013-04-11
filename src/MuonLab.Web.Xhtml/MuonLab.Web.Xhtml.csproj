@@ -67,10 +67,13 @@
   <ItemGroup>
     <Compile Include="ComponentFactory.cs" />
     <Compile Include="ComponentRenderingException.cs" />
+    <Compile Include="Components\IEmailBoxComponent.cs" />
+    <Compile Include="Components\Implementations\CheckBoxForEnumerableComponent.cs" />
+    <Compile Include="Components\Implementations\EmailBoxComponent.cs" />
     <Compile Include="Components\Implementations\RadioButtonListComponent.cs" />
     <Compile Include="Components\IRadioButtonListComponent.cs" />
     <Compile Include="Components\ICheckBoxListComponent.cs" />
-    <Compile Include="Components\Implementations\CheckBoxComponent.cs" />
+    <Compile Include="Components\Implementations\CheckBoxForBoolComponent.cs" />
     <Compile Include="Components\Implementations\Component.cs" />
     <Compile Include="Components\Implementations\CheckBoxListComponent.cs" />
     <Compile Include="Components\Implementations\DropDownComponent.cs" />
