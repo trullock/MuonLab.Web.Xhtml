@@ -9,7 +9,8 @@ namespace MuonLab.Web.Xhtml.Tests.EnglishExtensionsSpecs.ToEnglish
 			Simple = 0,
 			[DisplayName("Custom Name")]
 			Complicated = 1,
-			CamelCased = 2
+			CamelCased = 2,
+			CamelCased_WithFiller = 3
 		}
 
 		protected override void When()
@@ -36,6 +37,13 @@ namespace MuonLab.Web.Xhtml.Tests.EnglishExtensionsSpecs.ToEnglish
 		{
 			var x = TestEnum.CamelCased;
 			x.ToEnglish(LanguageMode.CamelCase).ShouldEqual("Camel Cased");
+		}
+
+		[Then]
+		public void ShouldResolveUnderscores()
+		{
+			var x = TestEnum.CamelCased_WithFiller;
+			x.ToEnglish(LanguageMode.CamelCase).ShouldEqual("Camel Cased - With Filler");
 		}
 	}
 }

@@ -37,8 +37,13 @@ namespace MuonLab.Web.Xhtml
 					}
 					else
 					{
+						// if its an underscore
+						if (thisChar == '_')
+						{
+							builder.Append(" -");
+						}
 						// if the last char was capital
-						if (lastChar.IsBreakingChar())
+						else if (lastChar.IsBreakingChar() && lastChar != '_')
 						{
 							// if the next char is captial
 							if (nextChar.IsBreakingChar())
@@ -100,7 +105,7 @@ namespace MuonLab.Web.Xhtml
 
 		static bool IsBreakingChar(this char self)
 		{
-			return (self >= 65 && self <= 90) || (self >= 48 && self <= 57);
+			return (self >= 65 && self <= 90) || (self >= 48 && self <= 57) || self == '_';
 		}
 
 		static char Decapitalise(this char self)
