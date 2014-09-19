@@ -111,11 +111,12 @@
     <Compile Include="Enumerator.cs" />
     <Compile Include="IComponentFactory.cs" />
     <Compile Include="IErrorProvider.cs" />
+    <Compile Include="IValidationMessageRenderer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\ComponentState.cs" />
     <Compile Include="TagBuilder.cs" />
     <Compile Include="TagRenderMode.cs" />
-    <Compile Include="ValidationMessage.cs" />
+    <Compile Include="ValidationMessageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

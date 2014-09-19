@@ -1,6 +1,6 @@
 namespace MuonLab.Web.Xhtml.Components
 {
-    public interface ITextAreaComponent : IFormattableComponent
+	public interface ITextAreaComponent : IFormattableComponent
     {
         ITextAreaComponent WithRows(int rows);
 		ITextAreaComponent WithCols(int cols);
@@ -8,7 +8,7 @@ namespace MuonLab.Web.Xhtml.Components
 		ITextAreaComponent WithPlaceholder(string placeholder);
     }
 
-    public interface ITextAreaComponent<TProperty> : IFormattableComponent<TProperty>, ITextAreaComponent
+	public interface ITextAreaComponent<TProperty> : IFormattableComponent<TProperty>, ITextAreaComponent
     {
 
     }

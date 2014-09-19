@@ -11,12 +11,13 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 		readonly Func<TProperty, string> propertyValueFunc;
 		readonly Func<TData, string> itemValueFunc;
 		readonly Func<TData, string> itemTextFunc;
+		readonly Func<TData, object> itemHtmlAttributes;
 		protected bool showNullOption;
 		protected string nullOptionText;
 		protected TProperty nullOptionValue;
 		protected bool nullOptionValueSet;
 
-		public DropDownComponent(IEnumerable<TData> items, Func<TProperty, string> propertyValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc)
+		public DropDownComponent(IEnumerable<TData> items, Func<TProperty, string> propertyValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
 		{
 			if (items == null)
 				throw new ArgumentNullException("items", "DropDown's data items enumerable cannot be null");
@@ -25,6 +26,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 			this.propertyValueFunc = propertyValueFunc;
 			this.itemValueFunc = itemValueFunc;
 			this.itemTextFunc = itemTextFunc;
+			this.itemHtmlAttributes = itemHtmlAttributes;
 		}
 
 		public override string ControlPrefix
@@ -85,22 +87,26 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 			if (this.showNullOption)
 			{
 				var nullValue = this.nullOptionValueSet ? propertyValueFunc(this.nullOptionValue) : string.Empty;
-				var nullOptionBuilder = new TagBuilder("option", new Dictionary<string, object> {{"value", nullValue}});
+				var nullOptionBuilder = new TagBuilder("option", new Dictionary<string, object>
+				{
+					{"value", nullValue},
+					{"data-null-value", "true"}
+				});
 				nullOptionBuilder.SetInnerText(this.nullOptionText);
 				builder.InnerHtml = nullOptionBuilder.ToString();
 			}
 
 			foreach (var item in items)
 			{
-				var optionAttributes = new Dictionary<string, object>
-					                       {
-						                       {"value", this.itemValueFunc.Invoke(item)}
-					                       };
-
-				if (!ReferenceEquals(this.value, null) && Equals(propertyValueFunc(this.value), itemValueFunc(item)))
-					optionAttributes.Add("selected", "selected");
+				var optionAttributes = this.itemHtmlAttributes != null ? this.itemHtmlAttributes(item) : null;
 
 				var optionBuilder = new TagBuilder("option", optionAttributes);
+
+				optionBuilder.HtmlAttributes.Add("value", this.itemValueFunc.Invoke(item));
+
+				if (!ReferenceEquals(this.value, null) && Equals(propertyValueFunc(this.value), itemValueFunc(item)))
+					optionBuilder.HtmlAttributes.Add("selected", "selected");
+
 				optionBuilder.SetInnerText(this.itemTextFunc.Invoke(item));
 
 				builder.InnerHtml += optionBuilder.ToString();

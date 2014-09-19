@@ -13,7 +13,7 @@ namespace MuonLab.Web.Xhtml
 
 		IRadioButtonListComponent RadioButtonListFor<TProperty, TData>(Expression<Func<TModel, TProperty>> property, TModel entity, IEnumerable<TData> items, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc);
 
-		IDropDownComponent<TProperty> DropDownFor<TProperty, TData>(Expression<Func<TModel, TProperty>> property, TModel entity, IEnumerable<TData> items, Func<TProperty, string> propertyValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc);
+		IDropDownComponent<TProperty> DropDownFor<TProperty, TData>(Expression<Func<TModel, TProperty>> property, TModel entity, IEnumerable<TData> items, Func<TProperty, string> propertyValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes);
 
 		IFileUploadComponent FileUploadFor<TProperty>(Expression<Func<TModel, TProperty>> property, TModel entity);
 
@@ -27,8 +27,10 @@ namespace MuonLab.Web.Xhtml
 		ICheckBoxComponent<IEnumerable<TInner>> CheckBoxFor<TInner>(Expression<Func<TModel, IEnumerable<TInner>>> property, TModel entity, TInner value);
 
 		ICheckBoxListComponent CheckBoxListFor<TProperty, TData>(Expression<Func<TModel, TProperty>> property, TModel entity, IEnumerable<TData> items, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TProperty, TData, bool> itemIsValue);
-		
-		ValidationMessage ValidationMessageFor<TProperty>(Expression<Func<TModel, TProperty>> property, TModel entity);
+
+		string ValidationMessageFor<TProperty>(Expression<Func<TModel, TProperty>> property, TModel entity);
+		string ValidationMessageFor(string name, TModel entity);
+
 
 		IComponentLabelResolver LabelResolver { get; }
 		IComponentNameResolver NameResolver { get; set; }
@@ -36,8 +38,6 @@ namespace MuonLab.Web.Xhtml
 		IErrorProvider ErrorProvider { get; }
 		void InitializeComponent<TComponentViewModel, TProperty>(Component<TComponentViewModel, TProperty> component, TComponentViewModel viewModel, Expression<Func<TComponentViewModel, TProperty>> property);
 		void InitializeComponent<TComponentViewModel, TProperty>(VisibleComponent<TComponentViewModel, TProperty> component, TComponentViewModel viewModel, Expression<Func<TComponentViewModel, TProperty>> property);
-		ValidationMessage ValidationMessageFor(string name, TModel entity);
 
-		
 	}
 }

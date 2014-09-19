@@ -86,5 +86,6 @@ namespace MuonLab.Web.Xhtml.Components
         IVisibleComponent WithWrapper(string tagName, object htmlAttributes);
 
 		IVisibleComponent WithState(ComponentState state, IEnumerable<string> validationErrors);
+		IVisibleComponent WithValidationMessageRenderer(IValidationMessageRenderer messageRenderer);
     }
 }

@@ -67,9 +67,9 @@ namespace MuonLab.Web.Xhtml
 			return textAreaComponent;
 		}
 
-		public IDropDownComponent<TProperty> DropDownFor<TProperty, TData>(Expression<Func<TViewModel, TProperty>> property, TViewModel entity, IEnumerable<TData> items, Func<TProperty, string> propertyValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc)
+		public IDropDownComponent<TProperty> DropDownFor<TProperty, TData>(Expression<Func<TViewModel, TProperty>> property, TViewModel entity, IEnumerable<TData> items, Func<TProperty, string> propertyValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
 		{
-			var dropDown = new DropDownComponent<TViewModel, TProperty, TData>(items, propertyValueFunc, itemValueFunc, itemTextFunc);
+			var dropDown = new DropDownComponent<TViewModel, TProperty, TData>(items, propertyValueFunc, itemValueFunc, itemTextFunc, itemHtmlAttributes);
 
 			InitializeComponent(dropDown, entity, property);
 
@@ -121,21 +121,21 @@ namespace MuonLab.Web.Xhtml
 			return fileUploadComponent;
 		}
 
-		public ValidationMessage ValidationMessageFor<TProperty>(Expression<Func<TViewModel, TProperty>> property, TViewModel entity)
+		public string ValidationMessageFor<TProperty>(Expression<Func<TViewModel, TProperty>> property, TViewModel entity)
 		{
 			var name = this.NameResolver.ResolveName(property);
 			var state = this.ErrorProvider.GetStateFor(name);
 			var errors = this.ErrorProvider.GetErrorsFor(name);
 
-			return new ValidationMessage(state, ValidationMarkerMode.Always, errors);
+			return new ValidationMessageRenderer().Render(state, ValidationMarkerMode.Always, errors);
 		}
 
-		public ValidationMessage ValidationMessageFor(string name, TViewModel entity)
+		public string ValidationMessageFor(string name, TViewModel entity)
 		{
 			var state = this.ErrorProvider.GetStateFor(name);
 			var errors = this.ErrorProvider.GetErrorsFor(name);
 
-			return new ValidationMessage(state, ValidationMarkerMode.Always, errors);
+			return new ValidationMessageRenderer().Render(state, ValidationMarkerMode.Always, errors);
 		}
 
 		public void InitializeComponent<TComponentViewModel, TProperty>(Component<TComponentViewModel, TProperty> component, TComponentViewModel viewModel, Expression<Func<TComponentViewModel, TProperty>> property)

@@ -13,6 +13,8 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
     {
     	internal event EventHandler OnPrepareForRender;
 
+	    protected IValidationMessageRenderer ValidationMessageRenderer;
+
     	protected ComponentState state;
         protected IEnumerable<string> validationErrors;
 
@@ -36,8 +38,16 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
         protected VisibleComponent()
         {
             this.validationErrors = new string[0];
-            this.renderingOrder = new ComponentPart[0];
+			this.renderingOrder = new ComponentPart[0];
+			this.showValidationMessage = true;
+			this.ValidationMessageRenderer = new ValidationMessageRenderer();
         }
+
+		public IVisibleComponent WithValidationMessageRenderer(IValidationMessageRenderer messageRenderer)
+		{
+			this.ValidationMessageRenderer = messageRenderer;
+			return this;
+		}
 
         public IVisibleComponent WithState(ComponentState state, IEnumerable<string> validationErrors)
         {
@@ -215,8 +225,10 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 
         protected virtual string RenderValidationMessage()
         {
-        	var validationMessage = new ValidationMessage(this.state, this.showValidationMessageMode, this.validationErrors);
-        	return validationMessage.ToString();
+	        if (!this.showValidationMessage)
+		        return null;
+
+			return this.ValidationMessageRenderer.Render(this.state, this.showValidationMessageMode, this.validationErrors);
         }
 
         protected virtual string RenderHelpText()
