@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using MuonLab.Web.Xhtml.Configuration;
 
 namespace MuonLab.Web.Xhtml.Components.Implementations
 {
@@ -17,7 +19,8 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 		protected TProperty nullOptionValue;
 		protected bool nullOptionValueSet;
 
-		public DropDownComponent(IEnumerable<TData> items, Func<TProperty, string> propertyValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
+		public DropDownComponent(ITermResolver termResolver, CultureInfo culture, IEnumerable<TData> items, Func<TProperty, string> propertyValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
+			: base(termResolver, culture)
 		{
 			if (items == null)
 				throw new ArgumentNullException("items", "DropDown's data items enumerable cannot be null");

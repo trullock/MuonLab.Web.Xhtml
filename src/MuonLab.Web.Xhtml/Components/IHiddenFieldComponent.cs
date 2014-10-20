@@ -5,7 +5,7 @@ namespace MuonLab.Web.Xhtml.Components
 		
     }
 
-	public interface IHiddenFieldComponent<TProperty> : IComponent<TProperty>, IHiddenFieldComponent
+	public interface IHiddenFieldComponent<in TProperty> : IComponent<TProperty>, IHiddenFieldComponent
     {
 
     }

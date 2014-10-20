@@ -2,12 +2,12 @@ using MuonLab.Testing;
 
 namespace MuonLab.Web.Xhtml.Tests.EnglishExtensionsSpecs.ToEnglish
 {
-	public sealed class EnumToEnglish : Specification
+	public sealed class EnumToTerm : Specification
 	{
 		public enum TestEnum
 		{
 			Simple = 0,
-			[DisplayName("Custom Name")]
+			[Term("CustomKey")]
 			Complicated = 1,
 			CamelCased = 2,
 			CamelCased_WithFiller = 3
@@ -22,28 +22,21 @@ namespace MuonLab.Web.Xhtml.Tests.EnglishExtensionsSpecs.ToEnglish
 		public void ShouldResolveSimple()
 		{
 			var x = TestEnum.Simple;
-			x.ToEnglish().ShouldEqual("Simple");
+			x.ToTerm().ShouldEqual("TestEnum_Simple");
 		}
 
 		[Then]
 		public void ShouldResolveComplicated()
 		{
 			var x = TestEnum.Complicated;
-			x.ToEnglish().ShouldEqual("Custom Name");
-		}
-
-		[Then]
-		public void ShouldResolveCaelCase()
-		{
-			var x = TestEnum.CamelCased;
-			x.ToEnglish(LanguageMode.CamelCase).ShouldEqual("Camel Cased");
+			x.ToTerm().ShouldEqual("CustomKey");
 		}
 
 		[Then]
 		public void ShouldResolveUnderscores()
 		{
 			var x = TestEnum.CamelCased_WithFiller;
-			x.ToEnglish(LanguageMode.CamelCase).ShouldEqual("Camel Cased - With Filler");
+			x.ToTerm().ShouldEqual("TestEnum_CamelCased_WithFiller");
 		}
 	}
 }

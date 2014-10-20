@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using MuonLab.Web.Xhtml.Configuration;
 
 namespace MuonLab.Web.Xhtml.Components.Implementations
 {
@@ -21,15 +23,15 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
             get { return "chk"; }
         }
 
-    	public CheckBoxListComponent(IEnumerable<TData> items, Func<TData, string> valueFunc, Func<TData, string> textFunc, Func<TProperty, TData, bool> itemIsValue)
-    	{
-    		this.items = items;
-    		this.valueFunc = valueFunc;
-    		this.textFunc = textFunc;
-    		this.itemIsValue = itemIsValue;
-    	}
+	    public CheckBoxListComponent(ITermResolver termResolver, CultureInfo culture, IEnumerable<TData> items, Func<TData, string> valueFunc, Func<TData, string> textFunc, Func<TProperty, TData, bool> itemIsValue) : base(termResolver, culture)
+	    {
+		    this.items = items;
+		    this.valueFunc = valueFunc;
+		    this.textFunc = textFunc;
+		    this.itemIsValue = itemIsValue;
+	    }
 
-    	protected override string RenderComponent()
+	    protected override string RenderComponent()
         {
     		var stringBuilder = new StringBuilder();
 
@@ -53,7 +55,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 				if (allTicked)
 					checkbox.HtmlAttributes.Add("checked", "checked");
 
-				stringBuilder.Append(checkbox.ToString());
+				stringBuilder.Append(checkbox);
 
 				var label = new TagBuilder("label", new { @for = id });
 				label.SetInnerText(this.tickAll);
@@ -76,7 +78,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
     			if (itemIsValue(value, item))
     				checkbox.HtmlAttributes.Add("checked", "checked");
 
-    			stringBuilder.Append(checkbox.ToString());
+    			stringBuilder.Append(checkbox);
 
 				var label = new TagBuilder("label", new { @for = id});
 				label.SetInnerText(textFunc(item));

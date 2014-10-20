@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -89,13 +90,13 @@ namespace MuonLab.Web.Xhtml.Example
 			var formConfiguration = new TFormConfiguration();
 
 			// standard bits
-			var componentLabelResolver = new EnglishComponentLabelResolver();
+			var componentLabelResolver = new ResourceTermResolver();
 			var componentNameResolver = new DelimitedComponentNameResolver();
 			var componentIdResolver = new DefaultComponentIdResolver();
 
 
 			var errorProvider = new MvcErrorProvider(html.ViewData.ModelState);
-			return new ComponentFactory<TViewData>(formConfiguration, componentNameResolver, componentIdResolver, componentLabelResolver, errorProvider);
+			return new ComponentFactory<TViewData>(formConfiguration, componentNameResolver, componentIdResolver, componentLabelResolver, errorProvider, CultureInfo.CurrentCulture);
 		}
 
 		public static IHiddenFieldComponent<TProperty> HiddenFieldFor<TViewModel, TProperty>(this HtmlHelper<TViewModel> html, Expression<Func<TViewModel, TProperty>> property)
@@ -173,8 +174,8 @@ namespace MuonLab.Web.Xhtml.Example
 		public static IDropDownComponent<TProperty> DropDownFor<TViewModel, TProperty>(this HtmlHelper<TViewModel> html, Expression<Func<TViewModel, TProperty>> property)
 		{
 			var values = GetEnumValues<TProperty>();
-
-			return html.ComponentFactory().DropDownFor(property, html.ViewData.Model, values, x => x.ToString(), x => x.ToString(), x => x.ToString().ToEnglish(), null);
+			var componentFactory = html.ComponentFactory();		
+			return componentFactory.DropDownFor(property, html.ViewData.Model, values, x => x.ToString(), x => x.ToString(), x => componentFactory.TermResolver.ResolveTerm(x, componentFactory.Culture), null);
 		}
 
 		static IEnumerable<TEnum> GetEnumValues<TEnum>()
@@ -296,8 +297,10 @@ namespace MuonLab.Web.Xhtml.Example
 				throw new ArgumentException("`" + typeof(TEnum) + "` is not an Enum", "property");
 			
 			var values = GetEnumValues<TEnum>(true);
+			var componentFactory = html.ComponentFactory();
+			var termResolver = componentFactory.TermResolver;
 
-			return html.ComponentFactory().CheckBoxListFor(property, html.ViewData.Model, values, v => v.ToString(), v => v.ToString().ToEnglish(), (x, y) => (x as Enum).IsFlagSet(y as Enum));
+			return componentFactory.CheckBoxListFor(property, html.ViewData.Model, values, v => v.ToString(), v => termResolver.ResolveTerm(v, componentFactory.Culture), (x, y) => (x as Enum).IsFlagSet(y as Enum));
 		}
 
 
@@ -308,12 +311,16 @@ namespace MuonLab.Web.Xhtml.Example
 
 		public static IRadioButtonListComponent RadioButtonListFor<TViewModel>(this HtmlHelper<TViewModel> html, Expression<Func<TViewModel, bool>> property)
 		{
-			return html.ComponentFactory().RadioButtonListFor(property, html.ViewData.Model, new[] { true, false }, b => b.ToEnglish(), b => b.ToString().ToUpperInvariant());
+			var componentFactory = html.ComponentFactory();
+			var termResolver = componentFactory.TermResolver;
+			return componentFactory.RadioButtonListFor(property, html.ViewData.Model, new[] { true, false }, b => termResolver.ResolveTerm(b, componentFactory.Culture), b => b.ToString().ToUpperInvariant());
 		}
 
 		public static IRadioButtonListComponent RadioButtonListFor<TViewModel>(this HtmlHelper<TViewModel> html, Expression<Func<TViewModel, bool?>> property)
 		{
-			return html.ComponentFactory().RadioButtonListFor(property, html.ViewData.Model, new[] { true, false }, b => b.ToEnglish(), b => b.ToString().ToUpperInvariant());
+			var componentFactory = html.ComponentFactory();
+			var termResolver = componentFactory.TermResolver;
+			return componentFactory.RadioButtonListFor(property, html.ViewData.Model, new[] { true, false }, b => termResolver.ResolveTerm(b, componentFactory.Culture), b => b.ToString().ToUpperInvariant());
 		}
 
 		public static IRadioButtonListComponent RadioButtonListFor<TViewModel, TProperty, TData>(this HtmlHelper<TViewModel> html, Expression<Func<TViewModel, TProperty>> property, IEnumerable<TData> items, Func<TData, string> valueFunc, Func<TData, string> textFunc)

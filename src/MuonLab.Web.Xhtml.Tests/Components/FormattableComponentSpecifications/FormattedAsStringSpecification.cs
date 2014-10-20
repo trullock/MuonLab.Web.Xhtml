@@ -3,7 +3,7 @@ using MuonLab.Web.Xhtml.Components;
 
 namespace MuonLab.Web.Xhtml.Tests.Components.FormattableComponentSpecifications
 {
-    public abstract class FormattedAsStringSpecification<TComponent, TProperty> : FormattableComponentSpecification<TComponent> where TComponent : IFormattableComponent, new()
+    public abstract class FormattedAsStringSpecification<TComponent, TProperty> : FormattableComponentSpecification<TComponent> where TComponent : IFormattableComponent
     {
         protected override void When()
         {

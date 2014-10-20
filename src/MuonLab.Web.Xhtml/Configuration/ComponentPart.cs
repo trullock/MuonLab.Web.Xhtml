@@ -1,11 +1,10 @@
-// Deliberately wrong to aid discoverability
+// ReSharper disable once CheckNamespace
 namespace MuonLab.Web.Xhtml
 {
     public enum ComponentPart
     {
         Label,
         Component,
-        ValidationMarker,
         ValidationMessage,
         HelpText,
         WrapperStartTag,

@@ -1,10 +1,17 @@
+using System.Globalization;
+using MuonLab.Web.Xhtml.Configuration;
+
 namespace MuonLab.Web.Xhtml.Components.Implementations
 {
     public class EmailBoxComponent<TViewModel, TProperty> : 
 		TextBoxComponent<TViewModel, TProperty>, 
 		IEmailBoxComponent<TProperty> 
     {
-        public override string ControlPrefix
+	    public EmailBoxComponent(ITermResolver termResolver, CultureInfo culture) : base(termResolver, culture)
+	    {
+	    }
+
+	    public override string ControlPrefix
         {
             get { return "txt"; }
         }

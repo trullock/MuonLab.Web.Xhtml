@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
+using MuonLab.Web.Xhtml.Configuration;
 
 namespace MuonLab.Web.Xhtml.Components.Implementations
 {
@@ -17,14 +19,14 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
             get { return "rb"; }
         }
 
-    	public RadioButtonListComponent(IEnumerable<TData> items, Func<TData, string> valueFunc, Func<TData, string> textFunc)
-    	{
-    		this.items = items;
-    		this.valueFunc = valueFunc;
-    		this.textFunc = textFunc;
-    	}
+	    public RadioButtonListComponent(ITermResolver termResolver, CultureInfo culture, IEnumerable<TData> items, Func<TData, string> valueFunc, Func<TData, string> textFunc) : base(termResolver, culture)
+	    {
+		    this.items = items;
+		    this.valueFunc = valueFunc;
+		    this.textFunc = textFunc;
+	    }
 
-    	protected override string RenderComponent()
+	    protected override string RenderComponent()
         {
     		var stringBuilder = new StringBuilder();
 

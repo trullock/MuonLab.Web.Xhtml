@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Globalization;
 using System.Text;
-using MuonLab.Commons.Extensions;
+using MuonLab.Web.Xhtml.Configuration;
 using MuonLab.Web.Xhtml.Properties;
 
 namespace MuonLab.Web.Xhtml.Components.Implementations
@@ -11,7 +11,9 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 		Component<TViewModel, TProperty>, 
 		IVisibleComponent<TProperty>
     {
-    	internal event EventHandler OnPrepareForRender;
+	    protected readonly ITermResolver termResolver;
+	    protected readonly CultureInfo culture;
+	    internal event EventHandler OnPrepareForRender;
 
 	    protected IValidationMessageRenderer ValidationMessageRenderer;
 
@@ -19,10 +21,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
         protected IEnumerable<string> validationErrors;
 
         protected bool showLabel;
-
-        protected bool showValidationMarker;
-		protected ValidationMarkerMode showValidationMarkerMode;
-
+		
 		protected bool showValidationMessage;
 		protected ValidationMarkerMode showValidationMessageMode;
 
@@ -35,9 +34,11 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 
     	public string Label { get; protected set; }
 
-        protected VisibleComponent()
+        protected VisibleComponent(ITermResolver termResolver, CultureInfo culture)
         {
-            this.validationErrors = new string[0];
+	        this.termResolver = termResolver;
+	        this.culture = culture;
+	        this.validationErrors = new string[0];
 			this.renderingOrder = new ComponentPart[0];
 			this.showValidationMessage = true;
 			this.ValidationMessageRenderer = new ValidationMessageRenderer();
@@ -84,28 +85,6 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
         public IVisibleComponent WithoutLabel()
         {
             this.showLabel = false;
-            return this;
-        }
-
-        /// <summary>
-        /// Adds a validation marker to the markup
-        /// </summary>
-        /// <param name="mode"></param>
-        /// <returns></returns>
-        public IVisibleComponent WithValidationMarker(ValidationMarkerMode mode)
-        {
-            this.showValidationMarker = true;
-            this.showValidationMarkerMode = mode;
-            return this;
-        }
-
-        /// <summary>
-        /// Prevents a validation marker from being displayed
-        /// </summary>
-        /// <returns></returns>
-        public IVisibleComponent WithoutValidationMarker()
-        {
-            this.showValidationMarker = false;
             return this;
         }
 
@@ -192,35 +171,9 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
             htmlAttribs.Add("for", this.GetAttr("id"));
 			
             var labelBuilder = new TagBuilder("label", htmlAttribs);
-            labelBuilder.SetInnerText(this.Label);
+			labelBuilder.SetInnerText(this.termResolver.ResolveTerm(this.Label, this.culture));
 			
             return labelBuilder.ToString();
-        }
-
-        protected virtual string RenderValidationMarker()
-        {
-			if (!this.showValidationMarker)
-				return null;
-
-            var firstError = this.validationErrors.FirstOrDefault();
-
-            if (firstError == null)
-            {
-                var attribs = new Dictionary<string, object>{ {"class", "field-validation-marker"}};
-                var builder = new TagBuilder("span", attribs);
-                return builder.ToString();
-            }
-            else
-            {
-                var attribs = new Dictionary<string, object>
-                                  {
-                                      { "class", "field-validation-marker field-validation-error" }, 
-                                      { "title", firstError }
-                                  };
-                var builder = new TagBuilder("span", attribs);
-                builder.SetInnerText("*");
-                return builder.ToString();
-            }
         }
 
         protected virtual string RenderValidationMessage()
@@ -234,7 +187,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
         protected virtual string RenderHelpText()
         {
 			//todo: html encode this?
-            return "<span class=\"field-help-text\">" + this.helpText + "</span>";
+			return "<span class=\"field-help-text\">" + this.termResolver.ResolveTerm(this.helpText, this.culture) + "</span>";
         }
 
         protected virtual string RenderWrapperEndTag()
@@ -288,9 +241,6 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
                     case ComponentPart.HelpText:
                         if(!string.IsNullOrEmpty(this.helpText))
                             builder.Append(RenderHelpText());
-                        break;
-                    case ComponentPart.ValidationMarker:
-                        builder.Append(RenderValidationMarker());
                         break;
                     case ComponentPart.ValidationMessage:
                         builder.Append(RenderValidationMessage());

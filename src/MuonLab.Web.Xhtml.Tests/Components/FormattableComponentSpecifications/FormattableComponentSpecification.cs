@@ -1,15 +1,18 @@
+using System;
+using System.Globalization;
 using MuonLab.Testing;
 using MuonLab.Web.Xhtml.Components;
+using MuonLab.Web.Xhtml.Configuration;
 
 namespace MuonLab.Web.Xhtml.Tests.Components.FormattableComponentSpecifications
 {
-    public abstract class FormattableComponentSpecification<TComponent> : Specification where TComponent : IFormattableComponent, new()
+    public abstract class FormattableComponentSpecification<TComponent> : Specification where TComponent : IFormattableComponent
     {
         protected IFormattableComponent component;
 
         protected override void Given()
         {
-			this.component = new TComponent();
+			this.component = (TComponent)Activator.CreateInstance(typeof(TComponent), Dependency<ITermResolver>(), new CultureInfo("en-GB"));
 			if (this.component is IVisibleComponent)
 				((IVisibleComponent)component).WithRenderingOrder(ComponentPart.Component);
         }

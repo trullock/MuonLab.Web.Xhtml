@@ -53,10 +53,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MuonLab.Commons, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\muonlab-commons-3.1.0.71237153\bin-net35\MuonLab.Commons.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -103,17 +99,19 @@
     <Compile Include="Configuration\IFormConfiguration.cs" />
     <Compile Include="Configuration\ValidationMarkerMode.cs" />
     <Compile Include="Configuration\ValidationSummaryMode.cs" />
-    <Compile Include="DisplayNameAttribute.cs" />
     <Compile Include="DefaultComponentIdResolver.cs" />
     <Compile Include="DelimitedComponentNameResolver.cs" />
-    <Compile Include="EnglishComponentLabelResolver.cs" />
+    <Compile Include="DefaultTermResolver.cs" />
     <Compile Include="EnglishExtensions.cs" />
     <Compile Include="Enumerator.cs" />
     <Compile Include="IComponentFactory.cs" />
     <Compile Include="IErrorProvider.cs" />
     <Compile Include="IValidationMessageRenderer.cs" />
+    <Compile Include="TermAttribute.cs" />
+    <Compile Include="ObjectToDictionaryExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\ComponentState.cs" />
+    <Compile Include="ReflectionHelper.cs" />
     <Compile Include="TagBuilder.cs" />
     <Compile Include="TagRenderMode.cs" />
     <Compile Include="ValidationMessageRenderer.cs" />

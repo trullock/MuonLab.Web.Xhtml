@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Globalization;
+using MuonLab.Web.Xhtml.Configuration;
 
 namespace MuonLab.Web.Xhtml.Components.Implementations
 {
@@ -6,7 +8,11 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 		VisibleComponent<TViewModel, bool>,
 		ICheckBoxComponent<bool>
     {
-    	public override string ControlPrefix
+		public CheckBoxForBoolComponent(ITermResolver termResolver, CultureInfo culture) : base(termResolver, culture)
+		{
+		}
+
+		public override string ControlPrefix
         {
             get { return "chk"; }
         }

@@ -1,4 +1,6 @@
 using System;
+using System.Globalization;
+using MuonLab.Web.Xhtml.Configuration;
 
 namespace MuonLab.Web.Xhtml.Components.Implementations
 {
@@ -16,13 +18,14 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
         protected FormatMode mode;
         protected Func<TProperty, string> formatFunction;
 
-        protected FormattableComponent()
-        {
-            this.format = "{0}";
-            this.mode = FormatMode.String;
-        }
 
-        public virtual IFormattableComponent FormattedAs(string formatString)
+	    protected FormattableComponent(ITermResolver termResolver, CultureInfo culture) : base(termResolver, culture)
+	    {
+			this.format = "{0}";
+			this.mode = FormatMode.String;
+	    }
+
+	    public virtual IFormattableComponent FormattedAs(string formatString)
         {
             this.mode = FormatMode.String;
             this.format = string.Concat("{0:", formatString, "}");

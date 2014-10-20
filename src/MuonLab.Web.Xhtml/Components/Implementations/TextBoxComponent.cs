@@ -1,3 +1,6 @@
+using System.Globalization;
+using MuonLab.Web.Xhtml.Configuration;
+
 namespace MuonLab.Web.Xhtml.Components.Implementations
 {
     public class TextBoxComponent<TViewModel, TProperty> : 
@@ -7,7 +10,11 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 	    protected bool useLabelForPlaceholder;
 	    protected string placeholder;
 
-        public override string ControlPrefix
+	    public TextBoxComponent(ITermResolver termResolver, CultureInfo culture) : base(termResolver, culture)
+	    {
+	    }
+
+	    public override string ControlPrefix
         {
             get { return "txt"; }
         }
@@ -64,9 +71,9 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
                 fieldValue = this.attemptedValue;
 			
 			if(this.useLabelForPlaceholder)
-				this.htmlAttributes.Add("placeholder", this.Label);
+				this.htmlAttributes.Add("placeholder", this.termResolver.ResolveTerm(this.Label, this.culture));
 			else if(!string.IsNullOrEmpty(this.placeholder))
-				this.htmlAttributes.Add("placeholder", this.placeholder);
+				this.htmlAttributes.Add("placeholder", this.termResolver.ResolveTerm(this.placeholder, this.culture));
 
             this.htmlAttributes.Add("type", "text");
             this.htmlAttributes.Add("value", fieldValue);

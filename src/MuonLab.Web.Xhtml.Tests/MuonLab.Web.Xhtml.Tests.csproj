@@ -121,7 +121,7 @@
     <Compile Include="Configuration\FormConfigurationSpecifications\Initialize\when_initializing_IVisibleComponent.cs" />
     <Compile Include="Configuration\FormConfigurationSpecifications\Initialize\when_initializing_IComponentT.cs" />
     <Compile Include="Configuration\FormConfigurationSpecifications\Initialize\when_initializing_IComponent.cs" />
-    <Compile Include="EnglishExtensionsSpecs\ToEnglish\EnumToEnglish.cs" />
+    <Compile Include="EnglishExtensionsSpecs\ToEnglish\EnumToTerm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShouldExtensions.cs" />
     <Compile Include="Specification.cs" />

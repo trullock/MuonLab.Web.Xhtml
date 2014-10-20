@@ -1,3 +1,6 @@
+using System.Globalization;
+using MuonLab.Web.Xhtml.Configuration;
+
 namespace MuonLab.Web.Xhtml.Components.Implementations
 {
     public class PasswordBoxComponent<TViewModel> : 
@@ -7,7 +10,11 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 		protected bool useLabelForPlaceholder;
 		protected string placeholder;
 
-        public override string ControlPrefix
+	    public PasswordBoxComponent(ITermResolver termResolver, CultureInfo culture) : base(termResolver, culture)
+	    {
+	    }
+
+	    public override string ControlPrefix
         {
             get { return "txt"; }
         }

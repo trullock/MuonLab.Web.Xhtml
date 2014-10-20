@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq.Expressions;
 using MuonLab.Web.Xhtml.Components;
 using MuonLab.Web.Xhtml.Components.Implementations;
@@ -32,10 +33,13 @@ namespace MuonLab.Web.Xhtml
 		string ValidationMessageFor(string name, TModel entity);
 
 
-		IComponentLabelResolver LabelResolver { get; }
+		ITermResolver TermResolver { get; }
 		IComponentNameResolver NameResolver { get; set; }
 		IComponentIdResolver IdResolver { get; }
+
 		IErrorProvider ErrorProvider { get; }
+		CultureInfo Culture { get; }
+
 		void InitializeComponent<TComponentViewModel, TProperty>(Component<TComponentViewModel, TProperty> component, TComponentViewModel viewModel, Expression<Func<TComponentViewModel, TProperty>> property);
 		void InitializeComponent<TComponentViewModel, TProperty>(VisibleComponent<TComponentViewModel, TProperty> component, TComponentViewModel viewModel, Expression<Func<TComponentViewModel, TProperty>> property);
 

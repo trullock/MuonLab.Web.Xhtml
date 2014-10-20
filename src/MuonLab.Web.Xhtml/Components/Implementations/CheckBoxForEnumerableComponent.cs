@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using MuonLab.Web.Xhtml.Configuration;
 
 namespace MuonLab.Web.Xhtml.Components.Implementations
 {
@@ -8,8 +10,8 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 		ICheckBoxComponent<IEnumerable<TInner>>
     {
 		readonly TInner innerValue;
-
-		public CheckBoxForEnumerableComponent(TInner innerValue)
+		
+		public CheckBoxForEnumerableComponent(ITermResolver termResolver, CultureInfo culture, TInner innerValue) : base(termResolver, culture)
 		{
 			this.innerValue = innerValue;
 		}

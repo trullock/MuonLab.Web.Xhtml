@@ -34,19 +34,6 @@ namespace MuonLab.Web.Xhtml.Components
         IVisibleComponent WithoutLabel();
 
         /// <summary>
-        /// Adds a validation marker to the markup
-        /// </summary>
-        /// <param name="mode">The display mode of the validation marker</param>
-        /// <returns></returns>
-        IVisibleComponent WithValidationMarker(ValidationMarkerMode mode);
-
-        /// <summary>
-        /// Prevents a validation marker from being displayed
-        /// </summary>
-        /// <returns></returns>
-        IVisibleComponent WithoutValidationMarker();
-
-        /// <summary>
         /// Adds a validation message to the markup when the field is invalid
         /// </summary>
         /// <returns></returns>

@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
-using MuonLab.Commons.Extensions;
 
 namespace MuonLab.Web.Xhtml
 {
@@ -11,12 +10,9 @@ namespace MuonLab.Web.Xhtml
     	public string TagName { get; set; }
         public IDictionary<string, object> HtmlAttributes { get; set; }
         public string InnerHtml { get; set; }
-
-
-		public TagBuilder(string tagname, object htmlAttributes = null) : 
-			this(tagname, (htmlAttributes ?? new {}).ToDictionary())
+		
+		public TagBuilder(string tagname, object htmlAttributes = null) : this(tagname, (htmlAttributes ?? new {}).ToDictionary())
 		{
-			
 		}
 
         /// <summary>

@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using MuonLab.Commons.English;
 
 namespace MuonLab.Web.Xhtml
 {
@@ -88,19 +87,20 @@ namespace MuonLab.Web.Xhtml
 			return builder.ToString();
 		}
 
-		public static string ToEnglish(this Enum e, LanguageMode mode = LanguageMode.SentenceCase)
+		public static string ToTerm(this Enum e)
 		{
-			var memberInfos = e.GetType().GetMember(e.ToString());
+			var type = e.GetType();
+			var memberInfos = type.GetMember(e.ToString());
 			if (!memberInfos.Any())
 				return null;
 
 			var memberInfo = memberInfos.First();
 
-			var customAttributes = memberInfo.GetCustomAttributes(typeof(DisplayNameAttribute), true);
+			var customAttributes = memberInfo.GetCustomAttributes(typeof(TermAttribute), true);
 			if (customAttributes.Length == 1)
-				return (customAttributes[0] as DisplayNameAttribute).Name;
+				return (customAttributes[0] as TermAttribute).Key;
 
-			return e.ToString().ToEnglish(mode);
+			return e.GetType().Name + '_' + e.ToString();
 		}
 
 		static bool IsBreakingChar(this char self)
@@ -129,12 +129,12 @@ namespace MuonLab.Web.Xhtml
 		/// <param name="info"></param>
 		/// <param name="mode"></param>
 		/// <returns></returns>
-		public static string GetEnglishName(this MemberInfo info, LanguageMode mode = LanguageMode.SentenceCase)
+		public static string GetTerm(this MemberInfo info)
 		{
 			var attributes = info.GetCustomAttributes(false);
-			var englishName = attributes.Where(a => a.GetType() == typeof(EnglishNameAttribute)).FirstOrDefault() as EnglishNameAttribute;
+			var term = attributes.FirstOrDefault(a => a.GetType() == typeof(TermAttribute)) as TermAttribute;
 			
-            return englishName != null ? englishName.Name : info.Name.ToEnglish(mode);
+            return term != null ? term.Key : info.Name;
 		}
 
 		/// <summary>
@@ -145,7 +145,7 @@ namespace MuonLab.Web.Xhtml
 		public static string GetEnglishName(this Type type)
 		{
 			Type propType;
-			if ((type.IsGenericType && type.GetGenericTypeDefinition().Equals(typeof(Nullable<>))))
+			if ((type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>)))
 			{
 				var nc = new NullableConverter(type);
 				propType = nc.UnderlyingType;

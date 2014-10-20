@@ -5,7 +5,7 @@ using MuonLab.Web.Xhtml.Components;
 
 namespace MuonLab.Web.Xhtml.Tests.Components.FormattableComponentSpecifications
 {
-    public abstract class FormatWithSpecification<TComponent, TProperty> : FormattableComponentTSpecification<TComponent, TProperty> where TComponent : IFormattableComponent<TProperty>, new()
+    public abstract class FormatWithSpecification<TComponent, TProperty> : FormattableComponentTSpecification<TComponent, TProperty> where TComponent : IFormattableComponent<TProperty>
     {
         protected override void When()
         {
