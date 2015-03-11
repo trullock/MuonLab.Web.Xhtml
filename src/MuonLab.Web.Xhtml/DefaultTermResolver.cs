@@ -16,7 +16,7 @@ namespace MuonLab.Web.Xhtml
 
 		public virtual string ResolveTerm(object obj, CultureInfo culture)
 		{
-			return obj.ToString();
+			return obj.ToString().ToEnglish(LanguageMode.CamelCase);
 		}
 	}
 }
