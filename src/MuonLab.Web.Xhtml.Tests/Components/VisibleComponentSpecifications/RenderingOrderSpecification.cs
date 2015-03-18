@@ -3,6 +3,7 @@ using MuonLab.Testing;
 using MuonLab.Web.Xhtml.Components;
 using MuonLab.Web.Xhtml.Components.Implementations;
 using MuonLab.Web.Xhtml.Configuration;
+using Rhino.Mocks;
 
 namespace MuonLab.Web.Xhtml.Tests.Components.VisibleComponentSpecifications
 {
@@ -12,7 +13,8 @@ namespace MuonLab.Web.Xhtml.Tests.Components.VisibleComponentSpecifications
 
 		protected override void Given()
 		{
-			component = new TestComponent<TestEntity, string>(this.Dependency<ITermResolver>(), new CultureInfo("en-GB")).WithRenderingOrder(ComponentPart.Label, ComponentPart.WrapperStartTag, ComponentPart.Component, ComponentPart.ValidationMessage, ComponentPart.HelpText, ComponentPart.WrapperEndTag);
+			var culture = new CultureInfo("en-GB");
+			component = new TestComponent<TestEntity, string>(this.Dependency<ITermResolver>(), culture).WithRenderingOrder(ComponentPart.Label, ComponentPart.WrapperStartTag, ComponentPart.Component, ComponentPart.ValidationMessage, ComponentPart.HelpText, ComponentPart.WrapperEndTag);
 		}
 
 		protected override void When()
@@ -23,7 +25,7 @@ namespace MuonLab.Web.Xhtml.Tests.Components.VisibleComponentSpecifications
 		[Then]
 		public void the_parts_should_be_rendered_in_the_right_order()
 		{
-			component.ToString().ShouldEqual("labelwrapperstarttagcomponentvalidationmarkervalidationmessagehelptextwrapperendtag");
+			component.ToString().ShouldEqual("labelwrapperstarttagcomponentvalidationmessagehelptextwrapperendtag");
 		}
 
 		class TestComponent<TEntity, TProperty> : VisibleComponent<TEntity, TProperty> where TEntity : class

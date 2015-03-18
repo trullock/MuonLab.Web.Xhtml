@@ -6,7 +6,7 @@ using MuonLab.Web.Xhtml.Tests.Components.ComponentSpecifications;
 
 namespace MuonLab.Web.Xhtml.Tests.Components.TextBoxSpecifications
 {
-    public class AllowAutocompletionSpecification : ComponentSpecification<TextBoxComponent<TestEntity, string>>
+	public class AllowAutocompletionSpecification : VisibleComponentSpecification<TextBoxComponent<TestEntity, string>>
     {
         protected override void When()
         {

@@ -8,7 +8,7 @@ using NUnit.Framework;
 
 namespace MuonLab.Web.Xhtml.Tests.Components.PasswordBoxSpecificaitons
 {
-	public class PreventAutocompletionSpecification : ComponentSpecification<PasswordBoxComponent<TestEntity>>
+	public class PreventAutocompletionSpecification : VisibleComponentSpecification<PasswordBoxComponent<TestEntity>>
 	{
 		protected override void When()
 		{

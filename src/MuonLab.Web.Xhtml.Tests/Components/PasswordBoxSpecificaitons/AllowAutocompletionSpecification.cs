@@ -6,7 +6,7 @@ using MuonLab.Web.Xhtml.Tests.Components.ComponentSpecifications;
 
 namespace MuonLab.Web.Xhtml.Tests.Components.PasswordBoxSpecificaitons
 {
-	public class AllowAutocompletionSpecification : ComponentSpecification<PasswordBoxComponent<TestEntity>>
+	public class AllowAutocompletionSpecification : VisibleComponentSpecification<PasswordBoxComponent<TestEntity>>
 	{
 		protected override void When()
 		{

@@ -6,7 +6,7 @@ using MuonLab.Web.Xhtml.Tests.Components.ComponentSpecifications;
 
 namespace MuonLab.Web.Xhtml.Tests.Components.FileUploadspecifications
 {
-	public class DefaultSpecification : ComponentSpecification<FileUploadComponent<TestEntity, string>>
+	public class DefaultSpecification : VisibleComponentSpecification<FileUploadComponent<TestEntity, string>>
 	{
 		protected override void When()
 		{

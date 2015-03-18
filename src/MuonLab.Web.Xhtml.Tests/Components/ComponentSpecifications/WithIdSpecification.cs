@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace MuonLab.Web.Xhtml.Tests.Components.ComponentSpecifications
 {
-	public abstract class WithIdSpecification<TComponent> : ComponentSpecification<TComponent> where TComponent : IComponent, new()
+	public abstract class WithIdSpecification<TComponent> : HiddenComponentSpecification<TComponent> where TComponent : IHiddenFieldComponent, new()
 	{
         protected override void When()
         {

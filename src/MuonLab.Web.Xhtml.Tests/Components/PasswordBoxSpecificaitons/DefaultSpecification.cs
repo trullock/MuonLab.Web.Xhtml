@@ -8,7 +8,7 @@ using NUnit.Framework;
 
 namespace MuonLab.Web.Xhtml.Tests.Components.PasswordBoxSpecificaitons
 {
-	public class DefaultSpecification : ComponentSpecification<PasswordBoxComponent<TestEntity>>
+	public class DefaultSpecification : VisibleComponentSpecification<PasswordBoxComponent<TestEntity>>
 	{
 		protected override void When()
 		{

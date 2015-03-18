@@ -189,7 +189,7 @@ namespace MuonLab.Web.Xhtml
 			component.WithId(this.IdResolver.ResolveId(property, component.ControlPrefix));
 
 			// set the default label, then hide it as it should be hidden by default.
-			component.WithLabel(this.TermResolver.ResolveLabel(property, this.Culture)).WithoutLabel();
+			component.WithLabel(this.TermResolver.ResolveTerm(property)).WithoutLabel();
 
 			// run the config on the component
 			if (this.configuration != null)

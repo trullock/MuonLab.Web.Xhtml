@@ -4,7 +4,7 @@ using MuonLab.Web.Xhtml.Components;
 
 namespace MuonLab.Web.Xhtml.Tests.Components.ComponentSpecifications
 {
-	public abstract class DisabledSpecification<TComponent> : ComponentSpecification<TComponent> where TComponent : IComponent, new()
+	public abstract class DisabledSpecification<TComponent> : HiddenComponentSpecification<TComponent> where TComponent : IComponent, new()
 	{
         protected override void When()
         {

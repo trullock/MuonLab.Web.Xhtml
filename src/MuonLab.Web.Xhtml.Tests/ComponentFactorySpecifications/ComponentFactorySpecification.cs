@@ -26,7 +26,12 @@ namespace MuonLab.Web.Xhtml.Tests.ComponentFactorySpecifications
 				.Return("theid");
 
 			Dependency<ITermResolver>()
-				.Stub(s => s.ResolveLabel<TestEntity, string>(null, null))
+				.Stub(s => s.ResolveTerm<TestEntity, string>(null))
+				.IgnoreArguments()
+				.Return("thelabel");
+
+			Dependency<ITermResolver>()
+				.Stub(s => s.ResolveTerm("thelabel", null))
 				.IgnoreArguments()
 				.Return("thelabel");
 

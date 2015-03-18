@@ -83,7 +83,7 @@
     <Compile Include="AutoMocker.cs" />
     <Compile Include="CollectionExtensions.cs" />
     <Compile Include="ComponentFactorySpecifications\ComponentFactorySpecification.cs" />
-    <Compile Include="Components\ComponentSpecifications\ComponentSpecification.cs" />
+    <Compile Include="Components\ComponentSpecifications\HiddenComponentSpecification.cs" />
     <Compile Include="Components\ComponentSpecifications\AddClassSpecification.cs" />
     <Compile Include="Components\ComponentSpecifications\AddClassWithExistingClassSpecification.cs" />
     <Compile Include="Components\ComponentSpecifications\ComponentTSpecification.cs" />

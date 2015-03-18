@@ -7,7 +7,7 @@ using MuonLab.Web.Xhtml.Tests.Components.ComponentSpecifications;
 
 namespace MuonLab.Web.Xhtml.Tests.Components.TextBoxSpecifications
 {
-    public class ShowDefaultAsEmptySpecification : ComponentSpecification<TextBoxComponent<TestEntity, DateTime>>
+	public class ShowDefaultAsEmptySpecification : VisibleComponentSpecification<TextBoxComponent<TestEntity, DateTime>>
     {
         protected override void When()
         {

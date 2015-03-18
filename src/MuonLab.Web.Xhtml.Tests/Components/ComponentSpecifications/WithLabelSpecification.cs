@@ -1,7 +1,5 @@
-
 using MuonLab.Testing;
-using MuonLab.Web.Xhtml.Configuration;
-using NUnit.Framework;
+using Rhino.Mocks;
 
 namespace MuonLab.Web.Xhtml.Tests.Components.ComponentSpecifications
 {
@@ -11,12 +9,14 @@ namespace MuonLab.Web.Xhtml.Tests.Components.ComponentSpecifications
 		{
 			base.Given();
 
+			this.termResolver.Stub(r => r.ResolveTerm("thelabel", this.culture)).Return("the label");
+
 			component.WithRenderingOrder(ComponentPart.Label);
 		}
 
 		protected override string expectedRendering
 		{
-			get { return "<label for=\"theid\">thelabel</label>"; }
+			get { return "<label for=\"theid\">the label</label>"; }
 		}
 
 		protected override void When()
