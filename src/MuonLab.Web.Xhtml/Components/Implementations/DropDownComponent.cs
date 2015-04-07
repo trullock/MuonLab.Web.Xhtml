@@ -43,7 +43,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 		/// <returns></returns>
 		public virtual IDropDownComponent WithNullOption()
 		{
-			return this.WithNullOption("--Choose--");
+			return this.WithNullOption(this.termResolver.ResolveTerm("Choose", this.culture));
 		}
 
 		/// <summary>

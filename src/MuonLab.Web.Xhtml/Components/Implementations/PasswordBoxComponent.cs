@@ -48,12 +48,12 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
         protected override string RenderComponent()
         {
             this.htmlAttributes.Add("value", this.value);
-            this.htmlAttributes.Add("type", "password");
+			this.htmlAttributes.Add("type", "password");
 
 			if (this.useLabelForPlaceholder)
-				this.htmlAttributes.Add("placeholder", this.Label);
+				this.htmlAttributes.Add("placeholder", this.termResolver.ResolveTerm(this.Label, this.culture));
 			else if (!string.IsNullOrEmpty(this.placeholder))
-				this.htmlAttributes.Add("placeholder", this.placeholder);
+				this.htmlAttributes.Add("placeholder", this.termResolver.ResolveTerm(this.placeholder, this.culture));
 
             var builder = new TagBuilder("input", this.htmlAttributes);
             return builder.ToString();

@@ -29,9 +29,9 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
                 fieldValue = this.attemptedValue;
 
 			if (this.useLabelForPlaceholder)
-				this.htmlAttributes.Add("placeholder", this.Label);
+				this.htmlAttributes.Add("placeholder", this.termResolver.ResolveTerm(this.Label, this.culture));
 			else if (!string.IsNullOrEmpty(this.placeholder))
-				this.htmlAttributes.Add("placeholder", this.placeholder);
+				this.htmlAttributes.Add("placeholder", this.termResolver.ResolveTerm(this.placeholder, this.culture));
 
             this.htmlAttributes.Add("type", "email");
             this.htmlAttributes.Add("value", fieldValue);
