@@ -28,7 +28,8 @@ namespace MuonLab.Web.Xhtml
 
 		public void SetInnerText(string text)
 		{
-			this.InnerHtml = text;
+			// Do not remove coding without prior discussion
+			this.InnerHtml = HttpUtility.HtmlEncode(text);
 		}
 
         public override string ToString()
