@@ -11,13 +11,14 @@ namespace MuonLab.Web.Xhtml
 {
 	public sealed class ComponentFactory<TViewModel> : IComponentFactory<TViewModel>
 	{
-		readonly IFormConfiguration configuration;
+		public IFormConfiguration Configuration { get; private set; }
+
 		public CultureInfo Culture { get; private set; }
 		public IComponentNameResolver NameResolver { get; set; }
 		public IComponentIdResolver IdResolver { get; private set; }
 		public ITermResolver TermResolver { get; private set; }
 		public IErrorProvider ErrorProvider { get; private set; }
-
+		
 		public ComponentFactory(
 			IFormConfiguration configuration,
 			IComponentNameResolver nameResolver,
@@ -26,7 +27,7 @@ namespace MuonLab.Web.Xhtml
 			IErrorProvider errorProvider, CultureInfo culture)
 		{
 			this.ErrorProvider = errorProvider;
-			this.configuration = configuration;
+			this.Configuration = configuration;
 			this.Culture = culture;
 			this.NameResolver = nameResolver;
 			this.IdResolver = idResolver;
@@ -163,8 +164,7 @@ namespace MuonLab.Web.Xhtml
 			component.WithId(this.IdResolver.ResolveId(property, component.ControlPrefix));
 
 			// run the config on the component
-			if (this.configuration != null)
-				this.configuration.Initialize(component);
+			this.Configuration.Initialize(component);
 		}
 
 		public void InitializeComponent<TComponentViewModel, TProperty>(VisibleComponent<TComponentViewModel, TProperty> component, TComponentViewModel viewModel, Expression<Func<TComponentViewModel, TProperty>> property)
@@ -192,8 +192,7 @@ namespace MuonLab.Web.Xhtml
 			component.WithLabel(this.TermResolver.ResolveTerm(property)).WithoutLabel();
 
 			// run the config on the component
-			if (this.configuration != null)
-				this.configuration.Initialize(component);
+			this.Configuration.Initialize(component);
 
 			component.OnPrepareForRender += component_OnPrepareForRender;
 		}

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Web;
 using MuonLab.Web.Xhtml.Components;
 
 namespace MuonLab.Web.Xhtml.Configuration
@@ -23,6 +24,16 @@ namespace MuonLab.Web.Xhtml.Configuration
 			this.configurations[type].Add(configuration);
 		}
 
+		protected void Unconfigure<TComponent>(Action<TComponent> configuration) where TComponent : IComponent
+		{
+			var type = typeof(TComponent);
+
+			if (!this.configurations.ContainsKey(type))
+				return;
+
+			this.configurations[type].Remove(configuration);
+		}
+
 	    public void Initialize(IComponent component)
 	    {
             var configs = this.GetMatchingConfigurations(component.GetType());
@@ -33,7 +44,17 @@ namespace MuonLab.Web.Xhtml.Configuration
             }
 	    }
 
-	    IEnumerable<Delegate> GetMatchingConfigurations(Type component)
+		public virtual IHtmlString StartMultiField()
+		{
+			return new HtmlString("<div class=\"multiField\">");
+		}
+
+		public virtual IHtmlString EndMultiField()
+		{
+			return new HtmlString("</div>");
+		}
+
+		IEnumerable<Delegate> GetMatchingConfigurations(Type component)
 		{
 			var matchedConfigs = new List<Delegate>();
 
