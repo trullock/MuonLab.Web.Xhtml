@@ -5,6 +5,7 @@ namespace MuonLab.Web.Xhtml.Components
         ITextBoxComponent ShowDefaultAsEmpty();
         ITextBoxComponent WithPlaceholder();
         ITextBoxComponent WithPlaceholder(string placeholder);
+	    ITextBoxComponent WithExplicitPlaceholder(string placeholder);
         ITextBoxComponent PreventAutoComplete();
         ITextBoxComponent AllowAutoComplete();
         ITextBoxComponent WithMaxLength(int length);

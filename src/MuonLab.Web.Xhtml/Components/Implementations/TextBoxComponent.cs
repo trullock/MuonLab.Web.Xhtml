@@ -9,6 +9,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
     {
 	    protected bool useLabelForPlaceholder;
 	    protected string placeholder;
+	    protected bool explicitPlaceholder;
 
 	    public TextBoxComponent(ITermResolver termResolver, CultureInfo culture) : base(termResolver, culture)
 	    {
@@ -29,14 +30,24 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 
 	    public ITextBoxComponent WithPlaceholder()
 	    {
-		    this.useLabelForPlaceholder = true;
+			this.useLabelForPlaceholder = true;
+			this.explicitPlaceholder = false;
 		    return this;
 	    }
 
 	    public ITextBoxComponent WithPlaceholder(string text)
 	    {
-		    this.useLabelForPlaceholder = false;
+			this.useLabelForPlaceholder = false;
+			this.explicitPlaceholder = false;
 		    this.placeholder = text;
+			return this;
+	    }
+
+	    public ITextBoxComponent WithExplicitPlaceholder(string text)
+		{
+			this.useLabelForPlaceholder = false;
+			this.explicitPlaceholder = true;
+			this.placeholder = text;
 			return this;
 	    }
 
@@ -69,8 +80,10 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 
             if (this.attemptedValue != null)
                 fieldValue = this.attemptedValue;
-			
-			if(this.useLabelForPlaceholder)
+
+		    if (this.explicitPlaceholder)
+			    this.htmlAttributes.Add("placeholder", this.placeholder);
+			else if(this.useLabelForPlaceholder)
 				this.htmlAttributes.Add("placeholder", this.termResolver.ResolveTerm(this.Label, this.culture));
 			else if(!string.IsNullOrEmpty(this.placeholder))
 				this.htmlAttributes.Add("placeholder", this.termResolver.ResolveTerm(this.placeholder, this.culture));
