@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Text;
 using MuonLab.Web.Xhtml.Configuration;
 using MuonLab.Web.Xhtml.Properties;
@@ -165,6 +166,28 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
             return this;
         }
 
+	    protected virtual void AddAriaDescribedBy()
+	    {
+		    if (!this.htmlAttributes.ContainsKey("id"))
+			    return;
+
+			var id = this.htmlAttributes["id"];
+			if (id != null)
+			{
+				if (!string.IsNullOrEmpty(this.helpText))
+					this.htmlAttributes.Add("aria-describedby", this.htmlAttributes["id"] + "_Help");
+
+				if (this.showValidationMessage && this.showValidationMessageMode == ValidationMarkerMode.Always || this.validationErrors.Any())
+				{
+					if (!string.IsNullOrEmpty(this.helpText))
+						this.htmlAttributes["aria-describedby"] = this.htmlAttributes["aria-describedby"] + " " +
+																  this.htmlAttributes["id"] + "_Validation";
+					else
+						this.htmlAttributes.Add("aria-describedby", this.htmlAttributes["id"] + "_Validation");
+				}
+			}
+	    }
+
         protected virtual string RenderLabel()
         {
             var htmlAttribs = new Dictionary<string, object>();
@@ -181,13 +204,23 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 	        if (!this.showValidationMessage)
 		        return null;
 
-			return this.ValidationMessageRenderer.Render(this.state, this.showValidationMessageMode, this.validationErrors);
+			var id = this.GetAttr("id");
+
+			return this.ValidationMessageRenderer.Render(this.state, this.showValidationMessageMode, this.validationErrors, id + "_Validation");
         }
 
         protected virtual string RenderHelpText()
         {
-			//todo: html encode this?
-			return "<span class=\"field-help-text\">" + this.termResolver.ResolveTerm(this.helpText, this.culture) + "</span>";
+	        var attributes = new Dictionary<string, object>();
+			attributes.Add("class", "field-help-text");
+
+	        var id = this.GetAttr("id");
+	        if(id != null)
+				attributes.Add("id", id + "_Help");
+
+	        var tagBuilder = new TagBuilder("span", attributes);
+	        tagBuilder.InnerHtml = this.termResolver.ResolveTerm(this.helpText, this.culture);
+	        return tagBuilder.ToString();
         }
 
         protected virtual string RenderWrapperEndTag()

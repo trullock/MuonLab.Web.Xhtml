@@ -19,6 +19,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
         protected override string RenderComponent()
         {
             this.htmlAttributes.Add("type", "file");
+			this.AddAriaDescribedBy();
 
             var builder = new TagBuilder("input", this.htmlAttributes);
             return builder.ToString();

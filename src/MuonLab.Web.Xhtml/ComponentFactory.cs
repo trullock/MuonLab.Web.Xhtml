@@ -131,7 +131,7 @@ namespace MuonLab.Web.Xhtml
 			var state = this.ErrorProvider.GetStateFor(name);
 			var errors = this.ErrorProvider.GetErrorsFor(name);
 
-			return new ValidationMessageRenderer().Render(state, ValidationMarkerMode.Always, errors);
+			return new ValidationMessageRenderer().Render(state, ValidationMarkerMode.Always, errors, null);
 		}
 
 		public string ValidationMessageFor(string name, TViewModel entity)
@@ -139,7 +139,7 @@ namespace MuonLab.Web.Xhtml
 			var state = this.ErrorProvider.GetStateFor(name);
 			var errors = this.ErrorProvider.GetErrorsFor(name);
 
-			return new ValidationMessageRenderer().Render(state, ValidationMarkerMode.Always, errors);
+			return new ValidationMessageRenderer().Render(state, ValidationMarkerMode.Always, errors, null);
 		}
 
 		public void InitializeComponent<TComponentViewModel, TProperty>(Component<TComponentViewModel, TProperty> component, TComponentViewModel viewModel, Expression<Func<TComponentViewModel, TProperty>> property)

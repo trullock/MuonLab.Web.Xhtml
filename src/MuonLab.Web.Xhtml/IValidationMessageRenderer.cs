@@ -5,6 +5,6 @@ namespace MuonLab.Web.Xhtml
 {
 	public interface IValidationMessageRenderer
 	{
-		string Render(ComponentState state, ValidationMarkerMode showValidationMessageMode, IEnumerable<string> validationErrors);
+		string Render(ComponentState state, ValidationMarkerMode showValidationMessageMode, IEnumerable<string> validationErrors, string id);
 	}
 }

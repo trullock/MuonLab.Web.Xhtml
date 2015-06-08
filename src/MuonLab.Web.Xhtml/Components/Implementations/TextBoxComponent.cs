@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Linq;
 using MuonLab.Web.Xhtml.Configuration;
 
 namespace MuonLab.Web.Xhtml.Components.Implementations
@@ -69,7 +70,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 		    return this;
 	    }
 
-	    protected override string RenderComponent()
+		protected override string RenderComponent()
         {
             string fieldValue;
 
@@ -88,7 +89,9 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 			else if(!string.IsNullOrEmpty(this.placeholder))
 				this.htmlAttributes.Add("placeholder", this.termResolver.ResolveTerm(this.placeholder, this.culture));
 
-            this.htmlAttributes.Add("type", "text");
+			this.AddAriaDescribedBy();
+
+			this.htmlAttributes.Add("type", "text");
             this.htmlAttributes.Add("value", fieldValue);
             var builder = new TagBuilder("input", this.htmlAttributes);
             return builder.ToString();

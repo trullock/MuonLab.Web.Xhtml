@@ -53,6 +53,8 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 			else if (!string.IsNullOrEmpty(this.placeholder))
 				this.htmlAttributes.Add("placeholder", this.termResolver.ResolveTerm(this.placeholder, this.culture));
 
+			this.AddAriaDescribedBy();
+
             var builder = new TagBuilder("textarea", this.htmlAttributes);
             builder.SetInnerText(this.FormatValue(this.value));
             return builder.ToString();

@@ -55,6 +55,8 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 			else if (!string.IsNullOrEmpty(this.placeholder))
 				this.htmlAttributes.Add("placeholder", this.termResolver.ResolveTerm(this.placeholder, this.culture));
 
+			this.AddAriaDescribedBy();
+
             var builder = new TagBuilder("input", this.htmlAttributes);
             return builder.ToString();
         }

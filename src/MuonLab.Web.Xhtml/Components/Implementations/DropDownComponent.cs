@@ -86,6 +86,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 		protected override string RenderComponent()
 		{
 			var builder = new TagBuilder("select", this.htmlAttributes);
+			this.AddAriaDescribedBy();
 
 			if (this.showNullOption)
 			{
