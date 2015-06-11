@@ -194,7 +194,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
             htmlAttribs.Add("for", this.GetAttr("id"));
 			
             var labelBuilder = new TagBuilder("label", htmlAttribs);
-			labelBuilder.SetInnerText(this.termResolver.ResolveTerm(this.Label, this.culture));
+			labelBuilder.InnerHtml = this.termResolver.ResolveTerm(this.Label, this.culture);
 			
             return labelBuilder.ToString();
         }
