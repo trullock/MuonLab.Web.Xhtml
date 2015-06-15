@@ -47,7 +47,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
     			stringBuilder.Append(checkbox.ToString());
 
 				var label = new TagBuilder("label", new { @for = id});
-				label.SetInnerText(textFunc(item));
+				label.SetInnerText(this.termResolver.ResolveTerm(textFunc(item), this.culture));
 
     			stringBuilder.Append(label);
 
