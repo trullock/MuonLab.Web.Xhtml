@@ -86,6 +86,9 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 		protected override string RenderComponent()
 		{
 			var builder = new TagBuilder("select", this.htmlAttributes);
+
+			this.htmlAttributes.Add("aria-label", this.termResolver.ResolveTerm(this.Label, this.culture));
+
 			this.AddAriaDescribedBy();
 
 			if (this.showNullOption)

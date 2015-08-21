@@ -43,8 +43,10 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 
     			if (Equals(value, item))
     				checkbox.HtmlAttributes.Add("checked", "checked");
-
-    			stringBuilder.Append(checkbox.ToString());
+				
+				checkbox.HtmlAttributes.Add("aria-label", textFunc(item));
+				
+				stringBuilder.Append(checkbox);
 
 				var label = new TagBuilder("label", new { @for = id});
 				label.SetInnerText(this.termResolver.ResolveTerm(textFunc(item), this.culture));
