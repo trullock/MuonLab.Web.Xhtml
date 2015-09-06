@@ -11,7 +11,7 @@ namespace MuonLab.Web.Xhtml
 			foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(self))
 			{
 				var obj2 = descriptor.GetValue(self);
-				dictionary.Add(descriptor.Name, obj2);
+				dictionary.Add(descriptor.Name.Replace("_", "-"), obj2);
 			}
 			return dictionary;
 		}
