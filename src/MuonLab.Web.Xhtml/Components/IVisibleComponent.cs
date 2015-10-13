@@ -20,12 +20,13 @@ namespace MuonLab.Web.Xhtml.Components
         /// <returns></returns>
         IVisibleComponent WithLabel();
 
-        /// <summary>
-        /// Adds an HTML Label tag to the markup with the given text.
-        /// </summary>
-        /// <param name="label">The label text</param>
-        /// <returns></returns>
-        IVisibleComponent WithLabel(string label);
+		/// <summary>
+		/// Adds an HTML Label tag to the markup with the given text.
+		/// </summary>
+		/// <param name="label">The label text</param>
+		/// <param name="contentType">The content type of the label</param>
+		/// <returns></returns>
+		IVisibleComponent WithLabel(string label, ContentType contentType = ContentType.Term);
 
         /// <summary>
         /// Prevents an HTML label from being rendered
@@ -49,7 +50,7 @@ namespace MuonLab.Web.Xhtml.Components
         /// Sets the help text for the component
         /// </summary>
         /// <returns></returns>
-        IVisibleComponent WithHelpText(string helpText);
+        IVisibleComponent WithHelpText(string helpText, ContentType contentType = ContentType.Term);
 
         /// <summary>
         /// set teh field as readonly

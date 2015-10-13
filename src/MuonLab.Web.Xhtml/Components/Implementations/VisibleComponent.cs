@@ -32,8 +32,10 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
         protected string helpText;
 
         protected IEnumerable<ComponentPart> renderingOrder;
+	    protected ContentType labelContentType;
+	    protected ContentType helpTextContentType;
 
-    	public string Label { get; protected set; }
+	    public string Label { get; protected set; }
 
         protected VisibleComponent(ITermResolver termResolver, CultureInfo culture)
         {
@@ -43,6 +45,8 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 			this.renderingOrder = new ComponentPart[0];
 			this.showValidationMessage = true;
 			this.ValidationMessageRenderer = new ValidationMessageRenderer();
+			this.labelContentType = ContentType.Term;
+			this.helpTextContentType = ContentType.Term;
         }
 
 		public IVisibleComponent WithValidationMessageRenderer(IValidationMessageRenderer messageRenderer)
@@ -72,10 +76,11 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
         /// </summary>
         /// <param name="label">The label text</param>
         /// <returns></returns>
-        public IVisibleComponent WithLabel(string label)
+        public IVisibleComponent WithLabel(string label, ContentType contentType = ContentType.Term)
         {
             this.showLabel = true;
             this.Label = label;
+	        this.labelContentType = contentType;
             return this;
         }
 
@@ -114,9 +119,10 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
         /// Sets the help text for the component
         /// </summary>
         /// <returns></returns>
-        public IVisibleComponent WithHelpText(string helpText)
+        public IVisibleComponent WithHelpText(string helpText, ContentType contentType = ContentType.Term)
         {
             this.helpText = helpText;
+	        this.helpTextContentType = contentType;
             return this;
         }
 
@@ -194,7 +200,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
             htmlAttribs.Add("for", this.GetAttr("id"));
 			
             var labelBuilder = new TagBuilder("label", htmlAttribs);
-			labelBuilder.InnerHtml = this.termResolver.ResolveTerm(this.Label, this.culture);
+			labelBuilder.InnerHtml = this.labelContentType == ContentType.Term ? this.termResolver.ResolveTerm(this.Label, this.culture) : this.Label;
 			
             return labelBuilder.ToString();
         }
@@ -219,7 +225,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 				attributes.Add("id", id + "_Help");
 
 	        var tagBuilder = new TagBuilder("span", attributes);
-	        tagBuilder.InnerHtml = this.termResolver.ResolveTerm(this.helpText, this.culture);
+	        tagBuilder.InnerHtml = this.helpTextContentType == ContentType.Term ? this.termResolver.ResolveTerm(this.helpText, this.culture) : this.helpText;
 	        return tagBuilder.ToString();
         }
 
