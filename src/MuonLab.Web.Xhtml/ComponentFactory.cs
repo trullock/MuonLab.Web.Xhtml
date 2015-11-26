@@ -71,6 +71,14 @@ namespace MuonLab.Web.Xhtml
 			return textAreaComponent;
 		}
 
+		public IListBoxComponent<TProperty> ListBoxFor<TProperty, TData>(Expression<Func<TViewModel, TProperty>> property, TViewModel entity, IEnumerable<TData> items, Func<TProperty, string> propertyValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
+		{
+			var dropDown = new ListBoxComponent<TViewModel, TProperty, TData>(this.TermResolver, this.Culture, items, propertyValueFunc, itemValueFunc, itemTextFunc, itemHtmlAttributes);
+
+			InitializeComponent(dropDown, entity, property);
+
+			return dropDown;
+		}
 		public IDropDownComponent<TProperty> DropDownFor<TProperty, TData>(Expression<Func<TViewModel, TProperty>> property, TViewModel entity, IEnumerable<TData> items, Func<TProperty, string> propertyValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
 		{
 			var dropDown = new DropDownComponent<TViewModel, TProperty, TData>(this.TermResolver, this.Culture, items, propertyValueFunc, itemValueFunc, itemTextFunc, itemHtmlAttributes);
