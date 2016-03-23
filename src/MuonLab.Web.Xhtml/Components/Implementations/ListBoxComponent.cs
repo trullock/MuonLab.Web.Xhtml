@@ -26,6 +26,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 			this.itemValueFunc = itemValueFunc;
 			this.itemTextFunc = itemTextFunc;
 			this.itemHtmlAttributes = itemHtmlAttributes;
+			this.WithSize(5);
 		}
 
 		public override string ControlPrefix => "lst";
