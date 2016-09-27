@@ -11,13 +11,12 @@ namespace MuonLab.Web.Xhtml
 {
 	public sealed class ComponentFactory<TViewModel> : IComponentFactory<TViewModel>
 	{
-		public IFormConfiguration Configuration { get; private set; }
-
-		public CultureInfo Culture { get; private set; }
+		public IFormConfiguration Configuration { get; }
+		public CultureInfo Culture { get; }
 		public IComponentNameResolver NameResolver { get; set; }
-		public IComponentIdResolver IdResolver { get; private set; }
-		public ITermResolver TermResolver { get; private set; }
-		public IErrorProvider ErrorProvider { get; private set; }
+		public IComponentIdResolver IdResolver { get; }
+		public ITermResolver TermResolver { get; }
+		public IErrorProvider ErrorProvider { get; }
 		
 		public ComponentFactory(
 			IFormConfiguration configuration,

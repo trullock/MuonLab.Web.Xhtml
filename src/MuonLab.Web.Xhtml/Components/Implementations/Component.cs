@@ -5,17 +5,16 @@ using System.Diagnostics;
 namespace MuonLab.Web.Xhtml.Components.Implementations
 {
 	[DebuggerDisplay("Name: {Name}")]
-    public abstract class Component<TViewModel, TProperty> : 
-		IComponent<TProperty>
+    public abstract class Component<TViewModel, TProperty> : IComponent<TProperty> 
     {
         protected readonly IDictionary<string, object> htmlAttributes;
         public abstract string ControlPrefix { get; }
         protected TProperty value;
         protected string attemptedValue;
 
-        public string Name { get { return this.GetAttr("name"); } }
+        public string Name => this.GetAttr("name");
 
-        protected Component()
+		protected Component()
         {
             this.htmlAttributes = new Dictionary<string, object>();
         }

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Web;
 
 namespace MuonLab.Web.Xhtml
 {
@@ -29,7 +28,7 @@ namespace MuonLab.Web.Xhtml
 		public void SetInnerText(string text)
 		{
 			// Do not remove coding without prior discussion
-			this.InnerHtml = HttpUtility.HtmlEncode(text);
+			this.InnerHtml = HtmlEncoder.HtmlEncode(text);
 		}
 
         public override string ToString()
@@ -61,7 +60,7 @@ namespace MuonLab.Web.Xhtml
 			{
 				var encoded = HtmlEncode(this.HtmlAttributes[key]);
 				if(encoded != null)
-					builder.AppendFormat(" {0}=\"{1}\"", key, encoded);
+					builder.Append($" {key}=\"{encoded}\"");
 			}
 		}
 
@@ -72,7 +71,7 @@ namespace MuonLab.Web.Xhtml
 
 			var stringValue = value.ToString();
 
-			return HttpUtility.HtmlAttributeEncode(stringValue);
+			return HtmlEncoder.HtmlAttributeEncode(stringValue);
 		}
 
 		// TODO: Improve this!
