@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using MustardBlack.Html.Forms.Configuration;
 
 namespace MustardBlack.Html.Forms.Components
@@ -10,12 +11,12 @@ namespace MustardBlack.Html.Forms.Components
 		IListBoxComponent<TProperty>
 	{
 		readonly IEnumerable<TData> items;
-		readonly Func<TProperty, string> propertyValueFunc;
+		readonly Func<TProperty, IEnumerable<string>> propertyValueFunc;
 		readonly Func<TData, string> itemValueFunc;
 		readonly Func<TData, string> itemTextFunc;
 		readonly Func<TData, object> itemHtmlAttributes;
 
-		public ListBoxComponent(ITermResolver termResolver, CultureInfo culture, IEnumerable<TData> items, Func<TProperty, string> propertyValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
+		public ListBoxComponent(ITermResolver termResolver, CultureInfo culture, IEnumerable<TData> items, Func<TProperty, IEnumerable<string>> propertyValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
 			: base(termResolver, culture)
 		{
 			if (items == null)
@@ -67,8 +68,13 @@ namespace MustardBlack.Html.Forms.Components
 
 				optionBuilder.HtmlAttributes.Add("value", this.itemValueFunc.Invoke(item));
 
-				if (!ReferenceEquals(this.value, null) && Equals(propertyValueFunc(this.value), itemValueFunc(item)))
+				if (!ReferenceEquals(this.value, null))
+				{
+					var itemValue = itemValueFunc(item);
+					var propertyValue = propertyValueFunc(this.value);
+					if (propertyValue.Contains(itemValue))
 					optionBuilder.HtmlAttributes.Add("selected", new HtmlProperty());
+				}
 
 				optionBuilder.SetInnerText(this.itemTextFunc.Invoke(item));
 
