@@ -1,15 +1,14 @@
-using System;
 using MuonLab.Testing;
 using MuonLab.Web.Xhtml.Components;
 using MuonLab.Web.Xhtml.Configuration;
-using Rhino.Mocks;
+using NSubstitute;
 
 namespace MuonLab.Web.Xhtml.Tests.Configuration.FormConfigurationSpecifications.Initialize
 {
     public class when_initializing_IVisibleComponent : Specification
     {
-        private TestFormConfiguration configuration;
-        private IVisibleComponent component;
+        TestFormConfiguration configuration;
+        IVisibleComponent component;
 
         protected override void Given()
         {
@@ -25,19 +24,19 @@ namespace MuonLab.Web.Xhtml.Tests.Configuration.FormConfigurationSpecifications.
         [Then]
         public void the_component_should_have_the_ivisiblecomponent_config_ran_on_it()
         {
-            component.AssertWasCalled(c => c.WithName("test"));
+            component.Received().WithName("test");
         }
 
         [Then]
         public void the_component_should_have_the_icomponent_config_ran_on_it()
         {
-            component.AssertWasCalled(c => c.WithId("test"));
+            component.Received().WithId("test");
         }
 
         [Then]
         public void the_component_should_not_have_the_itextboxcomponent_config_ran_on_it()
         {
-            component.AssertWasNotCalled(c => c.WithName("fish"));
+            component.Received().WithName("fish");
         }
 
         private class TestFormConfiguration : FormConfiguration

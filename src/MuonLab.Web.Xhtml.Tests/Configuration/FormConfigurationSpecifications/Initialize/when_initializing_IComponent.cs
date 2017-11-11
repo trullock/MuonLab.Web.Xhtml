@@ -1,15 +1,14 @@
-using System;
 using MuonLab.Testing;
 using MuonLab.Web.Xhtml.Components;
 using MuonLab.Web.Xhtml.Configuration;
-using Rhino.Mocks;
+using NSubstitute;
 
 namespace MuonLab.Web.Xhtml.Tests.Configuration.FormConfigurationSpecifications.Initialize
 {
     public class when_initializing_IComponent : Specification
     {
-        private TestFormConfiguration configuration;
-        private IComponent component;
+        TestFormConfiguration configuration;
+        IComponent component;
 
         protected override void Given()
         {
@@ -25,7 +24,7 @@ namespace MuonLab.Web.Xhtml.Tests.Configuration.FormConfigurationSpecifications.
         [Then]
         public void the_component_should_have_the_config_ran_on_it()
         {
-            component.AssertWasCalled(c => c.WithId("test"));
+	        component.Received().WithId("test");
         }
 
         private class TestFormConfiguration : FormConfiguration

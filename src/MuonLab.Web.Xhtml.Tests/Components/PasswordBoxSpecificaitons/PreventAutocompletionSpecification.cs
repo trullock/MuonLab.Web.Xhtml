@@ -1,10 +1,6 @@
-using System;
-
 using MuonLab.Testing;
 using MuonLab.Web.Xhtml.Components.Implementations;
-using MuonLab.Web.Xhtml.Configuration;
 using MuonLab.Web.Xhtml.Tests.Components.ComponentSpecifications;
-using NUnit.Framework;
 
 namespace MuonLab.Web.Xhtml.Tests.Components.PasswordBoxSpecificaitons
 {
@@ -15,10 +11,7 @@ namespace MuonLab.Web.Xhtml.Tests.Components.PasswordBoxSpecificaitons
 			this.component.PreventAutoComplete().WithRenderingOrder(ComponentPart.Component);
 		}
 
-		protected override string expectedRendering
-		{
-			get { return "<input type=\"password\" autocomplete=\"off\" />"; }
-		}
+		protected override string expectedRendering => "<input type=\"password\" autocomplete=\"off\" />";
 
 		[Then]
 		public void the_prevent_auto_completion_atrribute_should_be_rendered()

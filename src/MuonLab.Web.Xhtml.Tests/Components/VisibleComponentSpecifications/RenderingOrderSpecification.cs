@@ -3,7 +3,6 @@ using MuonLab.Testing;
 using MuonLab.Web.Xhtml.Components;
 using MuonLab.Web.Xhtml.Components.Implementations;
 using MuonLab.Web.Xhtml.Configuration;
-using Rhino.Mocks;
 
 namespace MuonLab.Web.Xhtml.Tests.Components.VisibleComponentSpecifications
 {

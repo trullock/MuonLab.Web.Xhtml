@@ -1,5 +1,5 @@
 using System;
-using NUnit.Framework;
+using Xunit;
 
 namespace MuonLab.Testing
 {
@@ -7,12 +7,12 @@ namespace MuonLab.Testing
 	{
 		public static void ShouldBeEmpty(this string aString)
 		{
-			Assert.IsEmpty(aString);
+			Assert.Empty(aString);
 		}
 
 		public static string ShouldBeEqualIgnoringCase(this string actual, string expected)
 		{
-			Assert.AreEqual(expected.ToLowerInvariant(), actual.ToLowerInvariant());
+			Assert.Equal(expected.ToLowerInvariant(), actual.ToLowerInvariant());
 			return expected;
 		}
 
@@ -23,13 +23,13 @@ namespace MuonLab.Testing
 
 		public static IComparable ShouldBeGreaterThan(this IComparable arg1, IComparable arg2)
 		{
-			Assert.AreEqual(1, arg1.CompareTo(arg2));
+			Assert.Equal(1, arg1.CompareTo(arg2));
 			return arg2;
 		}
 
 		public static IComparable ShouldBeLessThan(this IComparable arg1, IComparable arg2)
 		{
-			Assert.AreEqual(-1, arg1.CompareTo(arg2));
+			Assert.Equal(-1, arg1.CompareTo(arg2));
 			return arg2;
 		}
 
@@ -40,17 +40,17 @@ namespace MuonLab.Testing
 
 		public static void ShouldBeOfType<T>(this object actual)
 		{
-			Assert.IsInstanceOf<T>(actual);
+			Assert.IsAssignableFrom<T>(actual);
 		}
 
 		public static void ShouldBeOfType(this object actual, Type expected)
 		{
-			Assert.IsInstanceOf(expected, actual);
+			Assert.IsAssignableFrom(expected, actual);
 		}
 
 		public static object ShouldBeTheSameAs(this object actual, object expected)
 		{
-			Assert.AreSame(expected, actual);
+			Assert.Same(expected, actual);
 			return expected;
 		}
 
@@ -76,32 +76,27 @@ namespace MuonLab.Testing
 
 		public static void ShouldEqual<T>(this T actual, T expected)
 		{
-			Assert.AreEqual(expected, actual);
+			Assert.Equal(expected, actual);
 		}
 
 		public static void ShouldNotBeEmpty(this string aString)
 		{
-			Assert.IsNotEmpty(aString);
+			Assert.NotEmpty(aString);
 		}
 
 		public static void ShouldNotBeNull(this object anObject)
 		{
 			Assert.NotNull(anObject);
 		}
-
-		public static void ShouldNotBeOfType(this object actual, Type expected)
-		{
-			Assert.IsNotInstanceOf(expected, actual);
-		}
-
+		
 		public static void ShouldNotBeTheSameAs(this object actual, object expected)
 		{
-			Assert.AreNotSame(expected, actual);
+			Assert.NotSame(expected, actual);
 		}
 
 		public static void ShouldNotEqual<T>(this T actual, T expected)
 		{
-			Assert.AreNotEqual(expected, actual);
+			Assert.NotEqual(expected, actual);
 		}
 
 		public static void ShouldStartWith(this string actual, string expected)

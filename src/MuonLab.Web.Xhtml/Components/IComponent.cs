@@ -2,8 +2,11 @@ using System.Web;
 
 namespace MuonLab.Web.Xhtml.Components
 {
-    public interface IComponent : IHtmlString
-    {
+    public interface IComponent
+#if NET46
+	    : IHtmlString
+#endif
+	{
         string Name { get; }
 
         /// <summary>

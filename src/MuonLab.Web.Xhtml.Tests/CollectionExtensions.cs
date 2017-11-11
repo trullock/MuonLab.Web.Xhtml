@@ -1,25 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
+using Xunit;
 
 namespace MuonLab.Testing
 {
 	public static class CollectionExtensions
 	{
-		private static ArrayList ToArrayList(this IEnumerable enumerable)
-		{
-			var arrayList = new ArrayList();
-
-			foreach (var obj in enumerable)
-				arrayList.Add(obj);
-
-			return arrayList;
-		}
-
 		public static void ShouldBeEmpty(this IEnumerable collection)
 		{
-			Assert.IsEmpty(collection.ToArrayList());
+			Assert.Empty(collection);
 		}
 
 		public static bool ContainsAny<T>(this IEnumerable<T> collection, IEnumerable<T> values)
@@ -37,13 +27,13 @@ namespace MuonLab.Testing
 		public static void ShouldContain<T>(this IEnumerable<T> actual, params T[] expected)
 		{
 			foreach (T item in expected)
-				Assert.Contains(item, actual.ToArrayList());
+				Assert.Contains(item, actual);
 		}
 
 		public static void ShouldContain(this IEnumerable actual, params object[] expected)
 		{
 			foreach (object item in expected)
-				Assert.Contains(item, actual.ToArrayList());
+				Assert.Contains(item, actual.Cast<object>());
 		}
 
 		public static void ShouldContainOnly<T>(this IEnumerable<T> actual, params T[] expected)
@@ -60,12 +50,12 @@ namespace MuonLab.Testing
 				Assert.Contains(item, actualList);
 				remainingList.Remove(item);
 			}
-			Assert.IsEmpty(remainingList);
+			Assert.Empty(remainingList);
 		}
 
 		public static void ShouldNotBeEmpty(this IEnumerable collection)
 		{
-			Assert.IsNotEmpty(collection.ToArrayList());
+			Assert.NotEmpty(collection);
 		}
 
 		public static void ShouldNotContain(this IEnumerable collection, object expected)
@@ -74,7 +64,7 @@ namespace MuonLab.Testing
 			foreach (var item in collection)
 			{
 				if (item.Equals(expected))
-					Assert.Fail("Collection DOES contain item at position " + i);
+					Assert.False(true, "Collection DOES contain item at position " + i);
 				i++;
 			}
 		}

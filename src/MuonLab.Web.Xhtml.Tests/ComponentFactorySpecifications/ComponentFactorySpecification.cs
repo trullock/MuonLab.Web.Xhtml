@@ -1,8 +1,7 @@
-
 using MuonLab.Testing;
 using MuonLab.Web.Xhtml.Components;
 using MuonLab.Web.Xhtml.Configuration;
-using Rhino.Mocks;
+using NSubstitute;
 
 namespace MuonLab.Web.Xhtml.Tests.ComponentFactorySpecifications
 {
@@ -16,24 +15,20 @@ namespace MuonLab.Web.Xhtml.Tests.ComponentFactorySpecifications
 		protected override void Given()
 		{
 			Dependency<IComponentNameResolver>()
-				.Stub(s => s.ResolveName<TestEntity, string>(null))
-				.IgnoreArguments()
-				.Return("thename");
+				.ResolveName<TestEntity, string>(null)
+				.ReturnsForAnyArgs("thename");
 
 			Dependency<IComponentIdResolver>()
-				.Stub(s => s.ResolveId<TestEntity, string>(null, null))
-				.IgnoreArguments()
-				.Return("theid");
+				.ResolveId<TestEntity, string>(null, null)
+				.ReturnsForAnyArgs("theid");
 
 			Dependency<ITermResolver>()
-				.Stub(s => s.ResolveTerm<TestEntity, string>(null))
-				.IgnoreArguments()
-				.Return("thelabel");
+				.ResolveTerm<TestEntity, string>(null)
+				.ReturnsForAnyArgs("thelabel");
 
 			Dependency<ITermResolver>()
-				.Stub(s => s.ResolveTerm("thelabel", null))
-				.IgnoreArguments()
-				.Return("thelabel");
+				.ResolveTerm("thelabel", null)
+				.ReturnsForAnyArgs("thelabel");
 
 			this.configuration = Dependency<IFormConfiguration>();
 
@@ -47,7 +42,7 @@ namespace MuonLab.Web.Xhtml.Tests.ComponentFactorySpecifications
 		[Then]
 		public void the_component_should_have_the_configuration_applied_to_it()
 		{
-			configuration.AssertWasCalled(c => c.Initialize(component));
+			configuration.Received().Initialize(component);
 		}
 
 		[Then]

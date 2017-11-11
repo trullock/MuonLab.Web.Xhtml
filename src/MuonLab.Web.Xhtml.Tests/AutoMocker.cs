@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Rhino.Mocks;
+using NSubstitute;
 
 namespace MuonLab.Testing
 {
@@ -37,7 +37,7 @@ namespace MuonLab.Testing
 
 		protected static TMockedClass Stub<TMockedClass>() where TMockedClass : class
 		{
-			return MockRepository.GenerateStub<TMockedClass>();
+			return Substitute.For<TMockedClass>();
 		}
 
 		protected void Inject<TClass>(TClass instance) where TClass : class
@@ -77,7 +77,7 @@ namespace MuonLab.Testing
 		private void EnsureStubExistsForType(Type type)
 		{
 			if (!this.mocks.ContainsKey(type))
-				this.mocks.Add(type, MockRepository.GenerateStub(type));
+				this.mocks.Add(type, Substitute.For(new [] { type }, new object[0]));
 		}
 	}
 }

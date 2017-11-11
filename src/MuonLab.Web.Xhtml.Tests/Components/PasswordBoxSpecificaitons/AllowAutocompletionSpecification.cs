@@ -13,10 +13,7 @@ namespace MuonLab.Web.Xhtml.Tests.Components.PasswordBoxSpecificaitons
 			this.component.PreventAutoComplete().AllowAutoComplete().WithRenderingOrder(ComponentPart.Component);
 		}
 
-		protected override string expectedRendering
-		{
-			get { return "<input type=\"password\" />"; }
-		}
+		protected override string expectedRendering => "<input type=\"password\" />";
 
 		[Then]
 		public void the_prevent_auto_completion_atrribute_should_not_be_rendered()

@@ -1,16 +1,14 @@
 using System;
-using NUnit.Framework;
+using MuonLab.Testing;
 
 namespace MuonLab.Testing
 {
-	[TestFixture]
-	public abstract class Specification : AutoMocker
+	public abstract class Specification : AutoMocker, IDisposable
 	{
-		private Type expectedExceptionType;
-		private Exception thrownException;
+		Type expectedExceptionType;
+		Exception thrownException;
 
-		[TestFixtureSetUp]
-		public void SetUp()
+		protected Specification()
 		{
 			Given();
 
@@ -39,9 +37,8 @@ namespace MuonLab.Testing
 
 		protected virtual void Given() {}
 		protected abstract void When();
-
-		[TestFixtureTearDown]
-		public virtual void TidyUp()
+		
+		public virtual void Dispose()
 		{
 		}
 	}

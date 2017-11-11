@@ -1,7 +1,5 @@
-
 using MuonLab.Testing;
 using MuonLab.Web.Xhtml.Components;
-using NUnit.Framework;
 
 namespace MuonLab.Web.Xhtml.Tests.Components.ComponentSpecifications
 {

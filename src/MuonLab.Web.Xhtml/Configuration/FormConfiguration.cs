@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Web;
 using MuonLab.Web.Xhtml.Components;
 
 namespace MuonLab.Web.Xhtml.Configuration
@@ -44,14 +43,14 @@ namespace MuonLab.Web.Xhtml.Configuration
             }
 	    }
 
-		public virtual IHtmlString StartMultiField()
+		public virtual MultifieldTag StartMultiField()
 		{
-			return new HtmlString("<div class=\"multiField\">");
+			return new MultifieldTag("<div class=\"multiField\">");
 		}
 
-		public virtual IHtmlString EndMultiField()
+		public virtual MultifieldTag EndMultiField()
 		{
-			return new HtmlString("</div>");
+			return new MultifieldTag("</div>");
 		}
 
 		IEnumerable<Delegate> GetMatchingConfigurations(Type component)

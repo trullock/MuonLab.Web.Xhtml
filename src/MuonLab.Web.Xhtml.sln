@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27019.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuonLab.Web.Xhtml", "MuonLab.Web.Xhtml\MuonLab.Web.Xhtml.csproj", "{23A417A9-C102-44AE-BF68-6E42E5E998B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuonLab.Web.Xhtml", "MuonLab.Web.Xhtml\MuonLab.Web.Xhtml.csproj", "{EF579A60-516E-4779-A124-6E607E702A12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuonLab.Web.Xhtml.Tests", "MuonLab.Web.Xhtml.Tests\MuonLab.Web.Xhtml.Tests.csproj", "{CBA33D4C-EEDF-46CD-B5DD-C7DD3D424F3E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuonLab.Web.Xhtml.Example", "MuonLab.Web.Xhtml.Example\MuonLab.Web.Xhtml.Example.csproj", "{4C8161C9-D883-4104-9FED-04139F211305}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuonLab.Web.Xhtml.Tests", "MuonLab.Web.Xhtml.Tests\MuonLab.Web.Xhtml.Tests.csproj", "{E0D25FBD-F97A-470F-9ACE-78F00C479125}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,20 +13,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{23A417A9-C102-44AE-BF68-6E42E5E998B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23A417A9-C102-44AE-BF68-6E42E5E998B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23A417A9-C102-44AE-BF68-6E42E5E998B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23A417A9-C102-44AE-BF68-6E42E5E998B9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CBA33D4C-EEDF-46CD-B5DD-C7DD3D424F3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CBA33D4C-EEDF-46CD-B5DD-C7DD3D424F3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CBA33D4C-EEDF-46CD-B5DD-C7DD3D424F3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CBA33D4C-EEDF-46CD-B5DD-C7DD3D424F3E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4C8161C9-D883-4104-9FED-04139F211305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4C8161C9-D883-4104-9FED-04139F211305}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4C8161C9-D883-4104-9FED-04139F211305}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4C8161C9-D883-4104-9FED-04139F211305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF579A60-516E-4779-A124-6E607E702A12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF579A60-516E-4779-A124-6E607E702A12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF579A60-516E-4779-A124-6E607E702A12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF579A60-516E-4779-A124-6E607E702A12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0D25FBD-F97A-470F-9ACE-78F00C479125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0D25FBD-F97A-470F-9ACE-78F00C479125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0D25FBD-F97A-470F-9ACE-78F00C479125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0D25FBD-F97A-470F-9ACE-78F00C479125}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5797A99B-2FF7-4AEF-9A0A-705D432FE2D9}
 	EndGlobalSection
 EndGlobal
