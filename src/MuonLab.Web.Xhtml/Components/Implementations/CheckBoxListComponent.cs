@@ -77,7 +77,8 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 				if (itemIsValue(value, item))
 					checkbox.HtmlAttributes.Add("checked", "checked");
 
-				checkbox.HtmlAttributes.Add("aria-label", textFunc(item));
+				if(this.ariaLabel)
+					checkbox.HtmlAttributes.Add("aria-label", textFunc(item));
 
 				stringBuilder.Append(checkbox);
 

@@ -45,7 +45,8 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 		{
 			var builder = new TagBuilder("select", this.htmlAttributes);
 
-			this.htmlAttributes.Add("aria-label", this.termResolver.ResolveTerm(this.Label, this.culture));
+			if (this.ariaLabel)
+				this.htmlAttributes.Add("aria-label", this.termResolver.ResolveTerm(this.Label, this.culture));
 
 			this.AddAriaDescribedBy();
 			

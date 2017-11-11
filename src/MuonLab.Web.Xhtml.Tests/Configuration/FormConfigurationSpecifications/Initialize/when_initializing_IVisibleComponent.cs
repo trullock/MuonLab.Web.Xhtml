@@ -36,7 +36,7 @@ namespace MuonLab.Web.Xhtml.Tests.Configuration.FormConfigurationSpecifications.
         [Then]
         public void the_component_should_not_have_the_itextboxcomponent_config_ran_on_it()
         {
-            component.Received().WithName("fish");
+            component.DidNotReceive().WithName("fish");
         }
 
         private class TestFormConfiguration : FormConfiguration

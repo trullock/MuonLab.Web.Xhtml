@@ -22,7 +22,8 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
         protected IEnumerable<string> validationErrors;
 
         protected bool showLabel;
-		
+	    protected bool ariaLabel;
+
 		protected bool showValidationMessage;
 		protected ValidationMarkerMode showValidationMessageMode;
 
@@ -34,6 +35,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
         protected IEnumerable<ComponentPart> renderingOrder;
 	    protected ContentType labelContentType;
 	    protected ContentType helpTextContentType;
+	    
 
 	    public string Label { get; protected set; }
 
@@ -66,9 +68,9 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
         /// Adds an HTML Label tag to the markup with text automatically determined from the property represented by the component
         /// </summary>
         /// <returns></returns>
-        public IVisibleComponent WithLabel()
+        public IVisibleComponent WithLabel(bool aria = true)
         {
-            return WithLabel(this.Label);
+            return WithLabel(this.Label, aria: aria);
         }
 
         /// <summary>
@@ -76,9 +78,10 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
         /// </summary>
         /// <param name="label">The label text</param>
         /// <returns></returns>
-        public IVisibleComponent WithLabel(string label, ContentType contentType = ContentType.Term)
+        public IVisibleComponent WithLabel(string label, ContentType contentType = ContentType.Term, bool aria = true)
         {
             this.showLabel = true;
+	        this.ariaLabel = aria;
             this.Label = label;
 	        this.labelContentType = contentType;
             return this;

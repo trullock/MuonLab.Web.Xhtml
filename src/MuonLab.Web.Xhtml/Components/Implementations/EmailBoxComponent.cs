@@ -33,7 +33,8 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 			else if (!string.IsNullOrEmpty(this.placeholder))
 				this.htmlAttributes.Add("placeholder", this.termResolver.ResolveTerm(this.placeholder, this.culture));
 
-			this.htmlAttributes.Add("aria-label", this.termResolver.ResolveTerm(string.IsNullOrEmpty(this.Label) ? this.placeholder : this.Label, this.culture));
+	        if (this.ariaLabel)
+				this.htmlAttributes.Add("aria-label", this.termResolver.ResolveTerm(string.IsNullOrEmpty(this.Label) ? this.placeholder : this.Label, this.culture));
 
 			this.AddAriaDescribedBy();
 
