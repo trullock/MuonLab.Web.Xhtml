@@ -10,16 +10,13 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 		protected bool useLabelForPlaceholder;
 		protected string placeholder;
 
+	    public override string ControlPrefix => "txt";
+
 	    public PasswordBoxComponent(ITermResolver termResolver, CultureInfo culture) : base(termResolver, culture)
 	    {
 	    }
 
-	    public override string ControlPrefix
-        {
-            get { return "txt"; }
-        }
-
-        public IPasswordBoxComponent PreventAutoComplete()
+	    public IPasswordBoxComponent PreventAutoComplete()
         {
             WithAttr("autocomplete", "off");
             return this;

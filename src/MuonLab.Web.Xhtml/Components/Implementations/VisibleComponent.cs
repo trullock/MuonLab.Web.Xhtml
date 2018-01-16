@@ -23,6 +23,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 
         protected bool showLabel;
 	    protected bool ariaLabel;
+	    protected bool ariaDescribedBy;
 
 		protected bool showValidationMessage;
 		protected ValidationMarkerMode showValidationMessageMode;
@@ -36,7 +37,6 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 	    protected ContentType labelContentType;
 	    protected ContentType helpTextContentType;
 	    
-
 	    public string Label { get; protected set; }
 
         protected VisibleComponent(ITermResolver termResolver, CultureInfo culture)
@@ -64,13 +64,25 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
             return this;
         }
 
+	    /// <summary>
+	    /// Adds an HTML Label tag to the markup with text automatically determined from the property represented by the component
+	    /// </summary>
+	    /// <returns></returns>
+	    public IVisibleComponent WithAria(bool label = true, bool describedBy = true)
+		{
+			this.ariaLabel = label;
+			this.ariaDescribedBy = describedBy;
+			return this;
+		}
+
+
         /// <summary>
         /// Adds an HTML Label tag to the markup with text automatically determined from the property represented by the component
         /// </summary>
         /// <returns></returns>
-        public IVisibleComponent WithLabel(bool aria = true)
+        public IVisibleComponent WithLabel()
         {
-            return WithLabel(this.Label, aria: aria);
+            return WithLabel(this.Label);
         }
 
         /// <summary>
@@ -78,10 +90,9 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
         /// </summary>
         /// <param name="label">The label text</param>
         /// <returns></returns>
-        public IVisibleComponent WithLabel(string label, ContentType contentType = ContentType.Term, bool aria = true)
+        public IVisibleComponent WithLabel(string label, ContentType contentType = ContentType.Term)
         {
             this.showLabel = true;
-	        this.ariaLabel = aria;
             this.Label = label;
 	        this.labelContentType = contentType;
             return this;
@@ -177,16 +188,19 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 
 	    protected virtual void AddAriaDescribedBy()
 	    {
+		    if (!this.ariaDescribedBy)
+			    return;
+
 		    if (!this.htmlAttributes.ContainsKey("id"))
 			    return;
 
 			var id = this.htmlAttributes["id"];
 			if (id != null)
 			{
-				if (!string.IsNullOrEmpty(this.helpText))
+				if (this.renderingOrder.Contains(ComponentPart.HelpText))
 					this.htmlAttributes.Add("aria-describedby", this.htmlAttributes["id"] + "_Help");
 
-				if (this.showValidationMessage && this.showValidationMessageMode == ValidationMarkerMode.Always || this.validationErrors.Any())
+				if (this.renderingOrder.Contains(ComponentPart.ValidationMessage) && (this.showValidationMessage && this.showValidationMessageMode == ValidationMarkerMode.Always || this.validationErrors.Any()))
 				{
 					if (!string.IsNullOrEmpty(this.helpText))
 						this.htmlAttributes["aria-describedby"] = this.htmlAttributes["aria-describedby"] + " " +

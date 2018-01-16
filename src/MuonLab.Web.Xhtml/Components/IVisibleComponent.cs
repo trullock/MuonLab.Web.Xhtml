@@ -5,7 +5,6 @@ namespace MuonLab.Web.Xhtml.Components
 {
 	public interface IVisibleComponent<in TProperty> : IComponent<TProperty>, IVisibleComponent
 	{
-
 	}
 
 	public interface IVisibleComponent : IComponent
@@ -14,11 +13,17 @@ namespace MuonLab.Web.Xhtml.Components
 
         string Label { get; }
 
-        /// <summary>
-        /// Adds an HTML Label tag to the markup with text automatically determined from the property represented by the component
-        /// </summary>
-        /// <returns></returns>
-        IVisibleComponent WithLabel(bool aria = true);
+	    /// <summary>
+	    /// Adds an HTML Label tag to the markup with text automatically determined from the property represented by the component
+	    /// </summary>
+	    /// <returns></returns>
+	    IVisibleComponent WithAria(bool label = true, bool describedBy = true);
+
+		/// <summary>
+		/// Adds an HTML Label tag to the markup with text automatically determined from the property represented by the component
+		/// </summary>
+		/// <returns></returns>
+		IVisibleComponent WithLabel();
 
 		/// <summary>
 		/// Adds an HTML Label tag to the markup with the given text.
@@ -26,7 +31,7 @@ namespace MuonLab.Web.Xhtml.Components
 		/// <param name="label">The label text</param>
 		/// <param name="contentType">The content type of the label</param>
 		/// <returns></returns>
-		IVisibleComponent WithLabel(string label, ContentType contentType = ContentType.Term, bool aria = true);
+		IVisibleComponent WithLabel(string label, ContentType contentType = ContentType.Term);
 
         /// <summary>
         /// Prevents an HTML label from being rendered

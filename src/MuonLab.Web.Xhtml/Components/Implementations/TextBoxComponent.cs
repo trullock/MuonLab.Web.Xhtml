@@ -1,5 +1,4 @@
 using System.Globalization;
-using System.Linq;
 using MuonLab.Web.Xhtml.Configuration;
 
 namespace MuonLab.Web.Xhtml.Components.Implementations
@@ -12,20 +11,17 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 	    protected string placeholder;
 	    protected bool explicitPlaceholder;
 
+	    public override string ControlPrefix => "txt";
+
 	    public TextBoxComponent(ITermResolver termResolver, CultureInfo culture) : base(termResolver, culture)
 	    {
 	    }
 
-	    public override string ControlPrefix
-        {
-            get { return "txt"; }
-        }
-
-        protected bool asDefaultEmpty;
+	    protected bool defaultAsEmpty;
 
         public virtual ITextBoxComponent ShowDefaultAsEmpty()
         {
-            this.asDefaultEmpty = true;
+            this.defaultAsEmpty = true;
             return this;
         }
 
@@ -74,7 +70,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
         {
             string fieldValue;
 
-            if (this.asDefaultEmpty && Equals(this.value, default(TProperty)))
+            if (this.defaultAsEmpty && Equals(this.value, default(TProperty)))
                 fieldValue = null;
             else
                 fieldValue = this.FormatValue(this.value);
@@ -90,7 +86,11 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
 				this.htmlAttributes.Add("placeholder", this.termResolver.ResolveTerm(this.placeholder, this.culture));
 
 	        if (this.ariaLabel)
-				this.htmlAttributes.Add("aria-label", this.termResolver.ResolveTerm(string.IsNullOrEmpty(this.Label) ? this.placeholder : this.Label, this.culture));
+	        {
+				var ariaLabel = this.termResolver.ResolveTerm(string.IsNullOrEmpty(this.Label) ? this.placeholder : this.Label, this.culture);
+				if(!string.IsNullOrEmpty(ariaLabel))
+					this.htmlAttributes.Add("aria-label", ariaLabel);
+	        }
 
 			this.AddAriaDescribedBy();
 

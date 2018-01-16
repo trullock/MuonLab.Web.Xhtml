@@ -17,8 +17,15 @@ namespace MuonLab.Web.Xhtml.Tests.Components.ComponentSpecifications
 			culture = new CultureInfo("en-GB");
 			termResolver = this.Dependency<ITermResolver>();
 			this.component = (TComponent)Activator.CreateInstance(typeof(TComponent), termResolver, culture);
+			this.component.WithRenderingOrder(ComponentPart.Component);
 		}
 
 		protected abstract string expectedRendering { get; }
+
+		[Then]
+		public void TheCorrectMarkupShouldBeRendered()
+		{
+			component.ToString().ShouldEqual(expectedRendering);
+		}
 	}
 }

@@ -20,7 +20,7 @@ namespace MuonLab.Web.Xhtml.Components.Implementations
         {
             string fieldValue;
 
-            if (this.asDefaultEmpty && Equals(this.value, default(TProperty)))
+            if (this.defaultAsEmpty && Equals(this.value, default(TProperty)))
                 fieldValue = null;
             else
                 fieldValue = this.FormatValue(this.value);
