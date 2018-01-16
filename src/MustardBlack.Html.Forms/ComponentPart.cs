@@ -1,5 +1,5 @@
 // ReSharper disable once CheckNamespace
-namespace MustardBlack.Html
+namespace MustardBlack.Html.Forms
 {
     public enum ComponentPart
     {
