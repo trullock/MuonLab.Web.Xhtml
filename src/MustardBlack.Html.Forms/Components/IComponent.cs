@@ -1,3 +1,7 @@
+#if NET46
+using System.Web;
+#endif
+
 namespace MustardBlack.Html.Forms.Components
 {
     public interface IComponent
