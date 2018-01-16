@@ -2,15 +2,15 @@
 using System.Globalization;
 using System.Resources;
 
-namespace MuonLab.Web.Xhtml.Example
+namespace MustardBlack.Html.Forms.Examples.Net46
 {
-	public class ResourceTermResolver : DefaultTermResolver
+	sealed class ResourceTermResolver : DefaultTermResolver
 	{
 		readonly ResourceManager resourceManager;
 
 		public ResourceTermResolver()
 		{
-			this.resourceManager = new ResourceManager("MuonLab.Web.Xhtml.Example.Forms", this.GetType().Assembly);
+			this.resourceManager = new ResourceManager("MustardBlack.Html.Forms.Examples.Net46", this.GetType().Assembly);
 		}
 
 		public override string ResolveTerm(object obj, CultureInfo culture)

@@ -6,10 +6,10 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
-using MuonLab.Web.Xhtml.Components;
-using MuonLab.Web.Xhtml.Configuration;
+using MustardBlack.Html.Forms.Components;
+using MustardBlack.Html.Forms.Configuration;
 
-namespace MuonLab.Web.Xhtml.Example
+namespace MustardBlack.Html.Forms.Examples.Net46
 {
 	public static class HtmlHelperExtensions
 	{

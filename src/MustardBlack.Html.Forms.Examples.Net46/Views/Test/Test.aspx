@@ -1,5 +1,5 @@
-﻿<%@ Import Namespace="MuonLab.Web.Xhtml.Example" %>
-<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<MuonLab.Web.Xhtml.Example.ViewModels.TestViewModel>" %><!DOCTYPE html>
+﻿<%@ Import Namespace="MustardBlack.Html.Forms.Examples.Net46" %>
+<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<MustardBlack.Html.Forms.Examples.Net46.ViewModels.TestViewModel>" %><!DOCTYPE html>
 <html>
 <head runat="server">
     <title>Test</title>

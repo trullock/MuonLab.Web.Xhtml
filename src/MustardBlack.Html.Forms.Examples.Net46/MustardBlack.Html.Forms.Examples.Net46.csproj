@@ -11,9 +11,9 @@
     <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MuonLab.Web.Xhtml.Example</RootNamespace>
-    <AssemblyName>MuonLab.Web.Xhtml.Example</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <RootNamespace>MustardBlack.Html.Forms.Examples.Net46</RootNamespace>
+    <AssemblyName>MustardBlack.Html.Forms.Examples.Net46</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
     <FileUpgradeFlags>
@@ -28,6 +28,7 @@
     <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
     <TargetFrameworkProfile />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -117,15 +118,14 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Shared\Error.aspx" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms.resx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MuonLab.Web.Xhtml\MuonLab.Web.Xhtml.csproj">
-      <Project>{23A417A9-C102-44AE-BF68-6E42E5E998B9}</Project>
-      <Name>MuonLab.Web.Xhtml</Name>
+    <ProjectReference Include="..\MustardBlack.Html.Forms\MustardBlack.Html.Forms.csproj">
+      <Project>{603a5ac2-c345-416d-999a-ce527bd79e89}</Project>
+      <Name>MustardBlack.Html.Forms</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

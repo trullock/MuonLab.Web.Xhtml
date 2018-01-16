@@ -2,11 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using MuonLab.Web.Xhtml.Properties;
 
-namespace MuonLab.Web.Xhtml.Example
+namespace MustardBlack.Html.Forms.Examples.Net46
 {
-	internal sealed class MvcErrorProvider : IErrorProvider
+	sealed class MvcErrorProvider : IErrorProvider
 	{
 		readonly ModelStateDictionary modelState;
 

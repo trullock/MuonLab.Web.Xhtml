@@ -1,4 +1,4 @@
-namespace MuonLab.Web.Xhtml.Example.ViewModels
+namespace MustardBlack.Html.Forms.Examples.Net46.ViewModels
 {
 	public class TestViewModel
 	{

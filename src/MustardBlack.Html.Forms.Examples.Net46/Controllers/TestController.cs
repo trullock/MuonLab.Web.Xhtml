@@ -1,7 +1,7 @@
 using System.Web.Mvc;
-using MuonLab.Web.Xhtml.Example.ViewModels;
+using MustardBlack.Html.Forms.Examples.Net46.ViewModels;
 
-namespace MuonLab.Web.Xhtml.Example.Controllers
+namespace MustardBlack.Html.Forms.Examples.Net46.Controllers
 {
 	public sealed class TestController : Controller
 	{
