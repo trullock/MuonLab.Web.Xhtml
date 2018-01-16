@@ -12,10 +12,11 @@
 			this.contents = contents;
 		}
 
-		public string ToString()
+		public override string ToString()
 		{
 			return this.contents;
 		}
+
 #if NET46
 		public string ToHtmlString()
 		{

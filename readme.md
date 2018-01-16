@@ -1,6 +1,6 @@
-# MuonKit Web XHML
+# MustardBlack HTML Forms helpers
 
-A .NET library for ultra easy markup generation
+A .NET library for ultra easy html form markup generation
 
 
 More to come...
