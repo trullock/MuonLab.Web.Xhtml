@@ -40,6 +40,15 @@ namespace MustardBlack.Html.Forms.Components
 			this.WithAttr("size", size);
 			return this;
 		}
+		/// <summary>
+		/// Sets the size of the list box (in rows)
+		/// </summary>
+		/// <returns></returns>
+		public virtual IListBoxComponent AllowMultiple()
+		{
+			this.WithAttr("multiple", new HtmlProperty());
+			return this;
+		}
 		
 		protected override string RenderComponent()
 		{
@@ -59,7 +68,7 @@ namespace MustardBlack.Html.Forms.Components
 				optionBuilder.HtmlAttributes.Add("value", this.itemValueFunc.Invoke(item));
 
 				if (!ReferenceEquals(this.value, null) && Equals(propertyValueFunc(this.value), itemValueFunc(item)))
-					optionBuilder.HtmlAttributes.Add("selected", "selected");
+					optionBuilder.HtmlAttributes.Add("selected", new HtmlProperty());
 
 				optionBuilder.SetInnerText(this.itemTextFunc.Invoke(item));
 

@@ -41,6 +41,17 @@ namespace MustardBlack.Html.Forms.Components
         }
 
         /// <summary>
+        /// Sets a property on the component
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public IComponent WithProperty(string name)
+        {
+            this.htmlAttributes[name] = new HtmlProperty();
+            return this;
+        }
+
+        /// <summary>
         /// Sets an attribute-value on the component
         /// </summary>
         /// <param name="name"></param>

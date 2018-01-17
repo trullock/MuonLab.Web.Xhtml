@@ -82,7 +82,14 @@ namespace MustardBlack.Html.Forms.Components
         /// <param name="value"></param>
         /// <returns></returns>
         IComponent WithAttemptedValue(string value);
-    }
+
+		/// <summary>
+		/// Sets a property on the component
+		/// </summary>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		IComponent WithProperty(string name);
+	}
 
     public interface IComponent<in TProperty> : IComponent
     {

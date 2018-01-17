@@ -58,9 +58,16 @@ namespace MustardBlack.Html.Forms
 			builder.Append('<').Append(TagName);
 			foreach (var key in OrderedHtmlAttributeKeys)
 			{
-				var encoded = HtmlEncode(this.HtmlAttributes[key]);
-				if(encoded != null)
-					builder.Append($" {key}=\"{encoded}\"");
+				if (this.HtmlAttributes[key] is HtmlProperty)
+				{
+					builder.Append(" ").Append(key);
+				}
+				else
+				{
+					var encoded = HtmlEncode(this.HtmlAttributes[key]);
+					if (encoded != null)
+						builder.Append($" {key}=\"{encoded}\"");
+				}
 			}
 		}
 
