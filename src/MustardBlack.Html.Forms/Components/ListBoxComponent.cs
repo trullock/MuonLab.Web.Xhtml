@@ -1,32 +1,34 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using MustardBlack.Html.Forms.Configuration;
+using System.Linq;
 
 namespace MustardBlack.Html.Forms.Components
 {
-	public class ListBoxComponent<TViewModel, TProperty, TData> :
-		VisibleComponent<TViewModel, TProperty>,
-		IListBoxComponent<TProperty>
-		where TProperty : IEnumerable<TData>
+	public class ListBoxComponent<TViewModel, TPropertyInner, TData> :
+		VisibleComponent<TViewModel, IEnumerable<TPropertyInner>>,
+		IListBoxComponent<IEnumerable<TPropertyInner>>
 	{
 		readonly IEnumerable<TData> items;
+		readonly Func<TData, TPropertyInner> propValueFunc;
 		readonly Func<TData, string> itemValueFunc;
 		readonly Func<TData, string> itemTextFunc;
 		readonly Func<TData, object> itemHtmlAttributes;
 
-		public ListBoxComponent(ITermResolver termResolver, CultureInfo culture, IEnumerable<TData> items, 
-			Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
+		public ListBoxComponent(ITermResolver termResolver, CultureInfo culture, IEnumerable<TData> items,
+			Func<TData, TPropertyInner> propValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
 			: base(termResolver, culture)
 		{
 			if (items == null)
 				throw new ArgumentNullException(nameof(items), "DropDown's data items enumerable cannot be null");
 
 			this.items = items;
+			this.propValueFunc = propValueFunc;
 			this.itemValueFunc = itemValueFunc;
 			this.itemTextFunc = itemTextFunc;
 			this.itemHtmlAttributes = itemHtmlAttributes;
+
 			this.WithSize(5);
 		}
 
@@ -72,7 +74,7 @@ namespace MustardBlack.Html.Forms.Components
 
 				if (!ReferenceEquals(this.value, null))
 				{
-					if (this.value.Contains(item) && (this.GetAttr("multiple") != null || !haveSetSelected))
+					if (this.value.Contains(this.propValueFunc(item)) && (this.GetAttr("multiple") != null || !haveSetSelected))
 					{
 						optionBuilder.HtmlAttributes.Add("selected", new HtmlProperty());
 						haveSetSelected = true;

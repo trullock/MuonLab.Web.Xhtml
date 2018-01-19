@@ -13,9 +13,11 @@ namespace MustardBlack.Html.Forms
 
 		IRadioButtonListComponent RadioButtonListFor<TProperty, TData>(Expression<Func<TModel, TProperty>> property, TModel entity, IEnumerable<TData> items, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc);
 
-		IDropDownComponent<TData> DropDownFor<TData>(
-			Expression<Func<TModel, IEnumerable<TData>>> property, TModel entity, IEnumerable<TData> items,
-			Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes);
+		IDropDownComponent<TProperty> DropDownFor<TProperty, TData>(Expression<Func<TModel, TProperty>> property,
+			TModel entity, IEnumerable<TData> items, Func<TProperty, string> propValueFunc, Func<TData, TProperty> itemValueFunc, Func<TData, string> itemTextFunc,
+			Func<TData, object> itemHtmlAttributes);
+
+		IListBoxComponent<IEnumerable<TPropertyInner>> ListBoxFor<TPropertyInner, TData>(Expression<Func<TModel, IEnumerable<TPropertyInner>>> property, TModel entity, IEnumerable<TData> items, Func<TData, TPropertyInner> propValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes);
 
 		IFileUploadComponent FileUploadFor<TProperty>(Expression<Func<TModel, TProperty>> property, TModel entity);
 
@@ -27,7 +29,6 @@ namespace MustardBlack.Html.Forms
 
 		ICheckBoxComponent<bool> CheckBoxFor(Expression<Func<TModel, bool>> property, TModel entity);
 		ICheckBoxComponent<IEnumerable<TInner>> CheckBoxFor<TInner>(Expression<Func<TModel, IEnumerable<TInner>>> property, TModel entity, TInner value);
-
 		ICheckBoxListComponent CheckBoxListFor<TProperty, TData>(Expression<Func<TModel, TProperty>> property, TModel entity, IEnumerable<TData> items, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TProperty, TData, bool> itemIsValue);
 
 		string ValidationMessageFor<TProperty>(Expression<Func<TModel, TProperty>> property, TModel entity);
@@ -44,10 +45,5 @@ namespace MustardBlack.Html.Forms
 
 		void InitializeComponent<TComponentViewModel, TProperty>(Component<TComponentViewModel, TProperty> component, TComponentViewModel viewModel, Expression<Func<TComponentViewModel, TProperty>> property);
 		void InitializeComponent<TComponentViewModel, TProperty>(VisibleComponent<TComponentViewModel, TProperty> component, TComponentViewModel viewModel, Expression<Func<TComponentViewModel, TProperty>> property);
-
-		IListBoxComponent<TProperty> ListBoxFor<TProperty, TData>(Expression<Func<TModel, TProperty>> property, TModel entity,
-			IEnumerable<TData> items, Func<TData, string> itemValueFunc,
-			Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
-			where TProperty : IEnumerable<TData>;
 	}
 }

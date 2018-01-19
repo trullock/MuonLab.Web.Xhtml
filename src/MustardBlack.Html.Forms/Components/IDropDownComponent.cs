@@ -22,13 +22,13 @@ namespace MustardBlack.Html.Forms.Components
         IDropDownComponent WithoutNullOption();
     }
 
-    public interface IDropDownComponent<in TData> : IDropDownComponent
+    public interface IDropDownComponent<in TProperty> : IDropDownComponent
     {
 	    /// <summary>
 	    /// Adds a Null option with and sets the null option text.
 	    /// </summary>
 	    /// <param name="nullOptionText">The null option text.</param>
 	    /// <returns></returns>
-	    IDropDownComponent WithNullOption(string nullOptionText, TData nullOptionValue);
+	    IDropDownComponent WithNullOption(string nullOptionText, TProperty nullOptionValue);
     }
 }
