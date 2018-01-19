@@ -12,12 +12,12 @@ namespace MustardBlack.Html.Forms.Components
 	{
 		readonly IEnumerable<TData> items;
 		readonly Func<TData, TPropertyInner> propValueFunc;
-		readonly Func<TData, string> itemValueFunc;
+		readonly Func<TPropertyInner, string> itemValueFunc;
 		readonly Func<TData, string> itemTextFunc;
 		readonly Func<TData, object> itemHtmlAttributes;
 
 		public ListBoxComponent(ITermResolver termResolver, CultureInfo culture, IEnumerable<TData> items,
-			Func<TData, TPropertyInner> propValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
+			Func<TData, TPropertyInner> propValueFunc, Func<TPropertyInner, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
 			: base(termResolver, culture)
 		{
 			if (items == null)
@@ -70,7 +70,7 @@ namespace MustardBlack.Html.Forms.Components
 
 				var optionBuilder = new TagBuilder("option", optionAttributes);
 
-				optionBuilder.HtmlAttributes.Add("value", this.itemValueFunc.Invoke(item));
+				optionBuilder.HtmlAttributes.Add("value", this.itemValueFunc.Invoke(this.propValueFunc(item)));
 
 				if (!ReferenceEquals(this.value, null))
 				{

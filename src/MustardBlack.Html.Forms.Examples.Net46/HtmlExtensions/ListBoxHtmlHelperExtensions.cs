@@ -17,16 +17,15 @@ namespace MustardBlack.Html.Forms.Examples.Net46
 		/// <param name="html"></param>
 		/// <param name="property"></param>
 		/// <param name="items"></param>
-		/// <param name="propValueFunc"></param>
 		/// <param name="itemValueFunc"></param>
+		/// <param name="propValueFunc"></param>
 		/// <param name="itemTextFunc"></param>
 		/// <param name="itemHtmlAttributes"></param>
 		/// <returns></returns>
 		public static IListBoxComponent<IEnumerable<TPropertyInner>> ListBoxFor<TViewModel, TPropertyInner, TData>(this HtmlHelper<TViewModel> html, 
-			Expression<Func<TViewModel, IEnumerable<TPropertyInner>>> property, IEnumerable<TData> items, Func<TData, TPropertyInner> propValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes = null)
+			Expression<Func<TViewModel, IEnumerable<TPropertyInner>>> property, IEnumerable<TData> items, Func<TPropertyInner, string> propValueFunc, Func<TData, TPropertyInner> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes = null)
 		{
-			return html.ComponentFactory().ListBoxFor(property, html.ViewData.Model, items, propValueFunc, itemValueFunc,
-				itemTextFunc, itemHtmlAttributes);
+			return html.ComponentFactory().ListBoxFor(property, html.ViewData.Model, items, propValueFunc, itemValueFunc, itemTextFunc, itemHtmlAttributes);
 		}
 
 		/// <summary>
@@ -43,9 +42,9 @@ namespace MustardBlack.Html.Forms.Examples.Net46
 		/// <param name="itemHtmlAttributes"></param>
 		/// <returns></returns>
 		public static IListBoxComponent<IEnumerable<Guid>> ListBoxFor<TViewModel, TData>(this HtmlHelper<TViewModel> html, 
-			Expression<Func<TViewModel, IEnumerable<Guid>>> property, IEnumerable<TData> items, Func<TData, Guid> propValueFunc, Func<TData, Guid> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes = null)
+			Expression<Func<TViewModel, IEnumerable<Guid>>> property, IEnumerable<TData> items, Func<TData, Guid> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes = null)
 		{
-			return html.ComponentFactory().ListBoxFor(property, html.ViewData.Model, items, propValueFunc, x => itemValueFunc(x).ToString(), itemTextFunc, itemHtmlAttributes);
+			return html.ComponentFactory().ListBoxFor(property, html.ViewData.Model, items, g => g.ToString(), itemValueFunc, itemTextFunc, itemHtmlAttributes);
 		}
 	}
 }

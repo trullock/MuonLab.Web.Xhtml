@@ -17,7 +17,7 @@ namespace MustardBlack.Html.Forms
 			TModel entity, IEnumerable<TData> items, Func<TProperty, string> propValueFunc, Func<TData, TProperty> itemValueFunc, Func<TData, string> itemTextFunc,
 			Func<TData, object> itemHtmlAttributes);
 
-		IListBoxComponent<IEnumerable<TPropertyInner>> ListBoxFor<TPropertyInner, TData>(Expression<Func<TModel, IEnumerable<TPropertyInner>>> property, TModel entity, IEnumerable<TData> items, Func<TData, TPropertyInner> propValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes);
+		IListBoxComponent<IEnumerable<TPropertyInner>> ListBoxFor<TPropertyInner, TData>(Expression<Func<TModel, IEnumerable<TPropertyInner>>> property, TModel entity, IEnumerable<TData> items, Func<TPropertyInner, string> propValueFunc, Func<TData, TPropertyInner> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes);
 
 		IFileUploadComponent FileUploadFor<TProperty>(Expression<Func<TModel, TProperty>> property, TModel entity);
 

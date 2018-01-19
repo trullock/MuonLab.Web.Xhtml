@@ -68,9 +68,9 @@ namespace MustardBlack.Html.Forms
 			return textAreaComponent;
 		}
 
-		public IListBoxComponent<IEnumerable<TPropertyInner>> ListBoxFor<TPropertyInner, TData>(Expression<Func<TViewModel, IEnumerable<TPropertyInner>>> property, TViewModel entity, IEnumerable<TData> items, Func<TData, TPropertyInner> propValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
+		public IListBoxComponent<IEnumerable<TPropertyInner>> ListBoxFor<TPropertyInner, TData>(Expression<Func<TViewModel, IEnumerable<TPropertyInner>>> property, TViewModel entity, IEnumerable<TData> items, Func<TPropertyInner, string> propValueFunc, Func<TData, TPropertyInner> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
 		{
-			var dropDown = new ListBoxComponent<TViewModel, TPropertyInner, TData>(this.TermResolver, this.Culture, items, propValueFunc, itemValueFunc, itemTextFunc, itemHtmlAttributes);
+			var dropDown = new ListBoxComponent<TViewModel, TPropertyInner, TData>(this.TermResolver, this.Culture, items, itemValueFunc, propValueFunc, itemTextFunc, itemHtmlAttributes);
 
 			InitializeComponent(dropDown, entity, property);
 
