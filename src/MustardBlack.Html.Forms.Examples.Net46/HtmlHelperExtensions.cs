@@ -130,9 +130,9 @@ namespace MustardBlack.Html.Forms.Examples.Net46
 		/// <param name="itemValueFunc">Func to get a Guid value from each item</param>
 		/// <param name="itemTextFunc">Func to get the text to display from each item</param>
 		/// <returns></returns>
-		public static IDropDownComponent<Guid> DropDownFor<TViewModel, TData>(this HtmlHelper<TViewModel> html, Expression<Func<TViewModel, Guid>> property, IEnumerable<TData> items, Func<TData, Guid> itemValueFunc, Func<TData, string> itemTextFunc)
+		public static IDropDownComponent<Guid> DropDownFor<TViewModel, TProperty>(this HtmlHelper<TViewModel> html, Expression<Func<TViewModel, Guid>> property, IEnumerable<Guid> items, Func<TData, Guid> itemValueFunc, Func<TData, string> itemTextFunc)
 		{
-			return html.ComponentFactory().DropDownFor(property, html.ViewData.Model, items, g => g.ToString(), v => itemValueFunc(v).ToString(), itemTextFunc, null);
+			return html.ComponentFactory().DropDownFor(property, html.ViewData.Model, items, v => itemValueFunc(v).ToString(), itemTextFunc, null);
 		}
 
 

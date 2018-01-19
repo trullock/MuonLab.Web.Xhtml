@@ -5,28 +5,27 @@ using MustardBlack.Html.Forms.Configuration;
 
 namespace MustardBlack.Html.Forms.Components
 {
-	public class DropDownComponent<TViewModel, TProperty, TData> :
-		VisibleComponent<TViewModel, TProperty>,
-		IDropDownComponent<TProperty>
+	public class DropDownComponent<TViewModel, TData> :
+		VisibleComponent<TViewModel, IEnumerable<TData>>,
+		IDropDownComponent<TData>
 	{
 		readonly IEnumerable<TData> items;
-		readonly Func<TProperty, string> propertyValueFunc;
 		readonly Func<TData, string> itemValueFunc;
 		readonly Func<TData, string> itemTextFunc;
 		readonly Func<TData, object> itemHtmlAttributes;
 		protected bool showNullOption;
 		protected string nullOptionText;
-		protected TProperty nullOptionValue;
+		protected TData nullOptionValue;
 		protected bool nullOptionValueSet;
 
-		public DropDownComponent(ITermResolver termResolver, CultureInfo culture, IEnumerable<TData> items, Func<TProperty, string> propertyValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
+		public DropDownComponent(ITermResolver termResolver, CultureInfo culture, IEnumerable<TData> items, 
+			Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
 			: base(termResolver, culture)
 		{
 			if (items == null)
 				throw new ArgumentNullException("items", "DropDown's data items enumerable cannot be null");
 
 			this.items = items;
-			this.propertyValueFunc = propertyValueFunc;
 			this.itemValueFunc = itemValueFunc;
 			this.itemTextFunc = itemTextFunc;
 			this.itemHtmlAttributes = itemHtmlAttributes;
@@ -63,7 +62,7 @@ namespace MustardBlack.Html.Forms.Components
 		/// </summary>
 		/// <param name="nullOptionText">The null option text.</param>
 		/// <returns></returns>
-		public virtual IDropDownComponent WithNullOption(string nullOptionText, TProperty nullOptionValue)
+		public virtual IDropDownComponent WithNullOption(string nullOptionText, TData nullOptionValue)
 		{
 			this.showNullOption = true;
 			this.nullOptionText = nullOptionText;
@@ -94,7 +93,7 @@ namespace MustardBlack.Html.Forms.Components
 
 			if (this.showNullOption)
 			{
-				var nullValue = this.nullOptionValueSet ? propertyValueFunc(this.nullOptionValue) : string.Empty;
+				var nullValue = this.nullOptionValueSet ? itemValueFunc(this.nullOptionValue) : string.Empty;
 				var nullOptionBuilder = new TagBuilder("option", new Dictionary<string, object>
 				{
 					{"value", nullValue},
@@ -112,8 +111,8 @@ namespace MustardBlack.Html.Forms.Components
 
 				optionBuilder.HtmlAttributes.Add("value", this.itemValueFunc.Invoke(item));
 
-				if (!ReferenceEquals(this.value, null) && Equals(propertyValueFunc(this.value), itemValueFunc(item)))
-					optionBuilder.HtmlAttributes.Add("selected", "selected");
+				if (!ReferenceEquals(this.value, null) && Equals(this.value, item))
+					optionBuilder.HtmlAttributes.Add("selected", new HtmlProperty());
 
 				optionBuilder.SetInnerText(this.itemTextFunc.Invoke(item));
 

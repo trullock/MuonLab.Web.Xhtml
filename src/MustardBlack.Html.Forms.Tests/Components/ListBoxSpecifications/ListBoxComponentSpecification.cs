@@ -17,8 +17,7 @@ namespace MustardBlack.Html.Forms.Tests.Components.ListBoxSpecifications
 		{
 			culture = new CultureInfo("en-GB");
 			termResolver = this.Dependency<ITermResolver>();
-			this.component = new ListBoxComponent<TestEntity, IEnumerable<Guid>, Guid>(termResolver, this.culture, this.Items,
-				vs => string.Join(",", vs.Select(v => v.ToString())), g => g.ToString(), g => g.ToString(), null);
+			this.component = new ListBoxComponent<TestEntity, IEnumerable<Guid>, Guid>(termResolver, this.culture, this.Items, g => g.ToString(), g => g.ToString(), null);
 			this.component.WithRenderingOrder(ComponentPart.Component);
 		}
 		

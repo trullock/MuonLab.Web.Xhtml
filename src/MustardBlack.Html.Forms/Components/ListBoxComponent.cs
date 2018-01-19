@@ -9,21 +9,21 @@ namespace MustardBlack.Html.Forms.Components
 	public class ListBoxComponent<TViewModel, TProperty, TData> :
 		VisibleComponent<TViewModel, TProperty>,
 		IListBoxComponent<TProperty>
+		where TProperty : IEnumerable<TData>
 	{
 		readonly IEnumerable<TData> items;
-		readonly Func<TProperty, IEnumerable<string>> propertyValueFunc;
 		readonly Func<TData, string> itemValueFunc;
 		readonly Func<TData, string> itemTextFunc;
 		readonly Func<TData, object> itemHtmlAttributes;
 
-		public ListBoxComponent(ITermResolver termResolver, CultureInfo culture, IEnumerable<TData> items, Func<TProperty, IEnumerable<string>> propertyValueFunc, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
+		public ListBoxComponent(ITermResolver termResolver, CultureInfo culture, IEnumerable<TData> items, 
+			Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
 			: base(termResolver, culture)
 		{
 			if (items == null)
 				throw new ArgumentNullException(nameof(items), "DropDown's data items enumerable cannot be null");
 
 			this.items = items;
-			this.propertyValueFunc = propertyValueFunc;
 			this.itemValueFunc = itemValueFunc;
 			this.itemTextFunc = itemTextFunc;
 			this.itemHtmlAttributes = itemHtmlAttributes;
@@ -59,7 +59,9 @@ namespace MustardBlack.Html.Forms.Components
 				this.htmlAttributes.Add("aria-label", this.termResolver.ResolveTerm(this.Label, this.culture));
 
 			this.AddAriaDescribedBy();
-			
+
+			var haveSetSelected = false;
+
 			foreach (var item in items)
 			{
 				var optionAttributes = this.itemHtmlAttributes?.Invoke(item);
@@ -70,10 +72,11 @@ namespace MustardBlack.Html.Forms.Components
 
 				if (!ReferenceEquals(this.value, null))
 				{
-					var itemValue = itemValueFunc(item);
-					var propertyValue = propertyValueFunc(this.value);
-					if (propertyValue.Contains(itemValue))
-					optionBuilder.HtmlAttributes.Add("selected", new HtmlProperty());
+					if (this.value.Contains(item) && (this.GetAttr("multiple") != null || !haveSetSelected))
+					{
+						optionBuilder.HtmlAttributes.Add("selected", new HtmlProperty());
+						haveSetSelected = true;
+					}
 				}
 
 				optionBuilder.SetInnerText(this.itemTextFunc.Invoke(item));
