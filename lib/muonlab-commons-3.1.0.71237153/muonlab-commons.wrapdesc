@@ -1,6 +1,0 @@
-﻿name: muonlab-commons
-depends: openwrap anchored content
-use-symlinks: false
-build: files; file=bin-net35 -> src\MuonLab.Commons.dll
-build: files; file=bin-net35 -> src\MuonLab.Commons.pdb
-version: 3.1.0.71237153
