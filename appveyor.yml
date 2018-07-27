@@ -13,12 +13,12 @@ for:
       only:
         - master
     after_test:
-      - dotnet pack . --version %APPVEYOR_BUILD_VERSION%
+      - dotnet pack -Version %APPVEYOR_BUILD_VERSION%
   - branches:
       except:
         - master
     after_test:
-      - dotnet pack . --version %APPVEYOR_BUILD_VERSION%-%APPVEYOR_REPO_BRANCH%
+      - dotnet pack -Version %APPVEYOR_BUILD_VERSION%-%APPVEYOR_REPO_BRANCH%
 artifacts:
   - path: '*.nupkg'
 deploy:
