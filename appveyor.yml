@@ -14,12 +14,12 @@ for:
       only:
         - master
     after_test:
-      - dotnet pack -Version %APPVEYOR_BUILD_VERSION%
+      - dotnet pack src/MustardBlack.Html.Forms/MustardBlack.Html.Forms.csproj /property:PackageVersion=%APPVEYOR_BUILD_VERSION% /property:Configuration=Release
   - branches:
       except:
         - master
     after_test:
-      - dotnet pack -Version %APPVEYOR_BUILD_VERSION%-%APPVEYOR_REPO_BRANCH%
+      - dotnet pack src/MustardBlack.Html.Forms/MustardBlack.Html.Forms.csproj /property:PackageVersion=%APPVEYOR_BUILD_VERSION%-%APPVEYOR_REPO_BRANCH% /property:Configuration=Release
 artifacts:
   - path: '**\*.nupkg'
 deploy:
