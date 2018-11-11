@@ -81,6 +81,7 @@ namespace MustardBlack.Html.Forms
 			return string.Empty;
 		}
 
+		[Obsolete("Use ExpressionHelper.GetExpressionText")]
 		public static string PropertyChainToString(Expression expression, char delimeter)
 		{
 			if (!(expression is LambdaExpression))
@@ -91,6 +92,7 @@ namespace MustardBlack.Html.Forms
 			return propertyChainToString(expression2.Body, delimeter).TrimEnd(new char[] { delimeter });
 		}
 
+		[Obsolete("Use ExpressionHelper.GetExpressionText")]
 		public static string PropertyChainToString<TEntity, TResult>(Expression<Func<TEntity, TResult>> property, char delimeter)
 		{
 			var body = GetBody(property);
