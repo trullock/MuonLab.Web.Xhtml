@@ -9,7 +9,8 @@ namespace MustardBlack.Html.Forms
 		public string ResolveId<TEntity, TProperty>(Expression<Func<TEntity, TProperty>> property, string controlPrefix)
 		{
 			// TODO: De-meh this
-			return controlPrefix + ReflectionHelper.PropertyChainToString(property, '!').Replace("!", string.Empty);
+			return controlPrefix + ExpressionHelper.GetExpressionText(property).Replace(".", string.Empty);
+
 		}
 	}
 }
