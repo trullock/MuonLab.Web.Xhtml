@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MustardBlack.Html.Forms.Tests.ExpressionHelperSpecs.GetExpressionText
+namespace MustardBlack.Html.Forms.Tests.DefaultTermResolverSpecs.ResolveTermProperty
 {
 	public class TestClass
 	{
@@ -8,7 +8,6 @@ namespace MustardBlack.Html.Forms.Tests.ExpressionHelperSpecs.GetExpressionText
 		public List<string> Strings { get; set; }
 		public InnerTestClass InnerTestClass { get; set; }
 		public List<InnerTestClass> InnerList { get; set; }
-
 		public TestClass()
 		{
 			this.Strings = new List<string>(1);
