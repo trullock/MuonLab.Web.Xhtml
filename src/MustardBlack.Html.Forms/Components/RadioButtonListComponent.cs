@@ -14,10 +14,7 @@ namespace MustardBlack.Html.Forms.Components
     	readonly Func<TData, string> valueFunc;
     	readonly Func<TData, string> textFunc;
 
-    	public override string ControlPrefix
-        {
-            get { return "rb"; }
-        }
+    	public override string ControlPrefix => "rb";
 
 	    public RadioButtonListComponent(ITermResolver termResolver, CultureInfo culture, IEnumerable<TData> items, Func<TData, string> valueFunc, Func<TData, string> textFunc) : base(termResolver, culture)
 	    {

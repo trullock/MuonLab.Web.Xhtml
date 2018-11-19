@@ -11,12 +11,9 @@ namespace MustardBlack.Html.Forms.Components
 	    {
 	    }
 
-	    public override string ControlPrefix
-        {
-            get { return "fup"; }
-        }
+	    public override string ControlPrefix => "fup";
 
-        protected override string RenderComponent()
+	    protected override string RenderComponent()
         {
             this.htmlAttributes.Add("type", "file");
 			this.AddAriaDescribedBy();

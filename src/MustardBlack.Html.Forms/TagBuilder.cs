@@ -10,18 +10,18 @@ namespace MustardBlack.Html.Forms
         public IDictionary<string, object> HtmlAttributes { get; set; }
         public string InnerHtml { get; set; }
 		
-		public TagBuilder(string tagname, object htmlAttributes = null) : this(tagname, (htmlAttributes ?? new {}).ToDictionary())
+		public TagBuilder(string tagName, object htmlAttributes = null) : this(tagName, (htmlAttributes ?? new {}).ToDictionary())
 		{
 		}
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="tagname">The tag name</param>
+        /// <param name="tagName">The tag name</param>
         /// <param name="htmlAttributes">A dictionary of html attributes. Values get HtmlEncoded.</param>
-        public TagBuilder(string tagname, IDictionary<string, object> htmlAttributes)
+        public TagBuilder(string tagName, IDictionary<string, object> htmlAttributes)
         {
-            this.TagName = tagname;
+            this.TagName = tagName;
             this.HtmlAttributes = htmlAttributes == null ? new Dictionary<string, object>() : new Dictionary<string, object>(htmlAttributes);
         }
 

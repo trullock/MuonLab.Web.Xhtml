@@ -1,7 +1,6 @@
 ﻿namespace MustardBlack.Html.Forms
 {
 	public sealed class MultifieldTag : System.Web.IHtmlString
-
 	{
 		readonly string contents;
 

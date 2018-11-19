@@ -15,7 +15,7 @@ namespace MustardBlack.Html.Forms.Components
         IComponent WithId(string id);
 
         /// <summary>
-        /// Sets the Name attribute of the compontent
+        /// Sets the Name attribute of the component
         /// </summary>
         /// <param name="name">The name to set</param>
         /// <returns></returns>

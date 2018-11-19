@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace MustardBlack.Html.Forms.Components
 {
-	[DebuggerDisplay("Name: {Name}")]
+	[DebuggerDisplay("Name: {" + nameof(Name) + "}")]
     public abstract class Component<TViewModel, TProperty> : IComponent<TProperty> 
     {
         protected readonly IDictionary<string, object> htmlAttributes;

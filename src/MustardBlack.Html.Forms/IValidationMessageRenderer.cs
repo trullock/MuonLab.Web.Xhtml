@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using MustardBlack.Html.Forms.Configuration;
 
 namespace MustardBlack.Html.Forms
 {

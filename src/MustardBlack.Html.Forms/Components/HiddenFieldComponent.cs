@@ -8,12 +8,9 @@ namespace MustardBlack.Html.Forms.Components
     {
         readonly Func<TProperty, string> toStringFunc;
 
-        public override string ControlPrefix
-        {
-            get { return "hid"; }
-        }
+        public override string ControlPrefix => "hid";
 
-        public HiddenFieldComponent() : this(x => x.ToString())
+	    public HiddenFieldComponent() : this(x => x.ToString())
         {
         }
 

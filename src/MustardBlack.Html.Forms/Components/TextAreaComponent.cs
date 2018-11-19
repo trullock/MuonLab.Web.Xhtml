@@ -14,12 +14,9 @@ namespace MustardBlack.Html.Forms.Components
 	    {
 	    }
 
-	    public override string ControlPrefix
-        {
-            get { return "txt"; }
-        }
+	    public override string ControlPrefix => "txt";
 
-        public ITextAreaComponent WithRows(int rows)
+	    public ITextAreaComponent WithRows(int rows)
         {
             WithAttr("rows", rows);
             return this;
@@ -45,8 +42,7 @@ namespace MustardBlack.Html.Forms.Components
 			return this;
 		}
 
-
-        protected override string RenderComponent()
+		protected override string RenderComponent()
         {
 			if (this.useLabelForPlaceholder)
 				this.htmlAttributes.Add("placeholder", this.termResolver.ResolveTerm(this.Label, this.culture));

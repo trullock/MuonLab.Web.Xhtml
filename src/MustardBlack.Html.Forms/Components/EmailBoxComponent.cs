@@ -11,10 +11,7 @@ namespace MustardBlack.Html.Forms.Components
 	    {
 	    }
 
-	    public override string ControlPrefix
-        {
-            get { return "txt"; }
-        }
+	    public override string ControlPrefix => "txt";
 
 	    protected override string RenderComponent()
         {
@@ -43,6 +40,5 @@ namespace MustardBlack.Html.Forms.Components
             var builder = new TagBuilder("input", this.htmlAttributes);
             return builder.ToString();
         }
-
     }
 }
