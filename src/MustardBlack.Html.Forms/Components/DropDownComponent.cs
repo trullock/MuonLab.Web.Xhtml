@@ -112,7 +112,7 @@ namespace MustardBlack.Html.Forms.Components
 
 				optionBuilder.HtmlAttributes.Add("value", this.itemValueFunc.Invoke(item));
 
-				if (!ReferenceEquals(this.value, null) && Equals(this.value, item))
+				if (!ReferenceEquals(this.value, null) && Equals(this.value, this.itemValueFunc.Invoke(item)))
 					optionBuilder.HtmlAttributes.Add("selected", new HtmlProperty());
 
 				optionBuilder.SetInnerText(this.itemTextFunc.Invoke(item));
