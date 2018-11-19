@@ -166,12 +166,10 @@ namespace MustardBlack.Html.Forms.Components
         {
             return this.RenderComponent();
         }
-
-#if NET46
+		
     	public string ToHtmlString()
     	{
     		return this.ToString();
     	}
-#endif
     }
 }

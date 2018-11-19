@@ -1,9 +1,7 @@
 ﻿namespace MustardBlack.Html.Forms
 {
-	public sealed class MultifieldTag
-#if NET46
-        : System.Web.IHtmlString
-#endif
+	public sealed class MultifieldTag : System.Web.IHtmlString
+
 	{
 		readonly string contents;
 
@@ -17,11 +15,10 @@
 			return this.contents;
 		}
 
-#if NET46
 		public string ToHtmlString()
 		{
 			return this.contents;
 		}
-#endif
+
 	}
 }

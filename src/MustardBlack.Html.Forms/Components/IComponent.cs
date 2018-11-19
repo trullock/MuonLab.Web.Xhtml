@@ -1,13 +1,9 @@
-#if NET46
 using System.Web;
-#endif
 
 namespace MustardBlack.Html.Forms.Components
 {
-    public interface IComponent
-#if NET46
-	    : IHtmlString
-#endif
+    public interface IComponent : IHtmlString
+
 	{
         string Name { get; }
 
