@@ -15,13 +15,13 @@ namespace MustardBlack.Html.Forms.Tests.ExpressionHelperSpecs.GetExpressionText
 
         protected override void When()
         {
-            stringified = new DefaultComponentIdResolver().ResolveId(property, "prefix");
+            stringified = new DefaultComponentIdResolver("prefix").ResolveId(property, "_hello_");
         }
 
         [Then]
         public void StringFromExpressionShouldBeCorrect()
         {
-            this.stringified.ShouldEqual("prefixStrings[0]");
+            this.stringified.ShouldEqual("prefix_hello_Strings[0]");
         }
     }
 }
