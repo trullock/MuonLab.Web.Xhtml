@@ -7,19 +7,39 @@ namespace MustardBlack.Html.Forms.Components
 		VisibleComponent<TViewModel, TProperty>, 
 		IFileUploadComponent
     {
-	    public FileUploadComponent(ITermResolver termResolver, CultureInfo culture) : base(termResolver, culture)
+		protected bool withHelperSpan;
+
+		public FileUploadComponent(ITermResolver termResolver, CultureInfo culture) : base(termResolver, culture)
 	    {
 	    }
 
 	    public override string ControlPrefix => "fup";
 
-	    protected override string RenderComponent()
+		public FileUploadComponent<TViewModel, TProperty> WithHelperSpan()
+		{
+			this.withHelperSpan = true;
+			return this;
+		}
+		public FileUploadComponent<TViewModel, TProperty> WithoutHelperSpan()
+		{
+			this.withHelperSpan = false;
+			return this;
+		}
+
+		protected override string RenderComponent()
         {
             this.htmlAttributes.Add("type", "file");
 			this.AddAriaDescribedBy();
 
-            var builder = new TagBuilder("input", this.htmlAttributes);
-            return builder.ToString();
+            var inputBuilder = new TagBuilder("input", this.htmlAttributes);
+
+			if (this.withHelperSpan)
+			{
+				var helperBuilder = new TagBuilder("span", new { @class = "field-helper" });
+				return inputBuilder.ToString() + helperBuilder.ToString();
+			}
+
+			return inputBuilder.ToString();
         }
     }
 }
