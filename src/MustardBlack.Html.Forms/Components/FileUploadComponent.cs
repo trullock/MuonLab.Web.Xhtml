@@ -15,12 +15,12 @@ namespace MustardBlack.Html.Forms.Components
 
 	    public override string ControlPrefix => "fup";
 
-		public FileUploadComponent<TViewModel, TProperty> WithHelperSpan()
+		public IFileUploadComponent WithHelperSpan()
 		{
 			this.withHelperSpan = true;
 			return this;
 		}
-		public FileUploadComponent<TViewModel, TProperty> WithoutHelperSpan()
+		public IFileUploadComponent WithoutHelperSpan()
 		{
 			this.withHelperSpan = false;
 			return this;
@@ -36,7 +36,7 @@ namespace MustardBlack.Html.Forms.Components
 			if (this.withHelperSpan)
 			{
 				var helperBuilder = new TagBuilder("span", new { @class = "field-helper" });
-				return inputBuilder.ToString() + helperBuilder.ToString();
+				return inputBuilder.ToString() + helperBuilder;
 			}
 
 			return inputBuilder.ToString();
