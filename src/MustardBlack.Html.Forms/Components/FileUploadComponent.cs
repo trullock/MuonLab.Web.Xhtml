@@ -18,6 +18,14 @@ namespace MustardBlack.Html.Forms.Components
 
 	    public override string ControlPrefix => "fup";
 
+		public IFileUploadComponent WithExplicitPlaceholder(string text)
+		{
+			this.useLabelForPlaceholder = false;
+			this.explicitPlaceholder = true;
+			this.placeholder = text;
+			return this;
+		}
+
 		public IFileUploadComponent WithHelperSpan()
 		{
 			this.withHelperSpan = true;
