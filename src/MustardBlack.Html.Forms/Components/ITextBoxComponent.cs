@@ -6,8 +6,7 @@ namespace MustardBlack.Html.Forms.Components
         ITextBoxComponent WithPlaceholder();
         ITextBoxComponent WithPlaceholder(string placeholder);
 	    ITextBoxComponent WithExplicitPlaceholder(string placeholder);
-        ITextBoxComponent PreventAutoComplete();
-        ITextBoxComponent AllowAutoComplete();
+        ITextBoxComponent AutoComplete(string value);
         ITextBoxComponent WithMaxLength(int length);
     }
 

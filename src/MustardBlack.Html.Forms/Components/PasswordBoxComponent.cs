@@ -16,15 +16,9 @@ namespace MustardBlack.Html.Forms.Components
 	    {
 	    }
 
-	    public IPasswordBoxComponent PreventAutoComplete()
+        public IPasswordBoxComponent AutoComplete(string value)
         {
-            WithAttr("autocomplete", "off");
-            return this;
-        }
-
-        public IPasswordBoxComponent AllowAutoComplete()
-        {
-            WithoutAttr("autocomplete");
+            this.WithAttr("autocomplete", value);
             return this;
         }
 

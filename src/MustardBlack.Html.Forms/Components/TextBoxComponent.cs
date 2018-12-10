@@ -47,16 +47,10 @@ namespace MustardBlack.Html.Forms.Components
 			this.placeholder = text;
 			return this;
 	    }
-
-	    public virtual ITextBoxComponent PreventAutoComplete()
+		
+        public ITextBoxComponent AutoComplete(string value)
         {
-            WithAttr("autocomplete", "off");
-            return this;
-        }
-
-        public ITextBoxComponent AllowAutoComplete()
-        {
-            WithoutAttr("autocomplete");
+            WithAttr("autocomplete", value);
             return this;
         }
 

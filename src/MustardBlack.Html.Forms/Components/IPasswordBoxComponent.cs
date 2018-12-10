@@ -2,8 +2,7 @@ namespace MustardBlack.Html.Forms.Components
 {
     public interface IPasswordBoxComponent : IVisibleComponent<string>
     {
-        IPasswordBoxComponent PreventAutoComplete();
-        IPasswordBoxComponent AllowAutoComplete();
+        IPasswordBoxComponent AutoComplete(string value);
 
 		IPasswordBoxComponent WithPlaceholder();
 		IPasswordBoxComponent WithPlaceholder(string placeholder);
