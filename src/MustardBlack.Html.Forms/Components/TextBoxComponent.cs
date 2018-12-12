@@ -48,7 +48,7 @@ namespace MustardBlack.Html.Forms.Components
 			return this;
 	    }
 		
-        public ITextBoxComponent AutoComplete(string value)
+        public ITextBoxComponent WithAutoComplete(string value)
         {
             WithAttr("autocomplete", value);
             return this;
