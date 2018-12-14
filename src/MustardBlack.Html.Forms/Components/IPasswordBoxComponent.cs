@@ -7,7 +7,7 @@ namespace MustardBlack.Html.Forms.Components
 		/// </summary>
 		/// <param name="value"></param>
 		/// <returns></returns>
-		IPasswordBoxComponent AutoComplete(string value);
+		IPasswordBoxComponent WithAutoComplete(string value);
 
 		IPasswordBoxComponent WithPlaceholder();
 		IPasswordBoxComponent WithPlaceholder(string placeholder);

@@ -16,7 +16,7 @@ namespace MustardBlack.Html.Forms.Components
 	    {
 	    }
 
-        public IPasswordBoxComponent AutoComplete(string value)
+        public IPasswordBoxComponent WithAutoComplete(string value)
         {
             this.WithAttr("autocomplete", value);
             return this;

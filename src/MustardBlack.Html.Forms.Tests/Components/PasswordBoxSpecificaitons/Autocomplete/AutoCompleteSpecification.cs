@@ -8,7 +8,7 @@ namespace MustardBlack.Html.Forms.Tests.Components.PasswordBoxSpecificaitons.Aut
         protected override void When()
         {
 	        component
-		        .AutoComplete("foo");
+		        .WithAutoComplete("foo");
         }
 
         protected override string expectedRendering => "<input type=\"password\" autocomplete=\"foo\" />";
