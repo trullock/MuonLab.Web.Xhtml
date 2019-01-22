@@ -31,8 +31,8 @@ namespace MustardBlack.Html.Forms
 
 		public void SetInnerText(string text)
 		{
-			// Do not remove coding without prior discussion
-			this.InnerHtml = encoder.Encode(text);
+			if(text != null)
+				this.InnerHtml = encoder.Encode(text);
 		}
 
         public override string ToString()
