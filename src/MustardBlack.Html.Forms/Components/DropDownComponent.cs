@@ -106,7 +106,7 @@ namespace MustardBlack.Html.Forms.Components
 
 			foreach (var item in items)
 			{
-				var optionAttributes = this.itemHtmlAttributes != null ? this.itemHtmlAttributes(item) : null;
+				var optionAttributes = itemHtmlAttributes?.Invoke(item);
 
 				var optionBuilder = new TagBuilder("option", optionAttributes);
 

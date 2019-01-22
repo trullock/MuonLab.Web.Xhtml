@@ -1,9 +1,6 @@
-﻿using System.IO;
-using Microsoft.AspNetCore.Html;
-
-namespace MustardBlack.Html.Forms
+﻿namespace MustardBlack.Html.Forms
 {
-	public sealed class MultifieldTag : IHtmlContent
+	public sealed class MultifieldTag
 	{
 		readonly string contents;
 
@@ -15,11 +12,6 @@ namespace MustardBlack.Html.Forms
 		public override string ToString()
 		{
 			return this.contents;
-		}
-
-		public void WriteTo(TextWriter writer, System.Text.Encodings.Web.HtmlEncoder encoder)
-		{
-			writer.Write(this.ToString());
 		}
 	}
 }

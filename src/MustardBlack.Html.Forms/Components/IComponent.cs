@@ -1,8 +1,6 @@
-using Microsoft.AspNetCore.Html;
-
 namespace MustardBlack.Html.Forms.Components
 {
-    public interface IComponent : IHtmlContent
+    public interface IComponent
 	{
         string Name { get; }
 

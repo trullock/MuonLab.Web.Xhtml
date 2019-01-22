@@ -166,11 +166,6 @@ namespace MustardBlack.Html.Forms.Components
         public override string ToString()
         {
             return this.RenderComponent();
-        }
-
-	    public void WriteTo(TextWriter writer, System.Text.Encodings.Web.HtmlEncoder encoder)
-	    {
-		    writer.Write(this.ToString());
 	    }
     }
 }
