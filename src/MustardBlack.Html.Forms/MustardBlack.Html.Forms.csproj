@@ -11,6 +11,6 @@
     <Copyright>MyUNiDAYS Ltd</Copyright>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System.Web" />
+    <PackageReference Include="Microsoft.AspNetCore.Html.Abstractions" Version="1.1.0" />
   </ItemGroup>
 </Project>

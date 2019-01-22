@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 
 namespace MustardBlack.Html.Forms.Components
 {
@@ -166,10 +167,10 @@ namespace MustardBlack.Html.Forms.Components
         {
             return this.RenderComponent();
         }
-		
-    	public string ToHtmlString()
-    	{
-    		return this.ToString();
-    	}
+
+	    public void WriteTo(TextWriter writer, System.Text.Encodings.Web.HtmlEncoder encoder)
+	    {
+		    writer.Write(this.ToString());
+	    }
     }
 }

@@ -1,34 +1,38 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Encodings.Web;
 
 namespace MustardBlack.Html.Forms
 {
     public class TagBuilder
     {
-    	public string TagName { get; set; }
+	    protected readonly HtmlEncoder encoder;
+	    public string TagName { get; set; }
         public IDictionary<string, object> HtmlAttributes { get; set; }
         public string InnerHtml { get; set; }
 		
-		public TagBuilder(string tagName, object htmlAttributes = null) : this(tagName, (htmlAttributes ?? new {}).ToDictionary())
+		public TagBuilder(string tagName, object htmlAttributes = null, HtmlEncoder encoder = null) : this(tagName, (htmlAttributes ?? new {}).ToDictionary(), encoder)
 		{
 		}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="tagName">The tag name</param>
-        /// <param name="htmlAttributes">A dictionary of html attributes. Values get HtmlEncoded.</param>
-        public TagBuilder(string tagName, IDictionary<string, object> htmlAttributes)
+	    /// <summary>
+	    /// 
+	    /// </summary>
+	    /// <param name="tagName">The tag name</param>
+	    /// <param name="htmlAttributes">A dictionary of html attributes. Values get HtmlEncoded.</param>
+	    /// <param name="encoder"></param>
+	    public TagBuilder(string tagName, IDictionary<string, object> htmlAttributes, HtmlEncoder encoder = null)
         {
-            this.TagName = tagName;
+	        this.encoder = encoder ?? HtmlEncoder.Default;
+	        this.TagName = tagName;
             this.HtmlAttributes = htmlAttributes == null ? new Dictionary<string, object>() : new Dictionary<string, object>(htmlAttributes);
         }
 
 		public void SetInnerText(string text)
 		{
 			// Do not remove coding without prior discussion
-			this.InnerHtml = HtmlEncoder.HtmlEncode(text);
+			this.InnerHtml = encoder.Encode(text);
 		}
 
         public override string ToString()
@@ -64,21 +68,21 @@ namespace MustardBlack.Html.Forms
 				}
 				else
 				{
-					var encoded = HtmlEncode(this.HtmlAttributes[key]);
+					var encoded = this.HtmlEncode(this.HtmlAttributes[key]);
 					if (encoded != null)
 						builder.Append($" {key}=\"{encoded}\"");
 				}
 			}
 		}
 
-    	static string HtmlEncode(object value)
+    	string HtmlEncode(object value)
 		{
 			if(value == null)
 				return null;
 
 			var stringValue = value.ToString();
 
-			return HtmlEncoder.HtmlAttributeEncode(stringValue);
+			return this.encoder.Encode(stringValue);
 		}
 
 		// TODO: Improve this!
