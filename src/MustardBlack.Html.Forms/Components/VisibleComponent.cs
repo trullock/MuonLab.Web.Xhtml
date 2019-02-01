@@ -197,7 +197,7 @@ namespace MustardBlack.Html.Forms.Components
 			if (id != null)
 			{
 				if (this.renderingOrder.Contains(ComponentPart.HelpText))
-					this.htmlAttributes.Add("aria-describedby", this.htmlAttributes["id"] + "_Help");
+					this.htmlAttributes["aria-describedby"] = this.htmlAttributes["id"] + "_Help";
 
 				if (this.renderingOrder.Contains(ComponentPart.ValidationMessage) && (this.showValidationMessage && this.showValidationMessageMode == ValidationMarkerMode.Always || this.validationErrors.Any()))
 				{
@@ -205,7 +205,7 @@ namespace MustardBlack.Html.Forms.Components
 						this.htmlAttributes["aria-describedby"] = this.htmlAttributes["aria-describedby"] + " " +
 																  this.htmlAttributes["id"] + "_Validation";
 					else
-						this.htmlAttributes.Add("aria-describedby", this.htmlAttributes["id"] + "_Validation");
+						this.htmlAttributes["aria-describedby"] = this.htmlAttributes["id"] + "_Validation";
 				}
 			}
 	    }
