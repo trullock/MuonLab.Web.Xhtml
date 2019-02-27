@@ -7,7 +7,7 @@ namespace MustardBlack.Html.Forms.Configuration
 	public class FormConfiguration : IFormConfiguration
 	{
 		readonly IDictionary<Type, IList<Delegate>> configurations;
-		public virtual ITermResolver TermResolver { get; }
+		public virtual ITermResolver TermResolver { get; protected set; }
 
 
 		protected FormConfiguration()
