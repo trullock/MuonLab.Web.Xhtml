@@ -13,14 +13,12 @@ namespace MustardBlack.Html.Forms
 		public CultureInfo Culture { get; }
 		public IComponentNameResolver NameResolver { get; set; }
 		public IComponentIdResolver IdResolver { get; }
-		public ITermResolver TermResolver { get; }
 		public IErrorProvider ErrorProvider { get; }
 		
 		public ComponentFactory(
 			IFormConfiguration configuration,
 			IComponentNameResolver nameResolver,
 			IComponentIdResolver idResolver,
-			ITermResolver termResolver,
 			IErrorProvider errorProvider, CultureInfo culture)
 		{
 			this.ErrorProvider = errorProvider;
@@ -28,7 +26,6 @@ namespace MustardBlack.Html.Forms
 			this.Culture = culture;
 			this.NameResolver = nameResolver;
 			this.IdResolver = idResolver;
-			this.TermResolver = termResolver;
 		}
 
 		public IHiddenFieldComponent<TProperty> HiddenFieldFor<TProperty>(Expression<Func<TViewModel, TProperty>> property, TViewModel entity, Func<TProperty, string> toStringFunc)
@@ -40,28 +37,28 @@ namespace MustardBlack.Html.Forms
 
 		public ITextBoxComponent<TProperty> TextBoxFor<TProperty>(Expression<Func<TViewModel, TProperty>> property, TViewModel entity)
 		{
-			var textBox = new TextBoxComponent<TViewModel, TProperty>(this.TermResolver, this.Culture);
+			var textBox = new TextBoxComponent<TViewModel, TProperty>(this.Configuration.TermResolver, this.Culture);
 			InitializeComponent(textBox, entity, property);
 			return textBox;
 		}
 
 		public IEmailBoxComponent<TProperty> EmailBoxFor<TProperty>(Expression<Func<TViewModel, TProperty>> property, TViewModel entity)
 		{
-			var textBox = new EmailBoxComponent<TViewModel, TProperty>(this.TermResolver, this.Culture);
+			var textBox = new EmailBoxComponent<TViewModel, TProperty>(this.Configuration.TermResolver, this.Culture);
 			InitializeComponent(textBox, entity, property);
 			return textBox;
 		}
 
 		public IPasswordBoxComponent PasswordBoxFor(Expression<Func<TViewModel, string>> property, TViewModel entity)
 		{
-			var passwordBox = new PasswordBoxComponent<TViewModel>(this.TermResolver, this.Culture);
+			var passwordBox = new PasswordBoxComponent<TViewModel>(this.Configuration.TermResolver, this.Culture);
 			InitializeComponent(passwordBox, entity, property);
 			return passwordBox;
 		}
 
 		public ITextAreaComponent<TProperty> TextAreaFor<TProperty>(Expression<Func<TViewModel, TProperty>> property, TViewModel entity)
 		{
-			var textAreaComponent = new TextAreaComponent<TViewModel, TProperty>(this.TermResolver, this.Culture);
+			var textAreaComponent = new TextAreaComponent<TViewModel, TProperty>(this.Configuration.TermResolver, this.Culture);
 
 			InitializeComponent(textAreaComponent, entity, property);
 
@@ -70,7 +67,7 @@ namespace MustardBlack.Html.Forms
 
 		public IListBoxComponent<IEnumerable<TPropertyInner>> ListBoxFor<TPropertyInner, TData>(Expression<Func<TViewModel, IEnumerable<TPropertyInner>>> property, TViewModel entity, IEnumerable<TData> items, Func<TPropertyInner, string> propValueFunc, Func<TData, TPropertyInner> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
 		{
-			var dropDown = new ListBoxComponent<TViewModel, TPropertyInner, TData>(this.TermResolver, this.Culture, items, itemValueFunc, propValueFunc, itemTextFunc, itemHtmlAttributes);
+			var dropDown = new ListBoxComponent<TViewModel, TPropertyInner, TData>(this.Configuration.TermResolver, this.Culture, items, itemValueFunc, propValueFunc, itemTextFunc, itemHtmlAttributes);
 
 			InitializeComponent(dropDown, entity, property);
 
@@ -80,7 +77,7 @@ namespace MustardBlack.Html.Forms
 			TViewModel entity, IEnumerable<TData> items, Func<TProperty, string> propValueFunc, Func<TData, TProperty> itemValueFunc, Func<TData, string> itemTextFunc,
 			Func<TData, object> itemHtmlAttributes)
 		{
-			var dropDown = new DropDownComponent<TViewModel, TProperty, TData>(this.TermResolver, this.Culture, items, propValueFunc, itemValueFunc, itemTextFunc, itemHtmlAttributes);
+			var dropDown = new DropDownComponent<TViewModel, TProperty, TData>(this.Configuration.TermResolver, this.Culture, items, propValueFunc, itemValueFunc, itemTextFunc, itemHtmlAttributes);
 
 			InitializeComponent(dropDown, entity, property);
 
@@ -89,7 +86,7 @@ namespace MustardBlack.Html.Forms
 
 		public ICheckBoxListComponent CheckBoxListFor<TProperty, TData>(Expression<Func<TViewModel, TProperty>> property, TViewModel entity, IEnumerable<TData> items, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TProperty, TData, bool> itemIsValue)
 		{
-			var checkBoxComponent = new CheckBoxListComponent<TViewModel, TProperty, TData>(this.TermResolver, this.Culture, items, itemValueFunc, itemTextFunc, itemIsValue);
+			var checkBoxComponent = new CheckBoxListComponent<TViewModel, TProperty, TData>(this.Configuration.TermResolver, this.Culture, items, itemValueFunc, itemTextFunc, itemIsValue);
 
 			InitializeComponent(checkBoxComponent, entity, property);
 
@@ -98,7 +95,7 @@ namespace MustardBlack.Html.Forms
 
 		public ICheckBoxComponent<bool> CheckBoxFor(Expression<Func<TViewModel, bool>> property, TViewModel entity)
 		{
-			var checkBoxComponent = new CheckBoxForBoolComponent<TViewModel>(this.TermResolver, this.Culture);
+			var checkBoxComponent = new CheckBoxForBoolComponent<TViewModel>(this.Configuration.TermResolver, this.Culture);
 
 			InitializeComponent(checkBoxComponent, entity, property);
 
@@ -107,7 +104,7 @@ namespace MustardBlack.Html.Forms
 		
 		public ICheckBoxComponent<IEnumerable<TInner>> CheckBoxFor<TInner>(Expression<Func<TViewModel, IEnumerable<TInner>>> property, TViewModel entity, TInner value)
 		{
-			var checkBoxComponent = new CheckBoxForEnumerableComponent<TViewModel, TInner>(this.TermResolver, this.Culture, value);
+			var checkBoxComponent = new CheckBoxForEnumerableComponent<TViewModel, TInner>(this.Configuration.TermResolver, this.Culture, value);
 
 			InitializeComponent(checkBoxComponent, entity, property);
 
@@ -116,7 +113,7 @@ namespace MustardBlack.Html.Forms
 
 		public IRadioButtonListComponent RadioButtonListFor<TProperty, TData>(Expression<Func<TViewModel, TProperty>> property, TViewModel entity, IEnumerable<TData> items, Func<TData, string> itemValueFunc, Func<TData, string> itemTextFunc)
 		{
-			var radioButtonList = new RadioButtonListComponent<TViewModel, TProperty, TData>(this.TermResolver, this.Culture, items, itemValueFunc, itemTextFunc);
+			var radioButtonList = new RadioButtonListComponent<TViewModel, TProperty, TData>(this.Configuration.TermResolver, this.Culture, items, itemValueFunc, itemTextFunc);
 
 			InitializeComponent(radioButtonList, entity, property);
 
@@ -125,7 +122,7 @@ namespace MustardBlack.Html.Forms
 
 		public IFileUploadComponent FileUploadFor<TProperty>(Expression<Func<TViewModel, TProperty>> property, TViewModel entity)
 		{
-			var fileUploadComponent = new FileUploadComponent<TViewModel, TProperty>(this.TermResolver, this.Culture);
+			var fileUploadComponent = new FileUploadComponent<TViewModel, TProperty>(this.Configuration.TermResolver, this.Culture);
 
 			InitializeComponent(fileUploadComponent, entity, property);
 
@@ -196,7 +193,7 @@ namespace MustardBlack.Html.Forms
 			component.WithId(this.IdResolver.ResolveId(property, component.ControlPrefix));
 
 			// set the default label, then hide it as it should be hidden by default.
-			component.WithLabel(this.TermResolver.ResolveTerm(property)).WithoutLabel();
+			component.WithLabel(this.Configuration.TermResolver.ResolveTerm(property)).WithoutLabel();
 
 			// run the config on the component
 			this.Configuration.Initialize(component);

@@ -7,10 +7,13 @@ namespace MustardBlack.Html.Forms.Configuration
 	public class FormConfiguration : IFormConfiguration
 	{
 		readonly IDictionary<Type, IList<Delegate>> configurations;
+		public virtual ITermResolver TermResolver { get; }
+
 
 		protected FormConfiguration()
 		{
 			this.configurations = new Dictionary<Type, IList<Delegate>>();
+			this.TermResolver = new DefaultTermResolver();
 		}
 
 		protected void Configure<TComponent>(Action<TComponent> configuration) where TComponent : IComponent
@@ -33,7 +36,7 @@ namespace MustardBlack.Html.Forms.Configuration
 			this.configurations[type].Remove(configuration);
 		}
 
-	    public void Initialize(IComponent component)
+		public void Initialize(IComponent component)
 	    {
             var configs = this.GetMatchingConfigurations(component.GetType());
 

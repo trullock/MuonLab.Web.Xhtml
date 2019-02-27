@@ -34,8 +34,7 @@ namespace MustardBlack.Html.Forms
 		string ValidationMessageFor<TProperty>(Expression<Func<TModel, TProperty>> property, TModel entity);
 		string ValidationMessageFor(string name, TModel entity);
 
-
-		ITermResolver TermResolver { get; }
+		
 		IComponentNameResolver NameResolver { get; set; }
 		IComponentIdResolver IdResolver { get; }
 

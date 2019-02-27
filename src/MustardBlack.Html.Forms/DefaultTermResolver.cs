@@ -22,7 +22,7 @@ namespace MustardBlack.Html.Forms
 
 		public virtual string ResolveTerm(object obj, CultureInfo culture)
 		{
-			return obj.ToString().ToEnglish(LanguageMode.CamelCase);
+			return obj.ToString().ToEnglish(LanguageMode.SentenceCase);
 		}
 	}
 }
