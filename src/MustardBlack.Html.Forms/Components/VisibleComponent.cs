@@ -27,6 +27,8 @@ namespace MustardBlack.Html.Forms.Components
 		protected bool showValidationMessage;
 		protected ValidationMarkerMode showValidationMessageMode;
 
+	    protected string wrapperStartHtml;
+	    protected string wrapperEndHtml;
         protected IDictionary<string, object> wrapperHtmlAttributes;
         protected string wrapperTagName;
 		
@@ -174,6 +176,19 @@ namespace MustardBlack.Html.Forms.Components
             return this;
         }
 
+	    public IVisibleComponent WithWrapperStartHtml(string html)
+	    {
+		    this.wrapperStartHtml = html;
+		    return this;
+	    }
+
+	    public IVisibleComponent WithWrapperEndHtml(string html)
+	    {
+		    this.wrapperEndHtml = html;
+		    return this;
+	    }
+
+
         /// <summary>
         /// Sets the rendering order for this parts of the component
         /// </summary>
@@ -247,6 +262,9 @@ namespace MustardBlack.Html.Forms.Components
 
         protected virtual string RenderWrapperEndTag()
         {
+	        if (!string.IsNullOrEmpty(this.wrapperEndHtml))
+		        return this.wrapperEndHtml;
+
             if (!string.IsNullOrEmpty(this.wrapperTagName))
                 return "</" + this.wrapperTagName + ">";
 
@@ -255,7 +273,10 @@ namespace MustardBlack.Html.Forms.Components
 
         protected virtual string RenderWrapperStartTag()
         {
-            if (!string.IsNullOrEmpty(this.wrapperTagName))
+	        if (!string.IsNullOrEmpty(this.wrapperStartHtml))
+		        return this.wrapperStartHtml;
+
+	        if (!string.IsNullOrEmpty(this.wrapperTagName))
             {
                 var builder = new TagBuilder(this.wrapperTagName, this.wrapperHtmlAttributes);
                 return builder.ToString(TagRenderMode.StartTag);

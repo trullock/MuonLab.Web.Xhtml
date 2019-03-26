@@ -4,6 +4,8 @@ namespace MustardBlack.Html.Forms.Components
 {
 	public interface IVisibleComponent<in TProperty> : IComponent<TProperty>, IVisibleComponent
 	{
+		IVisibleComponent WithWrapperStartHtml(string html);
+		IVisibleComponent WithWrapperEndHtml(string html);
 	}
 
 	public interface IVisibleComponent : IComponent
