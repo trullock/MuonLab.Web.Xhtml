@@ -4,8 +4,6 @@ namespace MustardBlack.Html.Forms.Components
 {
 	public interface IVisibleComponent<in TProperty> : IComponent<TProperty>, IVisibleComponent
 	{
-		IVisibleComponent WithWrapperStartHtml(string html);
-		IVisibleComponent WithWrapperEndHtml(string html);
 	}
 
 	public interface IVisibleComponent : IComponent
@@ -78,6 +76,20 @@ namespace MustardBlack.Html.Forms.Components
         /// <param name="htmlAttributes">The html attributes to apply to the wrapper</param>
         /// <returns></returns>
         IVisibleComponent WithWrapper(string tagName, object htmlAttributes);
+
+		/// <summary>
+		/// Places the provided html before the rendered components
+		/// </summary>
+		/// <param name="html"></param>
+		/// <returns></returns>
+	    IVisibleComponent WithWrapperStartHtml(string html);
+
+		/// <summary>
+		/// Places the provided html after the rendered components
+		/// </summary>
+		/// <param name="html"></param>
+		/// <returns></returns>
+	    IVisibleComponent WithWrapperEndHtml(string html);
 
 		IVisibleComponent WithState(ComponentState state, IEnumerable<string> validationErrors);
 		IVisibleComponent WithValidationMessageRenderer(IValidationMessageRenderer messageRenderer);
