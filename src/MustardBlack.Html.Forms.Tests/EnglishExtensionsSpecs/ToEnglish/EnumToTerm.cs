@@ -5,7 +5,7 @@ namespace MustardBlack.Html.Forms.Tests.EnglishExtensionsSpecs.ToEnglish
 		public enum TestEnum
 		{
 			Simple = 0,
-			[Term("CustomKey")]
+			[Term("Custom Key")]
 			Complicated = 1,
 			CamelCased = 2,
 			CamelCased_WithFiller = 3
@@ -27,7 +27,7 @@ namespace MustardBlack.Html.Forms.Tests.EnglishExtensionsSpecs.ToEnglish
 		public void ShouldResolveComplicated()
 		{
 			var x = TestEnum.Complicated;
-			x.ToTerm().ShouldEqual("CustomKey");
+			x.ToTerm().ShouldEqual("Custom Key");
 		}
 
 		[Then]
