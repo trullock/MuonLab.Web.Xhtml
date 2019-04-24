@@ -12,7 +12,7 @@ namespace MustardBlack.Html.Forms
         public IDictionary<string, object> HtmlAttributes { get; set; }
         public string InnerHtml { get; set; }
 		
-		public TagBuilder(string tagName, object htmlAttributes = null, HtmlEncoder encoder = null) : this(tagName, (htmlAttributes ?? new {}).ToDictionary(), encoder)
+		public TagBuilder(string tagName, object htmlAttributes = null, HtmlEncoder encoder = null) : this(tagName, (htmlAttributes ?? new {}).ToHtmlAttributeDictionary(), encoder)
 		{
 		}
 

@@ -172,7 +172,7 @@ namespace MustardBlack.Html.Forms.Components
         public IVisibleComponent WithWrapper(string tagName, object htmlAttributes)
         {
             this.wrapperTagName = tagName;
-            this.wrapperHtmlAttributes = htmlAttributes.ToDictionary();
+            this.wrapperHtmlAttributes = htmlAttributes.ToHtmlAttributeDictionary();
             return this;
         }
 

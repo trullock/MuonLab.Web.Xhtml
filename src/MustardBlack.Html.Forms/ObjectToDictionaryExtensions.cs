@@ -3,9 +3,9 @@ using System.ComponentModel;
 
 namespace MustardBlack.Html.Forms
 {
-	static class ObjectToDictionaryExtension
+	public static class ObjectToDictionaryExtension
 	{
-		public static IDictionary<string, object> ToDictionary(this object self)
+		public static IDictionary<string, object> ToHtmlAttributeDictionary(this object self)
 		{
 			var dictionary = new Dictionary<string, object>();
 			foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(self))
