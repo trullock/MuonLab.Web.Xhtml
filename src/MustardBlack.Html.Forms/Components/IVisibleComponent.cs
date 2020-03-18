@@ -32,6 +32,11 @@ namespace MustardBlack.Html.Forms.Components
 		/// <returns></returns>
 		IVisibleComponent WithLabel(string label, ContentType contentType = ContentType.Term);
 
+		/// <summary>
+		/// Sets the html attributes that will be applied to the components label
+		/// </summary>
+		/// <param name="attributes"></param>
+		/// <returns></returns>
 		IVisibleComponent WithLabelAttributes(object attributes);
 
         /// <summary>
@@ -59,10 +64,17 @@ namespace MustardBlack.Html.Forms.Components
         IVisibleComponent WithHelpText(string helpText, ContentType contentType = ContentType.Term);
 
         /// <summary>
-        /// set teh field as readonly
+        /// Sets the html attributes that will be applied to the components help-text
         /// </summary>
+        /// <param name="attributes"></param>
         /// <returns></returns>
-        IVisibleComponent ReadOnly();
+        IVisibleComponent WithHelpTextAttributes(object attributes);
+
+		/// <summary>
+		/// Set the field as readonly
+		/// </summary>
+		/// <returns></returns>
+		IVisibleComponent ReadOnly();
 
         /// <summary>
         /// Wraps all rendered tags in an outer tag with the given name

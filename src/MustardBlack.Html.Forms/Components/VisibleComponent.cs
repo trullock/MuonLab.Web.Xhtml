@@ -38,6 +38,7 @@ namespace MustardBlack.Html.Forms.Components
 	    protected ContentType labelContentType;
 	    protected ContentType helpTextContentType;
 	    protected object labelAttributes;
+	    protected object helpTextAttributes;
 
 	    public string Label { get; protected set; }
 
@@ -52,6 +53,7 @@ namespace MustardBlack.Html.Forms.Components
 			this.labelContentType = ContentType.Term;
 			this.helpTextContentType = ContentType.Term;
 			this.labelAttributes = new object();
+			this.helpTextAttributes = new object();
         }
 
 		public IVisibleComponent WithValidationMessageRenderer(IValidationMessageRenderer messageRenderer)
@@ -147,6 +149,12 @@ namespace MustardBlack.Html.Forms.Components
             this.helpText = helpText;
 	        this.helpTextContentType = contentType;
             return this;
+        }
+
+        public IVisibleComponent WithHelpTextAttributes(object attributes)
+        {
+	        this.helpTextAttributes = attributes;
+	        return this;
         }
 
         /// <summary>
@@ -263,7 +271,11 @@ namespace MustardBlack.Html.Forms.Components
 	        var attributes = new Dictionary<string, object>();
 			attributes.Add("class", "field-help-text");
 
-	        var id = this.GetAttr("id");
+			var spanAttribs = this.helpTextAttributes.ToHtmlAttributeDictionary();
+			foreach (var key in spanAttribs.Keys)
+				attributes[key] = spanAttribs[key];
+
+			var id = this.GetAttr("id");
 	        if(id != null)
 				attributes.Add("id", id + "_Help");
 
