@@ -11,7 +11,7 @@ namespace MustardBlack.Html.Forms.Tests.Components.VisibleComponentSpecification
 		protected override void Given()
 		{
 			var culture = new CultureInfo("en-GB");
-			component = new TestComponent<TestEntity, string>(this.Dependency<ITermResolver>(), culture).WithRenderingOrder(ComponentPart.Label, ComponentPart.WrapperStartTag, ComponentPart.Component, ComponentPart.ValidationMessage, ComponentPart.HelpText, ComponentPart.WrapperEndTag);
+			component = new TestComponent<TestEntity, string>(this.Dependency<ITermResolver>(), this.Dependency<IValidationMessageRenderer>(), culture).WithRenderingOrder(ComponentPart.Label, ComponentPart.WrapperStartTag, ComponentPart.Component, ComponentPart.ValidationMessage, ComponentPart.HelpText, ComponentPart.WrapperEndTag);
 		}
 
 		protected override void When()
@@ -27,7 +27,7 @@ namespace MustardBlack.Html.Forms.Tests.Components.VisibleComponentSpecification
 
 		class TestComponent<TEntity, TProperty> : VisibleComponent<TEntity, TProperty> where TEntity : class
 		{
-			public TestComponent(ITermResolver termResolver, CultureInfo culture) : base(termResolver, culture)
+			public TestComponent(ITermResolver termResolver, IValidationMessageRenderer validationMessageRenderer, CultureInfo culture) : base(termResolver, validationMessageRenderer, culture)
 			{
 			}
 

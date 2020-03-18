@@ -7,7 +7,7 @@ namespace MustardBlack.Html.Forms.Components
 		TextBoxComponent<TViewModel, TProperty>, 
 		IEmailBoxComponent<TProperty> 
     {
-	    public EmailBoxComponent(ITermResolver termResolver, CultureInfo culture) : base(termResolver, culture)
+	    public EmailBoxComponent(ITermResolver termResolver, IValidationMessageRenderer validationMessageRenderer, CultureInfo culture) : base(termResolver, validationMessageRenderer, culture)
 	    {
 	    }
 

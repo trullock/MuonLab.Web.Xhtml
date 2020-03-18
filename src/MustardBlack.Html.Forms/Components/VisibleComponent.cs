@@ -41,14 +41,14 @@ namespace MustardBlack.Html.Forms.Components
 
 	    public string Label { get; protected set; }
 
-        protected VisibleComponent(ITermResolver termResolver, CultureInfo culture)
+        protected VisibleComponent(ITermResolver termResolver, IValidationMessageRenderer validationMessageRenderer, CultureInfo culture)
         {
 	        this.termResolver = termResolver;
 	        this.culture = culture;
 	        this.validationErrors = new string[0];
 			this.renderingOrder = new ComponentPart[0];
 			this.showValidationMessage = true;
-			this.ValidationMessageRenderer = new ValidationMessageRenderer();
+			this.ValidationMessageRenderer = validationMessageRenderer;
 			this.labelContentType = ContentType.Term;
 			this.helpTextContentType = ContentType.Term;
 			this.labelAttributes = new object();

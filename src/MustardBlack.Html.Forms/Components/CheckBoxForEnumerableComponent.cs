@@ -11,7 +11,7 @@ namespace MustardBlack.Html.Forms.Components
 
 		public override string ControlPrefix => "chk";
 
-		public CheckBoxForEnumerableComponent(ITermResolver termResolver, CultureInfo culture, TInner innerValue) : base(termResolver, culture)
+		public CheckBoxForEnumerableComponent(ITermResolver termResolver, IValidationMessageRenderer validationMessageRenderer, CultureInfo culture, TInner innerValue) : base(termResolver, validationMessageRenderer, culture)
 		{
 			this.innerValue = innerValue;
 		}

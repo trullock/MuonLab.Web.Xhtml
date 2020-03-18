@@ -19,7 +19,7 @@ namespace MustardBlack.Html.Forms.Components
         protected Func<TProperty, string> formatFunction;
 
 
-	    protected FormattableComponent(ITermResolver termResolver, CultureInfo culture) : base(termResolver, culture)
+	    protected FormattableComponent(ITermResolver termResolver, IValidationMessageRenderer validationMessageRenderer, CultureInfo culture) : base(termResolver, validationMessageRenderer, culture)
 	    {
 			this.format = "{0}";
 			this.mode = FormatMode.String;

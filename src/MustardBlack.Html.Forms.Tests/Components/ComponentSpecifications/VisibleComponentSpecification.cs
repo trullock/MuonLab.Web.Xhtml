@@ -10,12 +10,15 @@ namespace MustardBlack.Html.Forms.Tests.Components.ComponentSpecifications
         protected TComponent component;
 		protected CultureInfo culture;
 		protected ITermResolver termResolver;
+		protected IValidationMessageRenderer validationMessageRenderer;
 
 		protected override void Given()
 		{
 			culture = new CultureInfo("en-GB");
 			termResolver = this.Dependency<ITermResolver>();
-			this.component = (TComponent)Activator.CreateInstance(typeof(TComponent), termResolver, culture);
+			this.validationMessageRenderer = new ValidationMessageRenderer();
+
+			this.component = (TComponent)Activator.CreateInstance(typeof(TComponent), termResolver, validationMessageRenderer, culture);
 			this.component.WithRenderingOrder(ComponentPart.Component);
 		}
 

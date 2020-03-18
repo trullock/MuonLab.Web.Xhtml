@@ -6,7 +6,7 @@ namespace MustardBlack.Html.Forms.Components
 {
 	public class CheckBoxForBoolComponent<TViewModel> : VisibleComponent<TViewModel, bool>, ICheckBoxComponent<bool>
 	{
-		public CheckBoxForBoolComponent(ITermResolver termResolver, CultureInfo culture) : base(termResolver, culture)
+		public CheckBoxForBoolComponent(ITermResolver termResolver, IValidationMessageRenderer validationMessageRenderer, CultureInfo culture) : base(termResolver, validationMessageRenderer, culture)
 		{
 		}
 

@@ -16,9 +16,9 @@ namespace MustardBlack.Html.Forms.Components
 		readonly Func<TData, string> itemTextFunc;
 		readonly Func<TData, object> itemHtmlAttributes;
 
-		public ListBoxComponent(ITermResolver termResolver, CultureInfo culture, IEnumerable<TData> items,
+		public ListBoxComponent(ITermResolver termResolver, IValidationMessageRenderer validationMessageRenderer, CultureInfo culture, IEnumerable<TData> items,
 			Func<TData, TPropertyInner> propValueFunc, Func<TPropertyInner, string> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
-			: base(termResolver, culture)
+			: base(termResolver, validationMessageRenderer, culture)
 		{
 			if (items == null)
 				throw new ArgumentNullException(nameof(items), "DropDown's data items enumerable cannot be null");

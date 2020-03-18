@@ -12,7 +12,7 @@ namespace MustardBlack.Html.Forms.Components
 		protected bool explicitPlaceholder;
 		protected bool withHelperSpan;
 
-		public FileUploadComponent(ITermResolver termResolver, CultureInfo culture) : base(termResolver, culture)
+		public FileUploadComponent(ITermResolver termResolver, IValidationMessageRenderer validationMessageRenderer, CultureInfo culture) : base(termResolver, validationMessageRenderer, culture)
 	    {
 	    }
 

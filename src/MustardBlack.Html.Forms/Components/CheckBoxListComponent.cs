@@ -18,9 +18,9 @@ namespace MustardBlack.Html.Forms.Components
 
 		public override string ControlPrefix => "chk";
 
-		public CheckBoxListComponent(ITermResolver termResolver, CultureInfo culture, IEnumerable<TData> items,
+		public CheckBoxListComponent(ITermResolver termResolver, IValidationMessageRenderer validationMessageRenderer, CultureInfo culture, IEnumerable<TData> items,
 			Func<TData, string> valueFunc, Func<TData, string> textFunc, Func<TProperty, TData, bool> itemIsValue)
-			: base(termResolver, culture)
+			: base(termResolver, validationMessageRenderer, culture)
 		{
 			this.items = items;
 			this.valueFunc = valueFunc;

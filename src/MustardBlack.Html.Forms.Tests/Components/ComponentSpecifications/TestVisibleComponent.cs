@@ -6,7 +6,7 @@ namespace MustardBlack.Html.Forms.Tests.Components.ComponentSpecifications
 {
 	public class TestVisibleComponent<TEntity, TProperty> : VisibleComponent<TEntity, TProperty> where TEntity : class
 	{
-		public TestVisibleComponent(ITermResolver termResolver, CultureInfo culture) : base(termResolver, culture)
+		public TestVisibleComponent(ITermResolver termResolver, IValidationMessageRenderer validationMessageRenderer, CultureInfo culture) : base(termResolver, validationMessageRenderer, culture)
 		{
 		}
 

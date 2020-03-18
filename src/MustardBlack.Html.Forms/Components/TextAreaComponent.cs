@@ -10,7 +10,7 @@ namespace MustardBlack.Html.Forms.Components
 		protected bool useLabelForPlaceholder;
 	    protected string placeholder;
 
-	    public TextAreaComponent(ITermResolver termResolver, CultureInfo culture) : base(termResolver, culture)
+	    public TextAreaComponent(ITermResolver termResolver, IValidationMessageRenderer validationMessageRenderer, CultureInfo culture) : base(termResolver, validationMessageRenderer, culture)
 	    {
 	    }
 

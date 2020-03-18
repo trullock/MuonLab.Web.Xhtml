@@ -11,7 +11,7 @@ namespace MustardBlack.Html.Forms.Tests.Components.FormattableComponentSpecifica
 
         protected override void Given()
         {
-			this.component = (TComponent)Activator.CreateInstance(typeof(TComponent), Dependency<ITermResolver>(), new CultureInfo("en-GB"));
+			this.component = (TComponent)Activator.CreateInstance(typeof(TComponent), Dependency<ITermResolver>(), new ValidationMessageRenderer(), new CultureInfo("en-GB"));
 			if (this.component is IVisibleComponent)
 				((IVisibleComponent)component).WithRenderingOrder(ComponentPart.Component);
         }

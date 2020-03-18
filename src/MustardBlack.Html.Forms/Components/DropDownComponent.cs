@@ -21,9 +21,9 @@ namespace MustardBlack.Html.Forms.Components
 		protected TProperty nullOptionValue;
 		protected bool nullOptionValueSet;
 
-		public DropDownComponent(ITermResolver termResolver, CultureInfo culture, IEnumerable<TData> items,
+		public DropDownComponent(ITermResolver termResolver, IValidationMessageRenderer validationMessageRenderer, CultureInfo culture, IEnumerable<TData> items,
 			Func<TProperty, string> propValueFunc, Func<TData, TProperty> itemValueFunc, Func<TData, string> itemTextFunc, Func<TData, object> itemHtmlAttributes)
-			: base(termResolver, culture)
+			: base(termResolver, validationMessageRenderer, culture)
 		{
 			if (items == null)
 				throw new ArgumentNullException(nameof(items), "DropDown's data items enumerable cannot be null");

@@ -11,12 +11,14 @@ namespace MustardBlack.Html.Forms.Tests.Components.ListBoxSpecifications
         protected ListBoxComponent<TestEntity, Guid, Guid> component;
 		protected CultureInfo culture;
 		protected ITermResolver termResolver;
+		ValidationMessageRenderer validationMessageRenderer;
 
 		protected override void Given()
 		{
 			culture = new CultureInfo("en-GB");
 			termResolver = this.Dependency<ITermResolver>();
-			this.component = new ListBoxComponent<TestEntity, Guid, Guid>(termResolver, this.culture, this.Items, g => g, g => g.ToString(), g => g.ToString(), null);
+			this.validationMessageRenderer = new ValidationMessageRenderer();
+			this.component = new ListBoxComponent<TestEntity, Guid, Guid>(termResolver, this.validationMessageRenderer, this.culture, this.Items, g => g, g => g.ToString(), g => g.ToString(), null);
 			this.component.WithRenderingOrder(ComponentPart.Component);
 		}
 		

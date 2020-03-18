@@ -13,7 +13,7 @@ namespace MustardBlack.Html.Forms.Components
 
 	    public override string ControlPrefix => "txt";
 
-	    public TextBoxComponent(ITermResolver termResolver, CultureInfo culture) : base(termResolver, culture)
+	    public TextBoxComponent(ITermResolver termResolver, IValidationMessageRenderer validationMessageRenderer, CultureInfo culture) : base(termResolver, validationMessageRenderer, culture)
 	    {
 	    }
 
