@@ -32,6 +32,8 @@ namespace MustardBlack.Html.Forms.Components
 		/// <returns></returns>
 		IVisibleComponent WithLabel(string label, ContentType contentType = ContentType.Term);
 
+		IVisibleComponent WithLabelAttributes(object attributes);
+
         /// <summary>
         /// Prevents an HTML label from being rendered
         /// </summary>

@@ -37,7 +37,8 @@ namespace MustardBlack.Html.Forms.Components
         protected IEnumerable<ComponentPart> renderingOrder;
 	    protected ContentType labelContentType;
 	    protected ContentType helpTextContentType;
-	    
+	    protected object labelAttributes;
+
 	    public string Label { get; protected set; }
 
         protected VisibleComponent(ITermResolver termResolver, CultureInfo culture)
@@ -50,6 +51,7 @@ namespace MustardBlack.Html.Forms.Components
 			this.ValidationMessageRenderer = new ValidationMessageRenderer();
 			this.labelContentType = ContentType.Term;
 			this.helpTextContentType = ContentType.Term;
+			this.labelAttributes = new object();
         }
 
 		public IVisibleComponent WithValidationMessageRenderer(IValidationMessageRenderer messageRenderer)
@@ -97,6 +99,12 @@ namespace MustardBlack.Html.Forms.Components
             this.Label = label;
 	        this.labelContentType = contentType;
             return this;
+        }
+
+        public IVisibleComponent WithLabelAttributes(object attributes)
+        {
+	        this.labelAttributes = attributes;
+	        return this;
         }
 
         /// <summary>
@@ -229,8 +237,12 @@ namespace MustardBlack.Html.Forms.Components
         {
             var htmlAttribs = new Dictionary<string, object>();
             htmlAttribs.Add("for", this.GetAttr("id"));
-			
-            var labelBuilder = new TagBuilder("label", htmlAttribs);
+
+			var labelAttribs = this.labelAttributes.ToHtmlAttributeDictionary();
+			foreach(var key in labelAttribs.Keys)
+				htmlAttribs.Add(key, labelAttribs[key]);
+
+			var labelBuilder = new TagBuilder("label", htmlAttribs);
 			labelBuilder.InnerHtml = this.labelContentType == ContentType.Term ? this.termResolver.ResolveTerm(this.Label, this.culture) : this.Label;
 			
             return labelBuilder.ToString();
