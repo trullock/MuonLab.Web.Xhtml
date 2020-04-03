@@ -53,7 +53,14 @@ namespace MustardBlack.Html.Forms
 			return textBox;
 		}
 
-		public IPasswordBoxComponent PasswordBoxFor(Expression<Func<TViewModel, string>> property, TViewModel entity)
+        public INumberBoxComponent<TProperty> NumberBoxFor<TProperty>(Expression<Func<TViewModel, TProperty>> property, TViewModel entity)
+        {
+			var numberBox = new NumberBoxComponent<TViewModel, TProperty>(this.Configuration.TermResolver, this.ValidationMessageRenderer, this.Culture);
+            InitializeComponent(numberBox, entity, property);
+            return numberBox;
+		}
+
+        public IPasswordBoxComponent PasswordBoxFor(Expression<Func<TViewModel, string>> property, TViewModel entity)
 		{
 			var passwordBox = new PasswordBoxComponent<TViewModel>(this.Configuration.TermResolver, this.ValidationMessageRenderer, this.Culture);
 			InitializeComponent(passwordBox, entity, property);

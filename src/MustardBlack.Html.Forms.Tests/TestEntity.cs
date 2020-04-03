@@ -8,5 +8,6 @@ namespace MustardBlack.Html.Forms.Tests
 		public string Property { get; set; }
 		public DateTime Date { get; set; }
 		public IEnumerable<Guid> Items { get; set; }
+        public decimal Number { get; set; }
 	}
 }

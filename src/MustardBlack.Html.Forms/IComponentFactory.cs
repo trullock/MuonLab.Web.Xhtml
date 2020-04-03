@@ -25,6 +25,7 @@ namespace MustardBlack.Html.Forms
 		ITextBoxComponent<TProperty> TextBoxFor<TProperty>(Expression<Func<TModel, TProperty>> property, TModel entity);
 		IPasswordBoxComponent PasswordBoxFor(Expression<Func<TModel, string>> property, TModel entity);
 		IEmailBoxComponent<TProperty> EmailBoxFor<TProperty>(Expression<Func<TModel, TProperty>> property, TModel entity);
+		INumberBoxComponent<TProperty> NumberBoxFor<TProperty>(Expression<Func<TModel, TProperty>> property, TModel entity);
 		ITextAreaComponent<TProperty> TextAreaFor<TProperty>(Expression<Func<TModel, TProperty>> property, TModel entity);
 
 		ICheckBoxComponent<bool> CheckBoxFor(Expression<Func<TModel, bool>> property, TModel entity);
