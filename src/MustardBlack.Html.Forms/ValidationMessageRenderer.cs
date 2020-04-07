@@ -9,11 +9,23 @@ namespace MustardBlack.Html.Forms
 		readonly string validMessageClass;
 		readonly string invalidMessageClass;
 
-		public ValidationMessageRenderer(string messageClass = "field-validation-message", string validMessageClass = "field-validation-ok", string invalidMessageClass = "field-validation-error")
+		public string ComponentValidCssClass { get; }
+        public string ComponentInvalidCssClass { get; }
+
+		public ValidationMessageRenderer(string messageClass = "field-validation-message", string validMessageClass = "field-validation-ok", string invalidMessageClass = "field-validation-error", string componentValidCssClass = "input-validation-ok", string componentInvalidCssClass = "input-validation-error")
 		{
 			this.messageClass = messageClass;
 			this.validMessageClass = validMessageClass;
 			this.invalidMessageClass = invalidMessageClass;
+		}
+
+		/// <summary>
+		/// Returns a new ValidationMessageRenderer configured to be compatible with Bootstrap css classes
+		/// </summary>
+		/// <returns></returns>
+        public static ValidationMessageRenderer BootstrapCompatibleValidationMessageRenderer()
+        {
+			return new ValidationMessageRenderer("feedback", "valid-feedback", "invalid-feedback", "is-valid", "is-invalid");
 		}
 
 		public virtual string Render(ComponentState state, ValidationMarkerMode showValidationMessageMode, IEnumerable<string> validationErrors, string id)
@@ -41,6 +53,5 @@ namespace MustardBlack.Html.Forms
 
 			return builder.ToString();
 		}
-
-	}
+    }
 }

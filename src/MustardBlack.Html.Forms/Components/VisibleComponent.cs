@@ -315,10 +315,10 @@ namespace MustardBlack.Html.Forms.Components
 				this.OnPrepareForRender(this, new EventArgs());
 
             if (this.state == ComponentState.Invalid)
-                this.AddClass("input-validation-error");
+                this.AddClass(this.ValidationMessageRenderer.ComponentInvalidCssClass);
 
 			if (this.state == ComponentState.Valid)
-				this.AddClass("input-validation-ok");
+				this.AddClass(this.ValidationMessageRenderer.ComponentValidCssClass);
         }
 
         public override string ToString()
