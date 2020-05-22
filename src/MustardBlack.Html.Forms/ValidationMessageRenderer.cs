@@ -17,7 +17,9 @@ namespace MustardBlack.Html.Forms
 			this.messageClass = messageClass;
 			this.validMessageClass = validMessageClass;
 			this.invalidMessageClass = invalidMessageClass;
-		}
+            this.ComponentValidCssClass = componentValidCssClass;
+            this.ComponentInvalidCssClass = componentInvalidCssClass;
+        }
 
 		/// <summary>
 		/// Returns a new ValidationMessageRenderer configured to be compatible with Bootstrap css classes
