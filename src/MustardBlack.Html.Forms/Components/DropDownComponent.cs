@@ -85,10 +85,10 @@ namespace MustardBlack.Html.Forms.Components
 
 		protected override string RenderComponent()
 		{
-			var builder = new TagBuilder("select", this.htmlAttributes);
-
 			if (this.ariaLabel)
-				this.htmlAttributes.Add("aria-label", this.termResolver.ResolveTerm(this.Label, this.culture));
+				this.htmlAttributes["aria-label"] = this.termResolver.ResolveTerm(this.Label, this.culture);
+			
+			var builder = new TagBuilder("select", this.htmlAttributes);
 
 			this.AddAriaDescribedBy();
 

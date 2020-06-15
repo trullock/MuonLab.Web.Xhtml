@@ -16,3 +16,7 @@ _ReSharper*/
 *.wrap
 .vs
 packages
+
+# JetBrains Rider
+.idea/
+*.sln.iml
